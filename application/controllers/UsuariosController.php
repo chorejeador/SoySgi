@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class PermisosController extends CI_Controller {
+class UsuariosController extends CI_Controller {
 
 	protected $helpers = ['form'];
 
 	public function __construct()
 	{
-		parent::__construct();		
-		$this->load->model('PermisosModel');		
+		parent::__construct();
+		$this->load->model('UsuariosModel');
 		$this->load->helper(array('form', 'url'));
 		if ($this->session->userdata("logged") != 1) {
             redirect(base_url() . 'index.php', 'refresh');
@@ -18,12 +18,11 @@ class PermisosController extends CI_Controller {
 
 	public function index()
 	{       
-		$data["permisos"] = $this->PermisosModel->getPermisos();
 		$this->load->view('header/header');
 		$this->load->view('menu/menu');
-		$this->load->view('permisos/index',$data);
+		$this->load->view('permisos/index');
 		$this->load->view('footer/footer');
-        $this->load->view('js/permisos/permisos');
+        $this->load->view('js/gestion/gestionJs');
 	}
 
 	public function getAreas($estado)
@@ -31,15 +30,11 @@ class PermisosController extends CI_Controller {
 		return $this->AreasModel->getAreas($estado);
 	}
 
-
-	function cargarPermisosUsuarios()
+	function filtrarUsuarios()
 	{
+		//echo $this->input->post("filtro");
 
-		$this->PermisosModel->cargarPermisosUsuarios($this->input->post("id"));
-	}
-
-	function asignarPermiso()
-	{
-		$this->PermisosModel->asignarPermiso($this->input->post('idPermiso'),$this->input->post('idUsuario'));
+		//echo json_encode($this->input->post("filtro"));
+		$this->UsuariosModel->filtrarUsuarios($this->input->post("filtro"));
 	}
 }

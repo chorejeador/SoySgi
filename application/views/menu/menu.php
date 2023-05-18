@@ -41,7 +41,7 @@
                       <a href="#" data-toggle="collapse" data-target="#collapseMenuDetached" aria-expanded="true" aria-controls="collapseMenuDetached" class="rotate-arrow-icon"><i class="simple-icon-arrow-down"></i> <span class="d-inline-block">Permisos</span></a>
                       <div id="collapseMenuDetached" class="collapse show" style="">
                          <ul class="list-unstyled inner-level-menu">
-                            <li><a href="<?php echo base_url('index.php/asignarPermisos')?>"><i class="simple-icon-layers"></i> <span class="d-inline-block">Asignar permisos</span></a></li>
+                            <li><a href="<?php echo base_url('index.php/permisos')?>"><i class="simple-icon-layers"></i> <span class="d-inline-block">Asignar permisos</span></a></li>
                          </ul>
                       </div>
                    </li>

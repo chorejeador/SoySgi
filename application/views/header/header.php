@@ -8,6 +8,7 @@ header('Access-Control-Allow-Origin: *');
     <meta charset="UTF-8">
     <title>Dore jQuery</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="<?php echo base_url()?>assets/font/iconsmind-s/css/iconsminds.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/font/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/vendor/bootstrap.min.css">
@@ -15,9 +16,15 @@ header('Access-Control-Allow-Origin: *');
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/vendor/perfect-scrollbar.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/vendor/component-custom-switch.min.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/main.css">
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/js/sweetalert2@11.js">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/sweetalert2.css">
+    <!--<link rel="stylesheet" href="<?php echo base_url()?>assets/js/sweetalert2@11.js">-->
+
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/datatables.css">
     
     <!--<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />-->
+
+    
+    
 
     <style>
 
@@ -54,6 +61,9 @@ header('Access-Control-Allow-Origin: *');
             font-weight:bolder;
         }
         
+        .select2-container{
+            width: 100%!important;  
+        }
     </style>
 
 
