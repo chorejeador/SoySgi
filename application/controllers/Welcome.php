@@ -13,19 +13,12 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-
-		$this->load->view('landing/index');
-		
-		/*$this->load->view('header/header');
-		$this->load->view('menu/menu');
-		$this->load->view('welcome_message');
-		$this->load->view('footer/footer');*/
+		$this->load->view('landing/index');	
 	}
 
 	public function login(){
 		$this->load->view('login/login');
 	}
-
 
 	public function Acreditar()
     {
@@ -73,4 +66,13 @@ class Welcome extends CI_Controller {
     {
         $this->load->view("denegado");
     }
+
+    public function instalaciones(){
+        $this->load->view('landing/instalaciones');
+    }
+
+    function contactenos(){
+        $this->load->view('landing/contactenos');    
+    }
+    
 }

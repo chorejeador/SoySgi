@@ -1,5 +1,31 @@
 body{
     background-color: #EEEEEE;
+    min-height: 100vh;
+}
+#navbarResponsive ul li.nav-item a{
+    font-size: 11px!important;
+    text-align: center;
+}
+.dropdown-item:active{
+    background-color: #cdcdcd;
+}
+.dropdown-item:hover{
+    background-color: #cdcdcd;
+}
+footer.footer{
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    margin-top: auto;
+}
+nav#mainNav .container .collapse.navbar-collapse ul .nav-item.dropdown .dropdown-menu{
+    background-color: #e9ecef;
+}
+nav#mainNav .container .collapse.navbar-collapse ul .nav-item.dropdown a.dropdown-item{
+    color: black!important;
+}
+.page-section{
+    padding-top: 150px;
 }
 nav#mainNav, nav#mainNav .navbar-shrink{
     background-color: #C41818!important;    
@@ -20,7 +46,16 @@ nav#mainNav{
 }
 nav#mainNav .container .collapse.navbar-collapse ul .nav-item a {
     color: white;
-    font-size: 20px;
+    font-size: 15px;
+}
+
+nav#mainNav .container .collapse.navbar-collapse ul .nav-item a.btnAcceder{
+    font-size: 18px!important;
+}
+nav#mainNav .container{
+    margin-right: 20px;
+    margin-left: 20px;    
+    max-width: 100%;
 }
 .btnAcceder{
     background-color: #A5BABE;
@@ -74,9 +109,6 @@ nav#mainNav .container .collapse.navbar-collapse ul .nav-item a {
 .imgPatron{
     position: absolute;
     top: 562px;
-}
-.page-section{
-    margin-top: 150px;
 }
 
 /*****slider imagenes ****/
@@ -152,3 +184,11 @@ header.masthead{
     transform: scale(1);
 }
 
+/****contactenos****/
+.phones{
+    background-color: #004E5B;
+    padding: 10px;
+    padding: 5px;
+    width: fit-content;
+    border-radius: 15px;
+}

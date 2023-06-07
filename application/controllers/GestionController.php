@@ -28,9 +28,7 @@ class GestionController extends CI_Controller {
 	}
 
     public function nuevaGestion($idProcesoParam=null)
-    {
-
-		
+    {		
 		$data["procesos"] = $this->ProcesoModel->getProceso(null,'ACTIVO');
 		$data["idProcesoParam"] = $idProcesoParam;
         $this->load->view('header/header');
@@ -64,6 +62,15 @@ class GestionController extends CI_Controller {
 		$this->load->view('gestion/agregarDocumentoGestion',$data);
 		$this->load->view('footer/footer');
         $this->load->view('js/gestion/agregarDocumentoGestionJs');
+	}
+
+	function subGestiones()
+	{
+		$this->load->view('header/header');
+		$this->load->view('menu/menu');
+		$this->load->view('subgestion/index');
+		$this->load->view('footer/footer');
+        $this->load->view('js/subgestion/subgestionJs');
 	}
 
 	public function guardarDocumento()
@@ -103,11 +110,16 @@ class GestionController extends CI_Controller {
 									,null
 									,null
 								);
-								echo json_encode($result);return;
+								//echo json_encode($result);return;
 				if ($result[0]["retorno"] == -1) {
-					unlink($data["upload_path"]."/".$config['file_name']);					
+					unlink($data["upload_path"]."/".$config['file_name']);
+					$mensaje[0]["retorno"] = -1;
+					$mensaje[0]["tipo"] = "error";
+					$mensaje[0]["mensaje"] = "error al subir archivo:". print_r($this->upload->display_errors());
+					echo json_encode($mensaje);
+					return;
 				}
-				echo json_encode($result);            	
+				//echo json_encode($result);            	
             }
 	}
 	public function guardarGestion()

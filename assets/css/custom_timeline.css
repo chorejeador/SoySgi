@@ -12,6 +12,15 @@
 
 }
 
+.timeline > li .timeline-image .anio{
+    background-color: white;
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    /* z-index: 25; */
+    color: black;
+    position: relative;
+}
 
 
 .timeline > li.timeline-inverted .timeline-image{
@@ -34,7 +43,7 @@
   top: 0;
   bottom: 0;
   left: 40px;
-  width: 7px;
+  width: 10px;
   /*margin-left: -1.5px;*/
   border-radius: 5px 5px 5px 5px;
   content: "";

@@ -13,14 +13,16 @@
 			</div>
 		</div>
 		<div class="row">
-            <div class="col-12 col-lg-12 mb-5">
+            <div class="col-12 col-lg-12 ">
                 <h5 class="mb-5">Nuevo proceso</h5>
                 <div class="card mb-4">
                     <div class="card-body">                        
                         <form class="needs-validation tooltip-label-right" novalidate="">
-                            <div class="form-group position-relative error-l-50"><label>Descripción</label> 
-                                <input type="text" id="txtDescripcion" class="form-control" required="" value="" >
-                                <div class="invalid-tooltip">Descripción es requerida!</div>
+                            <div class="form-group position-relative error-l-50"><label>Buscar</label> 
+                                <!--<input type="text" id="filtro" class="form-control" required="" value="" >-->
+                                <!--<input type="hidden" id="filtro"  class="form-control col-8 col-md-8 col-sm-12" />-->
+
+                                <select id="filtro"></select>
                             </div>                            
 							<div>
                             <button type="button" id="btnGuardar" class="btn btn-primary mb-0">Editar</button>
@@ -32,21 +34,24 @@
             </div>            
 		</div>        
         <div class="row">
-            <div class="col-12 col-lg-12 mb-5">
+            <div class="col-12 col-lg-12">
                 <h5 class="mb-5">Nuevo proceso</h5>
                 <div class="card mb-4">
-                    <div class="card-body">                        
-                        <table>
-                            <thead>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </thead>
-                            <tbody>
-                                
-                            </tbody>
+                    <div class="card-body">                       
+                        <table class="table" id="tblPermisos">
+                           <thead>
+                              <tr>                                
+                                 
+                                 <th scope="col">Nombre</th>
+                                 <th scope="col">Descripción</th>                                 
+                                 <th scope="col">Opción</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                               
+                           </tbody>
                         </table>
+
                     </div>
                 </div>
             </div>            

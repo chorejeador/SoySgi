@@ -15,15 +15,23 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer>jquery-3.7.0.min.js
     <script src="<?php echo base_url()?>assets/js/vendor/jquery-3.3.1.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/vendor/bootstrap.bundle.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/vendor/perfect-scrollbar.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/vendor/mousetrap.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/dore.script.js"></script>
     <script src="<?php echo base_url()?>assets/js/scripts.js"></script>
-    <script src="<?php echo base_url()?>assets/js/jquery.dataTables.min.js"></script>
-    <script src="<?php echo base_url()?>assets/js/sweetalert.js"></script>
+    <!--<script src="<?php echo base_url()?>assets/js/jquery.dataTables.min.js"></script>-->
+    <script src="<?php echo base_url()?>assets/js/sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>    
+
+    
+    <script src="<?php echo base_url()?>assets/js/jquery.dataTables.js"></script>
+    <script src="<?php echo base_url()?>assets/js/datatables.js"></script>
+    <script src="<?php echo base_url()?>assets/js/dataTables.fixedColumns.js"></script>
+
+    
 
 
 </body>

@@ -17,7 +17,9 @@ $route['editarProceso/(:any)'] = 'ProcesoController/editarProceso/$1';
 $route['verGestionesProceso/(:any)'] = 'ProcesoController/verGestionesProceso/$1';
 $route['guardarEditarProceso'] = 'ProcesoController/guardarEditarProceso';
 
-
+/*****rutas landing *****/
+$route['instalaciones'] = 'welcome/instalaciones';
+$route['contactenos'] = 'welcome/contactenos';
 /***gestiones */
 
 $route['gestiones'] = 'GestionController/index';
@@ -36,6 +38,10 @@ $route['login'] = 'Welcome/login';
 $route["Acreditar"] = "Welcome/Acreditar";
 $route["salir"] = "Welcome/salir";
 
+/***subgestiones****/
+$route['subGestiones'] = 'GestionController/subGestiones';
+
+
 /*****vistas de gerentes */
 
 $route["gerentesView"] = "GerentesController/gerentesView";
@@ -43,7 +49,10 @@ $route["documentosView/(:any)"] = "GerentesController/documentosView/$1";
 $route["downloadFile/(:any)"] = "GerentesController/downloadFile/$1";
 
 /*******permisos*******/
+$route["permisos"] = "PermisosController";
 $route["asignarPermisos"] = "PermisosController";
-
+$route["filtrarUsuarios"] = "UsuariosController/filtrarUsuarios";
+$route["cargarPermisosUsuarios"] = "PermisosController/cargarPermisosUsuarios";
+$route["asignarPermiso"] = "PermisosController/asignarPermiso";
 /******acceso denegado permiso */
 $route["denegado"] = "welcome/denegado";
