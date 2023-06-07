@@ -31,8 +31,5 @@
     <script src="<?php echo base_url()?>assets/js/datatables.js"></script>
     <script src="<?php echo base_url()?>assets/js/dataTables.fixedColumns.js"></script>
 
-    
-
-
 </body>
 </html>
