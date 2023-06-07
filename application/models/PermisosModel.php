@@ -25,10 +25,11 @@ class PermisosModel extends CI_Model
 
 	function cargarPermisosUsuarios($id)
 	{
-		$query = $this->db->query("SELECT t0.*,t1.IdUsuario,isnull(t1.Estado,'INACTIVO') AS EstadoPermiso
-										FROM permisos t0
-										left join PermisosUsuarios t1 on t1.IdPermiso = t0.IdPermiso
-										where (t1.IdUsuario = ".$id."  or t1.idusuario is null) and t0.Estado = 'ACTIVO'");
+		$query = $this->db->query("
+									SELECT t0.*,
+									CASE WHEN (SELECT IdUsuario FROM PERMISOSUSUARIOS WHERE IdUsuario = ".$id." and Estado = 'ACTIVO' and IdPermiso =t0.IdPermiso) IS NULL THEN 'INACTIVO' ELSE 'ACTIVO' END AS ESTADOUSUARIO
+									FROM permisos t0
+									where t0.Estado = 'ACTIVO'");
 
         $json = array();
         $i = 0;
@@ -37,9 +38,9 @@ class PermisosModel extends CI_Model
                 $json["data"][$i]["IdPermiso"] = $key["IdPermiso"];
                 $json["data"][$i]["Nombre"] = $key["Nombre"];
                 $json["data"][$i]["Descripcion"] = $key["Descripcion"];
-                $json["data"][$i]["Opcion"] = '<a href="javascript:void(0)" onclick="asignar('.$key["IdPermiso"].','.$id.')" class="btn btn-primary btn-sm text-uppercase"><i class="fa fa-trash-o">ELIMINAR</i></a>';
-                if ($key["IdUsuario"] == null || $key["EstadoPermiso"] == 'INACTIVO') {
-                	$json["data"][$i]["Opcion"] = '<a href="javascript:void(0)" onclick="asignar('.$key["IdPermiso"].','.$id.')" class="btn btn-primary btn-sm text-uppercase"><i class="fa fa-add">AGREGAR</i></a>';
+                $json["data"][$i]["Opcion"] = '<a href="javascript:void(0)" onclick="asignar('.$key["IdPermiso"].','.$id.')" class="btn btn-primary btn-sm text-uppercase"><i class="fa fa-trash-o">'.$key["ESTADOUSUARIO"].'</i></a>';
+                if ($key["ESTADOUSUARIO"] == null) {
+                	$json["data"][$i]["Opcion"] = '<a href="javascript:void(0)" onclick="asignar('.$key["IdPermiso"].','.$id.')" class="btn btn-primary btn-sm text-uppercase"><i class="fa fa-add">'.$key["ESTADOUSUARIO"].'</i></a>';
                 }
                 
                 $i++;
@@ -61,7 +62,7 @@ class PermisosModel extends CI_Model
 			$existe = $this->db->query("SELECT * FROM PermisosUsuarios WHERE IdUsuario = ".$idUsuario." AND IdPermiso = ".$idPermiso);
 
 			if ($existe->num_rows()>0) {
-				$estado = $existe->result_array()[0]["Estado"] = 'ACTIVO' ? 'INACTIVO' : 'ACTIVO';
+				$estado = $existe->result_array()[0]["Estado"] == 'ACTIVO' ? 'INACTIVO' : 'ACTIVO';
 				$update = array("Estado" => $estado);
 
 				$this->db->where("IdUsuario",$idUsuario);

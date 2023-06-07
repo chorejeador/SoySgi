@@ -17,7 +17,9 @@ $route['editarProceso/(:any)'] = 'ProcesoController/editarProceso/$1';
 $route['verGestionesProceso/(:any)'] = 'ProcesoController/verGestionesProceso/$1';
 $route['guardarEditarProceso'] = 'ProcesoController/guardarEditarProceso';
 
-
+/*****rutas landing *****/
+$route['instalaciones'] = 'welcome/instalaciones';
+$route['contactenos'] = 'welcome/contactenos';
 /***gestiones */
 
 $route['gestiones'] = 'GestionController/index';
@@ -35,6 +37,10 @@ $route['verHistorial/(:any)'] = 'GestionController/verHistorial/$1';
 $route['login'] = 'Welcome/login';
 $route["Acreditar"] = "Welcome/Acreditar";
 $route["salir"] = "Welcome/salir";
+
+/***subgestiones****/
+$route['subGestiones'] = 'GestionController/subGestiones';
+
 
 /*****vistas de gerentes */
 

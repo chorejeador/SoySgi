@@ -40,8 +40,7 @@
                     <div class="card-body">                       
                         <table class="table" id="tblPermisos">
                            <thead>
-                              <tr>
-                                 
+                              <tr>                                
                                  
                                  <th scope="col">Nombre</th>
                                  <th scope="col">Descripción</th>                                 

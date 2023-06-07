@@ -66,7 +66,7 @@
 			</div>
 		</div>
 		<div class="col-12 col-xl-8 list disable-text-selection" data-check-all="checkAll">
-            <div class="d-inline-block"><h5 class="d-inline">Documentos en esta Gestión</h5></div>
+            <div class="d-inline-block"><h4 class="d-inline">Documentos en esta Gestión</h4></div>
 			<div class="row">
 
                 <?php

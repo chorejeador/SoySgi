@@ -47,13 +47,27 @@
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 ">
                         <li class="nav-item">
                             <a class="nav-link" href="#services">
-                                <img src="<?php echo base_url() ?>assets/img/logo.png" width="200" alt="">
+                                <img src="<?php echo base_url() ?>assets/img/logo.png" width="100" alt="">
                             </a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Generalidades</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">CERTIFICACIÓN</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">ACERCA DE</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">EQUIPO</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">CORPORACION DELMOR</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">QUIENES SOMOS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">PORTAFOLIO</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">TRAYECTORIA</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">SISTEMA DE GESTIÓN INTEGRAL</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">NOTICIAS Y EVENTOS</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/instalaciones') ?>">INSTALACIONES</a></li>-->
+                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/contactenos') ?>">CONTÁCTENOS</a></li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>                            
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                          </ul>
+                        </li>
                         <?php
                             if($this->session->userdata("logged") == 1){
                                 echo '<li class="nav-item"><a class="nav-link" href="'.base_url('index.php/gerentesView').'">SGC</a></li>';
@@ -266,8 +280,8 @@
         <section class="page-section" id="about">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Acerca de</h2>
-                    <h3 class="section-subheading text-muted">Nuestra historia.</h3>
+                    <h2 class="section-heading text-uppercase">CRONOLOGÍA</h2>
+                    <!--<h3 class="section-subheading text-muted">Nuestra historia.</h3>-->
                 </div>
                 <ul class="timeline">
                     <li>

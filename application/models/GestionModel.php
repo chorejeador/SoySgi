@@ -24,7 +24,7 @@ class GestionModel extends CI_Model
         }
 
 
-		$query = $this->db->query("SELECT * FROM CatGestion WHERE 1=1 ".$and);
+		$query = $this->db->query("SELECT * FROM CatGestion WHERE 1=1 and Estado ='ACTIVO' ".$and);
 
          if($query->num_rows() > 0){
 			 foreach ($query->result_array() as $key) {
@@ -35,7 +35,8 @@ class GestionModel extends CI_Model
 				 $json["data"][$i]["FechaEdita"] = $key["FechaEdita"];
                  $json["data"][$i]["Estado"] = $key["Estado"];
 				 $json["data"][$i]["Editar"] = '<a class="btn btn-primary" href="'.base_url("index.php/editarGestion/").$key["IdGestion"].'">Editar</a>';
-				 $json["data"][$i]["AgregarDocumento"] = '<a class="btn btn-primary" href="'.base_url("index.php/agregarDocumentoGestion/").$key["IdGestion"].'">Agregar Documento</a>';
+				 $json["data"][$i]["AgregarDocumento"] = '<a class="btn btn-primary" href="'.base_url("index.php/agregarDocumentoGestion/").$key["IdGestion"].'">Ver Documentos</a>';
+				 $json["data"][$i]["AgregarSubGestion"] = '<a class="btn btn-primary" href="'.base_url("index.php/agregarSubGestion/").$key["IdGestion"].'">Agregar Sub Gestión</a>';
 				 $i++;
          	}
 		}
@@ -69,7 +70,7 @@ class GestionModel extends CI_Model
 			$result = $this->db->insert('CatGestion',$insert);
 			if ($result) {
 				$mensaje[0]["retorno"] = 1;
-				$mensaje[0]["tipo"] = "succes";
+				$mensaje[0]["tipo"] = "success";
 				$mensaje[0]["mensaje"] = "Gestión guardada correctamente";
 				echo json_encode($mensaje);
 				$this->db->trans_commit();
@@ -221,14 +222,16 @@ class GestionModel extends CI_Model
 				$mensaje[0]["retorno"] = 1;
 				$mensaje[0]["tipo"] = "success";
 				$mensaje[0]["mensaje"] = "Documento guardado correctamente";
-				return json_encode($mensaje);				
+				echo json_encode($mensaje);
+				return;
 			}
 		} catch (Exception $ex) {
 			$this->db->rollBack();
 			$mensaje[0]["retorno"] = -1;
 			$mensaje[0]["tipo"] = "error";
 			$mensaje[0]["mensaje"] = "Error: ".$ex;
-			return json_encode($mensaje);
+			echo json_encode($mensaje);
+			return;
 		}
 	}
 

@@ -27,13 +27,26 @@
                                 class="d-inline-block">Administración de procesos</span></a>
                         <div id="collapseAuthorization" class="collapse show">
                             <ul class="list-unstyled inner-level-menu">
-                                <li><a href="<?php echo base_url('index.php/procesos') ?>"><i class="simple-icon-grid""></i> <span
+                                <li><a href="<?php echo base_url('index.php/procesos') ?>"><i class="simple-icon-grid"></i> <span
                                             class="d-inline-block">Lista de procesos</span></a></li>
                                 <li><a href="<?php echo base_url('index.php/nuevoProcesos') ?>"><i class="iconsminds-folder-add--"></i> <span
                                             class="d-inline-block">Nuevo Proceso</span></a></li>
                             </ul>
                         </div>
-                    </li>                    
+                    </li>
+                    <li><a href="#" data-toggle="collapse" data-target="#collapseAuthorization" aria-expanded="true"
+                            aria-controls="collapseAuthorization" class="rotate-arrow-icon opacity-50"><i
+                                class="simple-icon-arrow-down"></i> <span
+                                class="d-inline-block">Administración de gestiones</span></a>
+                        <div id="collapseAuthorization" class="collapse show">
+                            <ul class="list-unstyled inner-level-menu">
+                                <li><a href="<?php echo base_url('index.php/gestiones') ?>"><i class="simple-icon-grid"></i> <span
+                                            class="d-inline-block">Lista de gestiónes</span></a></li>
+                                <li><a href="<?php echo base_url('index.php/nuevaGestion') ?>"><i class="iconsminds-folder-add--"></i> <span
+                                            class="d-inline-block">Nueva gestión</span></a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
 
                 <ul class="list-unstyled" data-link="permisos" id="permisos">                  

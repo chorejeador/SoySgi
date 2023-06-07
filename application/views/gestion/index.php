@@ -39,6 +39,7 @@
                                     <th scope="col">Ultima Actualización</th>
                                     <th scope="col">Editar</th>
                                     <th scope="col">Agregar documento</th>
+                                    <th scope="col">Agregar SubGestión</th>
                                 </tr>
                             </thead>
                             <tbody>
