@@ -12,8 +12,8 @@
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url() ?>assets/css/montserrat.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url() ?>assets/css/roboto.css" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<?php echo base_url()?>assets/css/styles.css" rel="stylesheet" />
         <link href="<?php echo base_url()?>assets/css/custom_landing.css" rel="stylesheet" />
@@ -190,7 +190,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/tia.jpg" alt="..." />
+                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/planta3.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">La tia</div>
@@ -205,7 +205,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/all.jpg" alt="..." />
+                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/planta3.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Team</div>
@@ -220,7 +220,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/winnie-pooh.jpg" alt="..." />
+                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/planta3.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Identidad</div>
@@ -235,7 +235,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/planta1.jpg" alt="..." />
+                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/planta3.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Linea</div>
@@ -250,7 +250,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/planta2.jpg" alt="..." />
+                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/planta3.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Control</div>
