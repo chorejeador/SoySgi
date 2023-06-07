@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-    </footer>jquery-3.7.0.min.js
+    </footer>
     <script src="<?php echo base_url()?>assets/js/vendor/jquery-3.3.1.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/vendor/bootstrap.bundle.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/vendor/perfect-scrollbar.min.js"></script>
