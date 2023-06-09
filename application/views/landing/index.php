@@ -93,7 +93,7 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead">
-            <div class="box">
+            <div class="box" id="sliderHome">
                 <input type="radio" name="animate" id="box1"/>
                 <label for="box1">
                     <img src="<?php echo base_url()?>assets/img/header-bg.jpg" width="80"/>
@@ -117,6 +117,8 @@
                     <img src="<?php echo base_url()?>assets/img/header-bg.jpg" width="80"/>
                 </label>
                 <img src="<?php echo base_url()?>assets/img/header-bg.jpg"/>
+
+                <img class="imgPatron" src="<?php echo base_url() ?>assets/img/patron.png" alt="">
             </div>
 
             <div class="container">
@@ -129,7 +131,7 @@
                 ?>
             </div>
         </header>
-        <img class="imgPatron" src="<?php echo base_url() ?>assets/img/patron.png" alt="">
+        
         <!-- Services-->        
         <section class="page-section" id="services">
             <div class="container">
