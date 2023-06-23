@@ -20,6 +20,7 @@ header('Access-Control-Allow-Origin: *');
     <!--<link rel="stylesheet" href="<?php echo base_url()?>assets/js/sweetalert2@11.js">-->
 
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/datatables.css">
+    <script src="<?php echo base_url()?>assets/js/vendor/jquery-3.3.1.min.js"></script>
     
     <!--<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />-->
 

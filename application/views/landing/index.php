@@ -10,9 +10,9 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="<?php echo base_url()?>assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        
         <!-- Google fonts-->
-        <link href="<?php echo base_url() ?>assets/css/montserrat.css" rel="stylesheet" type="text/css" />
+        
         <link href="<?php echo base_url() ?>assets/css/roboto.css" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<?php echo base_url()?>assets/css/styles.css" rel="stylesheet" />
@@ -20,8 +20,8 @@
         <link href="<?php echo base_url()?>assets/css/custom_timeline.css" rel="stylesheet" />
         <link rel="stylesheet" href="<?php echo base_url()?>assets/font/iconsmind-s/css/iconsminds.css">
         <link rel="stylesheet" href="<?php echo base_url()?>assets/font/simple-line-icons/css/simple-line-icons.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!--<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     </head>
 
@@ -50,10 +50,21 @@
                                 <img src="<?php echo base_url() ?>assets/img/logo.png" width="100" alt="">
                             </a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#services">CORPORACION DELMOR</a></li>
+                        
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" data-mdb-toggle="dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            CORPORACION DELMOR
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="<?php echo base_url('index.php/misionPolitica') ?>">Misión y política</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url('index.php/vision') ?>">Visión</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url('index.php/principiosValores') ?>">Principios y valores</a></li>
+                          </ul>
+                        </li>
+
                         <li class="nav-item"><a class="nav-link" href="#portfolio">QUIENES SOMOS</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">PORTAFOLIO</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">TRAYECTORIA</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/trayectoria') ?>">TRAYECTORIA</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">SISTEMA DE GESTIÓN INTEGRAL</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">NOTICIAS Y EVENTOS</a></li>
                         <!--<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/instalaciones') ?>">INSTALACIONES</a></li>-->
@@ -93,7 +104,7 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead">
-            <div class="box">
+            <div class="box" id="sliderHome">
                 <input type="radio" name="animate" id="box1"/>
                 <label for="box1">
                     <img src="<?php echo base_url()?>assets/img/header-bg.jpg" width="80"/>
@@ -117,6 +128,8 @@
                     <img src="<?php echo base_url()?>assets/img/header-bg.jpg" width="80"/>
                 </label>
                 <img src="<?php echo base_url()?>assets/img/header-bg.jpg"/>
+
+                <!--<img class="imgPatron" src="<?php echo base_url() ?>assets/img/patron.png" alt="">-->
             </div>
 
             <div class="container">
@@ -129,7 +142,7 @@
                 ?>
             </div>
         </header>
-        <img class="imgPatron" src="<?php echo base_url() ?>assets/img/patron.png" alt="">
+        
         <!-- Services-->        
         <section class="page-section" id="services">
             <div class="container">
@@ -623,9 +636,10 @@
             </div>
         </div>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="<?php echo base_url()?>assets/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="<?php echo base_url()?>assets/js/scriptslanding.js"></script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <!--<script src="<?php echo base_url()?>assets/js/sb-forms-latest.js"></script>-->
+        
     </body>
 </html>

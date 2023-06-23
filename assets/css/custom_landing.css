@@ -107,15 +107,21 @@ nav#mainNav .container{
     margin-bottom: 20px;
 }
 .imgPatron{
-    position: absolute;
-    top: 562px;
+    opacity: 1!important;
+    height: 200px!important;
+    bottom: 0px!important;
+    bottom: 0!important;
+    top: 545px!important;
 }
 
 /*****slider imagenes ****/
 
 header.masthead{
-    background-image: inherit;!important
+    background-image: inherit!important;
     padding-top: 0px!important;
+}
+#sliderHome{
+    background-image: url("http://localhost/soysgi/assets/img/patron.png");
 }
 .box {
    width: 100%;

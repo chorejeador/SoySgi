@@ -39,11 +39,14 @@ $route["Acreditar"] = "Welcome/Acreditar";
 $route["salir"] = "Welcome/salir";
 
 /***subgestiones****/
-$route['subGestiones'] = 'GestionController/subGestiones';
-
+$route['subGestiones'] = 'SubGestionController/subGestiones';
+$route['agregarSubGestion/(:any)'] = 'SubGestionController/agregarSubGestion/$1';
+$route['guardarSubGestion'] = 'SubGestionController/guardarSubGestion';
+$route['subgestionSearch'] = 'SubGestionController/subgestionSearch';
+$route['editarSubGestion/(:any)'] = 'SubGestionController/editarSubGestion/$1';
+$route['verDocumentoSubGestion/(:any)'] = 'SubGestionController/verDocumentoSubGestion/$1';
 
 /*****vistas de gerentes */
-
 $route["gerentesView"] = "GerentesController/gerentesView";
 $route["documentosView/(:any)"] = "GerentesController/documentosView/$1";
 $route["downloadFile/(:any)"] = "GerentesController/downloadFile/$1";
@@ -54,5 +57,12 @@ $route["asignarPermisos"] = "PermisosController";
 $route["filtrarUsuarios"] = "UsuariosController/filtrarUsuarios";
 $route["cargarPermisosUsuarios"] = "PermisosController/cargarPermisosUsuarios";
 $route["asignarPermiso"] = "PermisosController/asignarPermiso";
+
+/*paginas web planas*/
+$route["misionPolitica"] = "welcome/misionPolitica";
+$route["vision"] = "welcome/vision";
+$route["principiosValores"] = "welcome/principiosValores";
+$route["trayectoria"] = "welcome/trayectoria";
+
 /******acceso denegado permiso */
 $route["denegado"] = "welcome/denegado";

@@ -11,7 +11,7 @@ function loadStyle(e, t) {
 console.log(base_url);
     var l = $(a).find('[href$="main.css"]');
     //console.log(l[0].before(r) +"": a.appendChild(r));
-    r.href = 'http://192.168.1.205/SoySig/css/dore.light.bluenavy.min.css';    
+    r.href = 'http://192.168.1.205/soysgi/css/dore.light.bluenavy.min.css';    
         0 !== l.length ? l[0].before(r) : a.appendChild(r)
     
     

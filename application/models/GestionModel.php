@@ -43,6 +43,8 @@ class GestionModel extends CI_Model
         echo json_encode($json);
 	}
 
+	
+
 	public function guardarGestion($descripcion,$idProceso,$siglas)
 	{
 

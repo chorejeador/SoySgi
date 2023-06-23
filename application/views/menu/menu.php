@@ -34,16 +34,32 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a href="#" data-toggle="collapse" data-target="#collapseAuthorization" aria-expanded="true"
-                            aria-controls="collapseAuthorization" class="rotate-arrow-icon opacity-50"><i
-                                class="simple-icon-arrow-down"></i> <span
-                                class="d-inline-block">Administración de gestiones</span></a>
+                    <li>
+                        <a href="#" data-toggle="collapse" data-target="#collapseAuthorization" aria-expanded="true"
+                            aria-controls="collapseAuthorization" class="rotate-arrow-icon opacity-50">
+                            <i class="simple-icon-arrow-down"></i>
+                            <span class="d-inline-block">Administración de gestiones</span>
+                        </a>
                         <div id="collapseAuthorization" class="collapse show">
                             <ul class="list-unstyled inner-level-menu">
                                 <li><a href="<?php echo base_url('index.php/gestiones') ?>"><i class="simple-icon-grid"></i> <span
                                             class="d-inline-block">Lista de gestiónes</span></a></li>
                                 <li><a href="<?php echo base_url('index.php/nuevaGestion') ?>"><i class="iconsminds-folder-add--"></i> <span
                                             class="d-inline-block">Nueva gestión</span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="#" data-toggle="collapse" data-target="#collapseAuthorization" aria-expanded="true"
+                            aria-controls="collapseAuthorization" class="rotate-arrow-icon opacity-50">
+                            <i class="simple-icon-arrow-down"></i>
+                            <span class="d-inline-block">Administración de sub gestiones</span>
+                        </a>
+                        <div id="collapseAuthorization" class="collapse show">
+                            <ul class="list-unstyled inner-level-menu">
+                                <li><a href="<?php echo base_url('index.php/subGestiones') ?>"><i class="simple-icon-grid"></i> <span
+                                            class="d-inline-block">Lista de sub gestiónes</span></a></li>                                
                             </ul>
                         </div>
                     </li>

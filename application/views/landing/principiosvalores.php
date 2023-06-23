@@ -99,87 +99,39 @@
                 </div>
             </div>
         </nav>
-
-        <!-- slider-->        
-       <section class="page-section">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">nuestras instalaciones</h2>                    
-            </div>
+        <section class="page-section" id="services">
             <div class="container">
-                <div class="carousel">
-                    <input type="radio" name="slides" checked="checked" id="slide-1">
-                    <input type="radio" name="slides" id="slide-2">
-                    <input type="radio" name="slides" id="slide-3">
-                    <input type="radio" name="slides" id="slide-4">
-                    <input type="radio" name="slides" id="slide-5">
-                    <input type="radio" name="slides" id="slide-6">
-                    <ul class="carousel__slides">
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://picsum.photos/id/1041/800/450" alt="">
-                                </div>                                
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://picsum.photos/id/1043/800/450" alt="">
-                                </div>                                
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://picsum.photos/id/1044/800/450" alt="">
-                                </div>                                
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://picsum.photos/id/1045/800/450" alt="">
-                                </div>                                
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://picsum.photos/id/1049/800/450" alt="">
-                                </div>                                
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://picsum.photos/id/1052/800/450" alt="">
-                                </div>                                
-                            </figure>
-                        </li>
-                    </ul>    
-                    <ul class="carousel__thumbnails">
-                        <li>
-                            <label for="slide-1"><img src="https://picsum.photos/id/1041/150/150" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-2"><img src="https://picsum.photos/id/1043/150/150" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-3"><img src="https://picsum.photos/id/1044/150/150" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-4"><img src="https://picsum.photos/id/1045/150/150" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-5"><img src="https://picsum.photos/id/1049/150/150" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-6"><img src="https://picsum.photos/id/1052/150/150" alt=""></label>
-                        </li>
-                    </ul>
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">PRINCPIOS Y VALORES DELMOR, S.A</h2>
+                    <p class="color-red text-start mt-5 mb-4">PRINCIPIOS Y VALORES DE INDUSTRIAS DELMOR, S.A. Con fundamento en los Principios Universales de Responsabilidad Social Empresarial, en DELMOR asumimos como equipo los siguientes Valores Institucionales:</p>
+                    
+                </div>                
+                <div class="row text-center">
+                    <div class="col-6">
+                        <P class="text-start mb-4">Pensamiento, Conciencia y Acción para la Prevención:</P>
+                        <P class="text-start">Planificamos nuestras actividades con inteligencia, e incorporamos a nuestro trabajo el pensamiento basado en la identificación y respuesta efectiva a Riesgos y Oportunidades, para reducir la vulnerabilidad y responder a la dinámica de cambios del mercado y la tecnología</P>
+
+                        <P class="text-start mb-4">Excelencia en Productos, Procesos y Servicios:</P>
+                        <P class="text-start">Ofrecemos a los grupos de interés con quienes interactuamos productos, procesos y servicios de excelencia, inocuos, innovadores y competitivos, bajo criterios de honestidad, seguridad y sostenibilidad.</P>
+
+                        <P class="text-start mb-4">Responsabilidad:</P>
+                        <P class="text-start">La Responsabilidad es nuestra principal fortaleza, y se fundamenta en la lealtad, el respeto, la confianza mutua, y en la toma de decisiones adecuadas basadas en los principios legales, lo que nos permite trazar un camino seguro para el éxito sostenible.</P>
+
+                    </div>
+                    <div class="col-6">
+                        <P class="text-start mb-4">Inclusión, Equidad y Respeto:</P>
+                        <P class="text-start">Reconocemos que la inclusión, la equidad y el respeto por las personas, la legalidad y la reglamentación internacional, se constituyen en la base para una sana convivencia en la organización.</P>
+
+                        <P class="text-start mb-4">Compromiso con la efectividad y el progreso:</P>
+                        <P class="text-start">Estamos comprometidos en brindar todo el esfuerzo y dedicación para lograr un desempeño efectivo focalizado en alcanzar los objetivos y metas previstas.</P>
+
+                        <P class="text-start mb-4">Trabajo en Equipo:</P>
+                        <P class="text-start">Laboramos con armonía y sinergia, consideración, dedicación, constancia, energía e innovación, para ofrecer a las partes interesadas sabor, mucho sabor, con productos, procesos y servicios sanos, limpios, seguros y conformes con los requisitos aplicables.</P>
+                    </div>
                 </div>
             </div>
         </section>
+     
         
         <!-- Footer-->
         <footer class="footer py-4">

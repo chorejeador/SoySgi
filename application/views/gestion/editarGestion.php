@@ -64,12 +64,12 @@
     <div class="app-menu">
         <div class="p-4 h-100">
             <div class="scroll ps">
-                <p class="text-muted text-small">Estado</p>
+                <p class="text-muted text-small">Datos de la gestión</p>
                 <ul class="list-unstyled mb-5">
-                    <li class="active"><a href="#"><i class="simple-icon-refresh"></i> <?php echo $datos[0]["Estado"];?> <span
+                    <li class="active"><a href="#"><i class="simple-icon-refresh"></i> <?php echo $gestion[0]["Estado"];?> <span
                                 class="float-right"></span></a></li>
                     <li><a href="#"><i class="simple-icon-check"></i> Documentos en este Proceso <span
-                                class="float-right"><?php echo $datos[0]["cantidad"]; ?></span></a></li>
+                                class="float-right"><?php echo $gestion[0]["cantidad"]; ?></span></a></li>
                 </ul>
                 <p class="text-muted text-small">Estado</p>
                 <ul class="list-unstyled mb-5">
@@ -77,7 +77,7 @@
                         <div class="custom-control custom-checkbox mb-2"><input type="checkbox"  disabled checked class="custom-control-input"
                                 id="category1"> <label class="custom-control-label" for="category1"><?php echo $datos[0]["Estado"]; ?></label>
                         </div>
-                    </li>                                
+                    </li>
                 </ul>
                 <p class="text-muted text-small">Etiquetas</p>
                 <div>

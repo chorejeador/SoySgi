@@ -64,14 +64,7 @@ class GestionController extends CI_Controller {
         $this->load->view('js/gestion/agregarDocumentoGestionJs');
 	}
 
-	function subGestiones()
-	{
-		$this->load->view('header/header');
-		$this->load->view('menu/menu');
-		$this->load->view('subgestion/index');
-		$this->load->view('footer/footer');
-        $this->load->view('js/subgestion/subgestionJs');
-	}
+	
 
 	public function guardarDocumento()
 	{
@@ -153,6 +146,8 @@ class GestionController extends CI_Controller {
         $this->load->view('js/gestion/editarDocumentoJs');
 	}
 
+	
+
 	public function guardarDocumentoEditar()
 	{
 		$mensaje = array(); 
@@ -210,4 +205,13 @@ class GestionController extends CI_Controller {
 		$this->load->view('footer/footer');
         //$this->load->view('js/gestion/editarDocumentoJs');
 	}
+
+	
+
+	public function subProcesosSearch()
+    {
+        return $this->GestionModel->subProcesosSearch($this->input->post('filtro'));
+    }
+
+	
 }
