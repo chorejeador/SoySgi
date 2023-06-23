@@ -19,7 +19,8 @@
         <link href="<?php echo base_url()?>assets/css/custom_landing.css" rel="stylesheet" />        
         <link rel="stylesheet" href="<?php echo base_url()?>assets/font/iconsmind-s/css/iconsminds.css">
         <link rel="stylesheet" href="<?php echo base_url()?>assets/font/simple-line-icons/css/simple-line-icons.css">
-        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
         <link href="<?php echo base_url()?>assets/css/custom_carousel.css" rel="stylesheet" />
     </head>
@@ -99,87 +100,26 @@
                 </div>
             </div>
         </nav>
-
-        <!-- slider-->        
-       <section class="page-section">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">nuestras instalaciones</h2>                    
-            </div>
+        <section class="page-section" id="services">
             <div class="container">
-                <div class="carousel">
-                    <input type="radio" name="slides" checked="checked" id="slide-1">
-                    <input type="radio" name="slides" id="slide-2">
-                    <input type="radio" name="slides" id="slide-3">
-                    <input type="radio" name="slides" id="slide-4">
-                    <input type="radio" name="slides" id="slide-5">
-                    <input type="radio" name="slides" id="slide-6">
-                    <ul class="carousel__slides">
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://picsum.photos/id/1041/800/450" alt="">
-                                </div>                                
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://picsum.photos/id/1043/800/450" alt="">
-                                </div>                                
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://picsum.photos/id/1044/800/450" alt="">
-                                </div>                                
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://picsum.photos/id/1045/800/450" alt="">
-                                </div>                                
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://picsum.photos/id/1049/800/450" alt="">
-                                </div>                                
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="https://picsum.photos/id/1052/800/450" alt="">
-                                </div>                                
-                            </figure>
-                        </li>
-                    </ul>    
-                    <ul class="carousel__thumbnails">
-                        <li>
-                            <label for="slide-1"><img src="https://picsum.photos/id/1041/150/150" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-2"><img src="https://picsum.photos/id/1043/150/150" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-3"><img src="https://picsum.photos/id/1044/150/150" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-4"><img src="https://picsum.photos/id/1045/150/150" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-5"><img src="https://picsum.photos/id/1049/150/150" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-6"><img src="https://picsum.photos/id/1052/150/150" alt=""></label>
-                        </li>
-                    </ul>
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">MISIÓN Y POLÍTICA DE GESTIÓN INTEGRAL DELMOR, S.A</h2>
+                    
+                    <p class="text-start mt-5 mb-0 text-danger text-bold">Somos una corporación 100%</p>
+                    <P class="text-start">Nicaragüense que se adhiere a los Principios Universales de Responsabilidad Social Empresarial, manteniendo el liderazgo y la excelencia en el procesamiento, distribución y comercialización de Productos Cárnicos, Embutidos, Enlatados y Ahumados. Bajo esta premisa, asumimos los siguientes compromisos:</P>
+                    <p class="text-start mt-5 mb-0 text-danger text-bold">Prevenir:</p>
+                    <P class="text-start">Aplicamos la Prevención y el Pensamiento Basado en Riesgos y Oportunidades en todas nuestras actividades y procesos. De esta manera contribuimos en la protección y el bienestar de la organización, el medio ambiente, los clientes, los consumidores, los colaboradores y las partes interesadas con quienes interactuamos.</P>
+                    <p class="text-start mt-5 mb-0 text-danger text-bold">Cumplir:</p>
+                    <P class="text-start">Cumplimos los requisitos legales y reglamentarios, los acuerdos y demás obligaciones que se generan en la interacción con los grupos de interés desde o hacia los procesos de Industrias DELMOR, en lo relacionado con Calidad, Inocuidad, Asuntos Ambientales, Seguridad y Salud en el Trabajo.</P>
+                    <p class="text-start mt-5 mb-0 text-danger text-bold">Mejorar:</p>
+                    <P class="text-start">Fijamos como premisa institucional para el éxito sostenible, la mejora continua en el desempeño de nuestros procesos, productos y Sistema de Gestión Integral, para contribuir en el desarrollo socioeconómico del país, la seguridad alimentaria, el bienestar de nuestros colaboradores y sus familias. Para lograr esta mejora garantizamos la consulta y participación de los colaboradores, en la planificación y ejecución sistemática de acciones que permitan reducir la vulnerabilidad en los diferentes componentes de riesgos QHSE FS+ (Calidad, Salud y Seguridad en el Trabajo, Gestión Ambiental y Seguridad Alimentaria).</P>
+                </div>
+                <div class="row text-center">
+                    
                 </div>
             </div>
         </section>
+     
         
         <!-- Footer-->
         <footer class="footer py-4">

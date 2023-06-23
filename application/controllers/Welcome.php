@@ -16,6 +16,24 @@ class Welcome extends CI_Controller {
 		$this->load->view('landing/index');	
 	}
 
+    function misionPolitica()
+    {
+        $this->load->view('landing/misionPolitica'); 
+    }
+
+    function vision(){
+        $this->load->view('landing/vision'); 
+    }
+
+    function principiosValores()
+    {
+        $this->load->view('landing/principiosValores'); 
+    }
+
+    function trayectoria() {
+        $this->load->view('landing/trayectoria');
+    }
+    
 	public function login(){
 		$this->load->view('login/login');
 	}

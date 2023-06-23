@@ -11,6 +11,12 @@
   .listDocumentosImg .listDocumentosFolder{
     height: 50px
   }
+
+  .listDocumentosImg{
+    align-items: center;
+    justify-content: center;
+    padding-left:20px;
+  }
 </style>
 <main class="default-transition" style="margin-left:40px opacity: 5;">
 <div class="container-fluid library-app">
