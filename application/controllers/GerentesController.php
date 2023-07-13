@@ -8,17 +8,17 @@ class GerentesController extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('GestionModel');	
-		$this->load->model('ProcesoModel');		
-		$this->load->model('AreasModel');		
+		$this->load->model('GestionModel');
+		$this->load->model('ProcesoModel');
+		$this->load->model('SubGestionModel');
+		$this->load->model('AreasModel');
 		$this->load->helper(array('form', 'url'));
 		if ($this->session->userdata("logged") != 1) {
             redirect(base_url() . 'index.php', 'refresh');
         }
 	}
 
-    public function gerentesView(){       
-        
+    public function gerentesView(){
 		$data["procesos"] = $this->ProcesoModel->getProceso(null,'ACTIVO');
 		$i= 0;
 		foreach ($data["procesos"] as $key) {
@@ -27,18 +27,14 @@ class GerentesController extends CI_Controller {
 			
 			$e = 0;
 			foreach ($data["procesos"][$i]["gestiones"] as $key2) {
-				$data["procesos"][$i]["gestiones"][$e]["documentos"] = array();
-				$data["procesos"][$i]["gestiones"][$e]["documentos"] = $this->GestionModel->getDocumentos($key2["IdGestion"]);
+				$data["procesos"][$i]["gestiones"][$e]['subgestiones'] = array();
+				$data["procesos"][$i]["gestiones"][$e]['subgestiones'] = $this->SubGestionModel->getSubGestionByGestion($key2["IdGestion"]);
 				$e++;
 			}
 			$i++;
 		}
-
-
-		/*echo json_encode($data["procesos"]);
-		return;*/
+		//echo json_encode($data);return;
         $this->load->view('header/header');
-		//$this->load->view('menu/menu');
 		$this->load->view('gerentes/gerentesView',$data);
 		$this->load->view('footer/footer');
         $this->load->view('js/gestion/gestionJs');

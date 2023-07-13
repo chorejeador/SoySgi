@@ -45,6 +45,12 @@ $route['guardarSubGestion'] = 'SubGestionController/guardarSubGestion';
 $route['subgestionSearch'] = 'SubGestionController/subgestionSearch';
 $route['editarSubGestion/(:any)'] = 'SubGestionController/editarSubGestion/$1';
 $route['verDocumentoSubGestion/(:any)'] = 'SubGestionController/verDocumentoSubGestion/$1';
+$route['guardarEditarSubGestion'] = 'SubGestionController/guardarEditarSubGestion';
+$route['agregarDocumentoSubGestion/(:any)'] = 'SubGestionController/agregarDocumentoSubGestion/$1';
+$route['guardarDocumentoSubGestion'] = 'SubGestionController/guardarDocumentoSubGestion';
+$route['editarDocumentoSubGestion/(:any)'] = 'SubGestionController/editarDocumentoSubGestion/$1';
+$route['guardarDocumentoSubGestionEditar'] = 'SubGestionController/guardarDocumentoSubGestionEditar';
+$route['documentosViewSubgestion/(:any)'] = 'SubGestionController/documentosViewSubgestion/$1';
 
 /*****vistas de gerentes */
 $route["gerentesView"] = "GerentesController/gerentesView";
@@ -66,3 +72,11 @@ $route["trayectoria"] = "welcome/trayectoria";
 
 /******acceso denegado permiso */
 $route["denegado"] = "welcome/denegado";
+
+
+/***vista general de documentos****/
+$route["docGeneral"] = "GeneralController/verDocGeneral";
+$route["general"] = "GeneralController/general";
+$route["generalSearch"] = "GeneralController/generalSearch";
+$route["crearDocGeneral"] = "GeneralController/crearDocGeneral";
+$route["guardarDocGeneral"] = "GeneralController/guardarDocGeneral";

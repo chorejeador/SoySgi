@@ -4,6 +4,7 @@
                 <ul class="list-unstyled">
                     <li><a href="#dashboard"><i class="iconsminds-shop-4"></i> <span>Dashboards</span></a></li>
                     <li><a href="#procesos"><i class="iconsminds-digital-drawing"></i> Procesos</a></li>
+                    <li><a href="#general"><i class="iconsminds-digital-drawing"></i> Vista general</a></li>
                     <li><a href="#permisos"><i class="iconsminds-air-balloon-1"></i> Permisos</a></li>                    
                 </ul>
             </div>
@@ -63,6 +64,12 @@
                             </ul>
                         </div>
                     </li>
+                </ul>
+                <ul class="list-unstyled" data-link="general" id="general">
+                    <ul class="list-unstyled inner-level-menu">
+                        <li><a href="<?php echo base_url('index.php/general') ?>"><i class="simple-icon-grid"></i> <span
+                                            class="d-inline-block">Documentos generales</span></a></li>                        
+                    </ul>
                 </ul>
 
                 <ul class="list-unstyled" data-link="permisos" id="permisos">                  

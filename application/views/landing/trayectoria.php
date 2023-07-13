@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="<?php echo base_url()?>assets/font/iconsmind-s/css/iconsminds.css">
         <link rel="stylesheet" href="<?php echo base_url()?>assets/font/simple-line-icons/css/simple-line-icons.css">
         <link href="<?php echo base_url()?>assets/css/custom_timeline.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+        <!--<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">-->
         <link href="<?php echo base_url()?>assets/css/custom_carousel.css" rel="stylesheet" />
     </head>
 
