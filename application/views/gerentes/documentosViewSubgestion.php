@@ -21,14 +21,14 @@
 <main class="default-transition" style="margin-left:40px opacity: 5;">
 <div class="container-fluid library-app">
 <div class="row">
-	<div class="col-12">
-		<div class="mb-3">
-			<h1 class="display-4 texto-header"><?php echo $datos[0]["Descripcion"]; ?></h1>
-			<div class="text-zero top-right-button-container mb-4">
-        <a href="javascript:history.back()" type="button" class="btn btn-primary btn-lg top-right-button mr-1">REGRESAR</a>				
-			</div>		
-		</div>			
-	</div>
+  <div class="col-12">
+    <div class="mb-3">
+      <h1 class="display-4 texto-header"><?php echo $datos[0]["Descripcion"]; ?></h1>
+      <div class="text-zero top-right-button-container mb-4">
+        <a href="javascript:history.back()" type="button" class="btn btn-primary btn-lg top-right-button mr-1">REGRESAR</a>       
+      </div>    
+    </div>      
+  </div>
 </div>
 
   <div class="col-12 listDocumentos">  
@@ -66,7 +66,7 @@
               break;
           }
               echo '
-              <a href="'.base_url('index.php/documentosView/').$key["IdGestion"].'">
+              
                 <div class="card d-flex flex-row mb-2 active">
                 <a class="d-flex listDocumentosImg" href="#">
                   <img src="'.base_url().'assets/img/icono carpeta.png" alt="Fat Rascal" class="listDocumentosFolder list-thumbnail responsive border-0 card-img-left">
@@ -84,7 +84,7 @@
                     </div>
                   </div>
                 </div>
-              </a>
+              
               ';          
             }
       $i++;

@@ -146,7 +146,7 @@ class GestionModel extends CI_Model
 	public function getGestionByProceso($id)
 	{
 		//$result =  $this->db->get('CatGestion',array('id'=>$id));
-		$result =  $this->db->query("SELECT * ,777 as cantidad FROM CatGestion where IdProceso = ".$id);
+		$result =  $this->db->query("SELECT * ,777 as cantidad FROM CatGestion where Estado = 'ACTIVO' and IdProceso = ".$id);
 
 		return $result->result_array();
 	}
@@ -154,11 +154,7 @@ class GestionModel extends CI_Model
 
 	public function getDocumentos($id)
 	{
-		$and = '';
-		$this->session->userdata();
-		if (true) {
-			# code...
-		}
+		$and = '';				
 		$query = $this->db->query("SELECT * FROM TblDocumentos where Estado = 'Activo' and IdGestion = ".$id);
 
 		return $query->result_array();
@@ -212,7 +208,7 @@ class GestionModel extends CI_Model
 				}
 				
 
-				$this->db->query("UPDATE TblDocumentos set Estado = 'INACTIVO', IdUsuarioEdita = 1, FechaEdita = '".gmdate(date("Y-m-d h:i:s"))."' WHERE IdDocumento = ".$id );//todo
+				$this->db->query("UPDATE TblDocumentos set Estado = 'INACTIVO', IdUsuarioEdita = ".$this->session->userdata('id').", FechaEdita = '".gmdate(date("Y-m-d h:i:s"))."' WHERE IdDocumento = ".$id );//todo
 			}
 
 

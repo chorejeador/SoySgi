@@ -8,7 +8,7 @@ header('Access-Control-Allow-Origin: *');
     <meta charset="UTF-8">
     <title>Dore jQuery</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!--<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />-->
     <link rel="stylesheet" href="<?php echo base_url()?>assets/font/iconsmind-s/css/iconsminds.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/font/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/vendor/bootstrap.min.css">
@@ -30,19 +30,19 @@ header('Access-Control-Allow-Origin: *');
     <style>
 
         .navbar-logo .logo {
-            background-image: url(<?= base_url()?>assets/img/logos/LOGO_SIG.png);
-            background-position: 20px 50%;
+            background-image: url(<?= base_url()?>assets/img/logo.png);
+            
             background-repeat: no-repeat !important;
-            background-size: 200px 70px !important;
-            padding-left: 50px !important;
-            width: 200px;
-            height: 69px;
+            background-size: 70px 70px !important;
+            padding-left: 70px !important;
+            width: 70px;
+            height: 70px;
         }
 
         .logo-mobile {
             width: 20px;
             height: 35px;
-            background: url(<?= base_url()?>assets/img/logos/LOGO_SIG.png) no-repeat !important;
+            background: url(<?= base_url()?>assets/img/logo.png) no-repeat !important;
             background-position: center center;
         }
 
@@ -165,8 +165,9 @@ header('Access-Control-Allow-Origin: *');
                     <span><img alt="Profile Picture" src="<?php echo base_url()?>assets/img/profiles/l-1.jpg"></span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right mt-3">
-                        <a href="<?php echo base_url('index.php/procesos'); ?>" class="dropdown-item" href="#">Administración</a>
-                        <a href="<?php echo base_url('index.php/gerentesView'); ?>" class="dropdown-item" href="#">Vista general</a>
+                        <a href="<?php echo base_url('index.php/procesos'); ?>" class="dropdown-item">Administración</a>
+                        <a href="<?php echo base_url('index.php/gerentesView'); ?>" class="dropdown-item">Vista de procesos</a>
+                        <a href="<?php echo base_url('index.php/welcome'); ?>" class="dropdown-item">Inicio</a>
                         <a class="dropdown-item" href="<?php echo base_url('index.php/salir'); ?>">Salir</a>
                 </div>
             </div>

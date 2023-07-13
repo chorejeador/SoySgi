@@ -29,15 +29,18 @@ class SubGestionController extends CI_Controller {
 	function editarSubGestion($id)
 	{		
 		
-		$data['datos'] = $this->SubGestionModel->getSubGestion($id);		
-		$data["gestion"] = $this->db->query("SELECT * FROM CatGestion where IdGestion = (SELECT IdGestion FROM CatSubGestion where IdSubGestion = ".$id.")")->result_array();
+		$datos = $this->SubGestionModel->getSubGestion($id);;
+		$data['datos'] = $datos;
 
-		
+
+		$data["gestiones"] = $this->db->query("SELECT * FROM CatGestion WHERE Estado = 'ACTIVO' OR IdGestion = ".$datos[0]["IdGestion"])->result_array();
+
+		//echo json_encode($data["datos"]);return
 		$this->load->view('header/header');
 		$this->load->view('menu/menu');
-		$this->load->view('gestion/editarGestion',$data);
+		$this->load->view('subgestion/editarSubGestion',$data);
 		$this->load->view('footer/footer');
-        $this->load->view('js/gestion/editarGestionJs');
+        $this->load->view('js/subgestion/editarSubGestionJs');
 	}
 
 	function guardarSubGestion() {
@@ -60,6 +63,149 @@ class SubGestionController extends CI_Controller {
 		$this->load->view('footer/footer');
 	}
 
+	public function guardarEditarSubGestion()
+	{
+
+		$this->SubGestionModel->guardarEditarSubGestion($this->input->post('descripcion'),$this->input->post('id'),$this->input->post('estado'),$this->input->post('idGestion'),$this->input->post('sigla'));
+	}
+
+	function agregarDocumentoSubGestion($id)
+	{
+		$datos = $this->SubGestionModel->getSubGestion($id);
+		$data["documentos"] = $this->SubGestionModel->getDocumentos($id);
+		$data["datos"] = $datos;
+
+		$this->load->view('header/header');
+		$this->load->view('menu/menu');
+		$this->load->view('subGestion/agregarDocumentoSubGestion',$data);
+		$this->load->view('footer/footer');
+        $this->load->view('js/subGestion/agregarDocumentoSubGestionJs');
+	}
+
+
+	function verDocumentoSubGestion($id)
+	{
+		
+	}
+
+	function guardarDocumentoSubGestion()
+	{
+		$mensaje = array(); 
+
+			//upload configuration
+			$config['upload_path']          = './uploads/';
+            $config['allowed_types']        = 'gif|jpg|png|pdf|doc|xslx|xls|docx|mp4';
+            $config['max_size']             = 102400;//100 megas
+            $config['detect_mime']          = true;//proteccion para injeccion
+            $config['file_ext_tolower']     = true;
+			$config['file_name']            = floor(microtime(true) * 1000);//nombre random
+
+			$filename= $_FILES["archivo"]["name"];
+			$file_ext = pathinfo($filename,PATHINFO_EXTENSION);
 	
+
+			$this->load->library('upload', $config);
+			
+			if ( ! $this->upload->do_upload('archivo')){
+				$mensaje[0]["retorno"] = -1;
+				$mensaje[0]["tipo"] = "error";
+				$mensaje[0]["mensaje"] = "error al subir archivo:". print_r($this->upload->display_errors());
+				echo json_encode($mensaje);
+				return;
+            }                
+			else{
+                $data = array('upload_data' => $this->upload->data());
+				$result = $this->SubGestionModel->guardarDocumento(
+									$file_ext
+									,$config['file_name']
+									,$this->input->post('txtId')
+									,$this->input->post('txtNombre')
+									,$this->input->post('txtDescripcion')
+									,$this->input->post('selectArea')
+									,null
+									,null
+								);
+								//echo json_encode($result);return;
+				if ($result[0]["retorno"] == -1) {
+					unlink($data["upload_path"]."/".$config['file_name']);
+					$mensaje[0]["retorno"] = -1;
+					$mensaje[0]["tipo"] = "error";
+					$mensaje[0]["mensaje"] = "error al subir archivo:". print_r($this->upload->display_errors());
+					echo json_encode($mensaje);
+					return;
+				}
+				//echo json_encode($result);            	
+            }
+	}
+
+	function editarDocumentoSubGestion($id)
+	{
+		$data["datos"] = $this->SubGestionModel->getDocumento($id);
+		$data["documentos"] = $this->SubGestionModel->getHistorialDocumento($id);
+		
+		$data["areas"] = $this->AreasModel->getAreas('ACTIVO');
+		///echo json_encode($data["datos"]);return;
+
+		$this->load->view('header/header');
+		$this->load->view('menu/menu');
+		$this->load->view('subGestion/editarDocumentoSubGestion',$data);
+		$this->load->view('footer/footer');
+        $this->load->view('js/subGestion/editarDocumentoSubGestionJs');
+	}
+
+	function guardarDocumentoSubGestionEditar()
+	{
+		$mensaje = array(); 
+
+			//upload configuration			
+			$config['upload_path']          = './uploads/';
+			$config['allowed_types']        = 'gif|jpg|png|pdf|doc|xslx|xls|docx|mp4';
+            $config['max_size']             = 102400;//100 megas
+            $config['detect_mime']          = true;//proteccion para injeccion
+            $config['file_ext_tolower']     = true;
+			$config['file_name']            = floor(microtime(true) * 1000);//nombre random
+
+			$filename= $_FILES["archivo"]["name"];
+			$file_ext = pathinfo($filename,PATHINFO_EXTENSION);
+
+
+			$this->load->library('upload', $config);
+			
+			if ( ! $this->upload->do_upload('archivo')){
+				$mensaje[0]["retorno"] = -1;
+				$mensaje[0]["tipo"] = "error";
+				$mensaje[0]["mensaje"] = "error al subir archivo:". print_r($this->upload->display_errors());
+				echo json_encode($mensaje);
+				return;
+			}                
+			else{
+				$data = array('upload_data' => $this->upload->data());
+				$result = $this->SubGestionModel->guardarDocumento(
+					$file_ext
+					,$config['file_name']
+					,$this->input->post('txtId')
+					,$this->input->post('txtNombre')
+					,$this->input->post('txtDescripcion')
+					,$this->input->post('selectArea')
+					,$this->input->post('txtIdGestion')
+					,$this->input->post('txtIdPadre')
+				);								
+			if ($result[0]["retorno"] == -1) {
+				unlink($data["upload_path"]."/".$config['file_name']);					
+			}				
+		}
+	}
+
+	function documentosViewSubgestion($id)
+	{
+		$data["datos"] = $this->SubGestionModel->getSubGestion($id);
+
+		$data["archivos"] = $this->SubGestionModel->getDocumentos($id);
+
+		$this->load->view('header/header');
+		$this->load->view('gerentes/documentosViewSubgestion',$data);
+		$this->load->view('footer/footer');
+        $this->load->view('js/gestion/gestionJs');
+	}
 
 }

@@ -1,3 +1,4 @@
+
 <main class="default-transition" style="opacity: 5;">
 <div class="container-fluid library-app">
 	<div class="row">
@@ -21,7 +22,7 @@
 				<nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">
 					<ol class="breadcrumb pt-0">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item"><a href="<?php echo base_url('index.php/gestiones') ?>">Gestiones</a></li>						
+						<li class="breadcrumb-item"><a href="<?php echo base_url('index.php/subGestiones') ?>">Sub Gestiones</a></li>
 					</ol>
 				</nav>
 			</div>
@@ -31,19 +32,19 @@
 	</div>
 	<div class="row">
 		<div class="col-12 col-xl-4">
-			<h5 class="mb-5">Carga de documentos</h5>
+			<h5 class="mb-5">Nombre: <?php echo $datos[0]["Descripcion"]; ?></h5>
 			<div class="card mb-4">
 				<div class="card-body">
 					<h5 class="mb-4">Subir documento</h5>
 					<form class="needs-validation tooltip-label-right" id="formDocumento" novalidate="">
 						
-						<?php echo form_hidden('txtId',$datos[0]["IdGestion"]);?>
+						<?php echo form_hidden('txtId',$datos[0]["IdSubGestion"]);?>
 
 						<div class="form-group position-relative error-l-50"><label>Nombre:</label> 
 						<input type="text" id="txtNombre" name="txtNombre" class="form-control" required="">
 							<div class="invalid-tooltip">Nombre is required!</div>
 						</div>						
-						<div class="form-group position-relative error-l-50"><label>Detalles</label> 
+						<div class="form-group position-relative error-l-50"><label>Detalles:</label> 
 						<textarea id="txtDescripcion" name="txtDescripcion" class="form-control" rows="2" required=""></textarea>
 							<div class="invalid-tooltip">Detalle es requerido!</div>
 						</div>
@@ -68,6 +69,7 @@
 		<div class="col-12 col-xl-8 list disable-text-selection" data-check-all="checkAll">
             <div class="d-inline-block"><h4 class="d-inline">Documentos en esta Sub Gestión</h4></div>
 			<div class="row">
+
                 <?php
 				if (count($documentos) == 0) {
 					echo '<div class="col-12" data-check-all="checkAll"><br><br>
@@ -84,7 +86,7 @@
                                 <div class="d-flex flex-grow-1 min-width-zero">
                                     <div
                                         class="card-body align-self-center d-flex flex-column justify-content-between min-width-zero align-items-lg-center">
-                                        <a  href="'.base_url("index.php/editarDocumento/").$key["IdDocumento"].'" class="w-100">
+                                        <a  href="'.base_url("index.php/editarDocumentoSubGestion/").$key["IdDocumento"].'" class="w-100">
                                             <p class="list-item-heading mb-1 ">'.$key["Nombre"].'</p>
                                         </a>
                                         <p class="mb-1 text-muted text-small w-100 ">Creado: '.rtrim($key["FechaCrea"],'.000').'</p>
@@ -95,7 +97,7 @@
                                     </div>
                                     <div class="pl-1 align-self-center">
 										<label class="custom-control custom-checkbox mb-0">
-											<input type="checkbox" class="custom-control-input">
+											<input type="checkbox" class="custom-control-input"> 
 											<span class="custom-control-label"></span>
 										</label>
                                     </div>

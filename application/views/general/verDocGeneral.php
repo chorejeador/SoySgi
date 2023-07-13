@@ -10,19 +10,20 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="<?php echo base_url()?>assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        
         <!-- Google fonts-->
         
         <link href="<?php echo base_url() ?>assets/css/roboto.css" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<?php echo base_url()?>assets/css/styles.css" rel="stylesheet" />
-        <link href="<?php echo base_url()?>assets/css/custom_landing.css" rel="stylesheet" />        
+        <link href="<?php echo base_url()?>assets/css/custom_landing.css" rel="stylesheet" />
+        <link href="<?php echo base_url()?>assets/css/custom_timeline.css" rel="stylesheet" />
         <link rel="stylesheet" href="<?php echo base_url()?>assets/font/iconsmind-s/css/iconsminds.css">
         <link rel="stylesheet" href="<?php echo base_url()?>assets/font/simple-line-icons/css/simple-line-icons.css">
+        <script src="<?php echo base_url()?>assets/js/vendor/jquery-3.3.1.min.js"></script>
         <!--<link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
         <!--<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">-->-->
-        <link href="<?php echo base_url()?>assets/css/custom_carousel.css" rel="stylesheet" />
     </head>
 
     <body id="page-top">
@@ -50,6 +51,7 @@
                                 <img src="<?php echo base_url() ?>assets/img/logo.png" width="100" alt="">
                             </a>
                         </li>
+                        
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" data-mdb-toggle="dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             CORPORACION DELMOR
@@ -60,23 +62,19 @@
                             <li><a class="dropdown-item" href="<?php echo base_url('index.php/principiosValores') ?>">Principios y valores</a></li>
                           </ul>
                         </li>
+
                         <li class="nav-item"><a class="nav-link" href="#portfolio">QUIENES SOMOS</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">PORTAFOLIO</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">TRAYECTORIA</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/trayectoria') ?>">TRAYECTORIA</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">SISTEMA DE GESTIÓN INTEGRAL</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">NOTICIAS Y EVENTOS</a></li>
                         <!--<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/instalaciones') ?>">INSTALACIONES</a></li>-->
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/contactenos') ?>">CONTÁCTENOS</a></li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>                            
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                          </ul>
-                        </li>
+                        <?php if($this->session->userdata("logged") == 1){
+                                echo '<li class="nav-item"><a class="nav-link" href="'.base_url('index.php/docGeneral').'">VISTA GENERAL</a></li>'; 
+                            }
+                        ?>
+                        
                         <?php
                             if($this->session->userdata("logged") == 1){
                                 echo '<li class="nav-item"><a class="nav-link" href="'.base_url('index.php/gerentesView').'">SGC</a></li>';
@@ -99,45 +97,73 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-        <section class="page-section" id="services">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">VISIÓN INSTITUCIONAL DE INDUSTRIAS DELMOR, S.A</h2>
-                    <p class="color-red text-start mt-5">La construcción del futuro de DELMOR se fundamenta en cuatro ejes claves de acción:</p>
-
-                    <P class="text-start">– Mantener el liderazgo y la competitividad en el procesamiento y distribución de productos cárnicos integrando talento humano y tecnología de punta para lograr mayor productividad, eficiencia y rentabilidad empresarial.</P>
-                    <P class="text-start">– Fortalecer cadenas de abastecimiento y redes de alianzas estratégicas a mediano y largo plazo con clientes, proveedores y demás empresas e instituciones relacionadas con nuestra actividad.</P>
-                    <P class="text-start">– Incursionar en nuevos mercados de Centro América, el Caribe y USA, con el objetivo de aprovechar las oportunidades de tratados y acuerdos que Nicaragua suscriba con otros países y organismos internacionales.</P>
-                    <P class="text-start">– Consolidar Nuestra Cultura en Responsabilidad Social Empresarial, para contribuir en el desarrollo humano de nuestros colaboradores y en el progreso socioeconómico del país, a partir de la mejora continua de Industrias DELMOR, S.A, el aprovechamiento estratégico de las oportunidades, y la reducción constante y sistemática de la vulnerabilidad asociada a los riesgos integrales QHSE FS+ (Calidad, Salud y Seguridad en el Trabajo, Gestión Ambiental y Seguridad Alimentaria).</P>
-                </div>
-                <div class="row text-center">
-                    
-                </div>
+        </nav>      
+        
+        
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">              
             </div>
         </section>
-     
-        
+
+        <!-- DOCUMENTS-->
+        <section class="page-section pt-15" id="documents">
+            <div class="container">
+                <div class="col-12">
+                <div class="card mb-4">
+                   <div class="card-body">
+                      <h5 class="mb-4">TODO TITULO AQUÍ</h5>
+                      <div id="accordion">
+                        
+                        <?php 
+
+                            foreach ($docs as $value){
+                                echo '<div class="border mt-2 ">
+                                        <div class="align-self-center d-flex flex-column flex-md-row justify-content-between">
+                                            <button style="color:black!important; font-weight: bolder;" onclick="show('.$value["IdDocumento"].')" class="btn btn-link" data-toggle="collapse"
+                                            data-target="#collapse'.$value["IdDocumento"].'" aria-expanded="true" aria-controls="collapse'.$value["IdDocumento"].'">'.$value["Nombre"].'</button>
+                                            <a href="'.base_url('/uploads/').$value["Url"].'.'.$value["Tipo"].'" 
+                                                class="btn btn-outline-primary bg-secondary icon-button large">
+                                                <i class="glyph-icon iconsminds-download"></i>
+                                            </a>
+                                        </div>
+                                        <div id="collapse'.$value["IdDocumento"].'" class="collapse" data-parent="#accordion">
+                                           <div class="p-4">'.$value["Descripcion"].'</div>
+                                        </div>
+                                     </div>';
+                            }
+
+                        ?>
+                      </div>
+                   </div>
+                </div>
+
+                </div>
+                
+
+            </div>
+        </section>
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; DELMOR S.A 2022</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/delmornic/?hl=es-la" aria-label="Twitter"><i class="fab fa-instagram"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/delmornic/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/company/industrias-delmor-s-a/?originalSubdomain=ni" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-end">
-                        
-                    </div>
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; DELMOR S.A <?php echo date('Y'); ?></div>
                 </div>
             </div>
-        </footer>       
+        </footer>     
+      
+   
+        
         <!-- Bootstrap core JS-->
         <script src="<?php echo base_url()?>assets/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="<?php echo base_url()?>assets/js/scriptslanding.js"></script>
         <!--<script src="<?php echo base_url()?>assets/js/sb-forms-latest.js"></script>-->
+        <script>
+            function show(div) {                
+                $("#collapse"+div).toggleClass("show");
+            }
+        </script>
+        
     </body>
 </html>

@@ -53,8 +53,7 @@ class Welcome extends CI_Controller {
             
             if (count($data['user']) == 0) {
                 redirect('login');
-            }
-            else {
+            }else {
                 $sessiondata = array(
                     'id' => $data['user'][0]['IdUsuario'],
                     'User' => $data['user'][0]['Usuario'],

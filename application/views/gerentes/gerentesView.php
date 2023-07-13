@@ -71,23 +71,45 @@
         <div class="question-collapse collapse" id="q-'.$i.'" style="">
           <div class="card-body pt-0">';
             foreach ($key["gestiones"] as $keyGestiones ) {
-              echo '
+              $button = '';
+              $dropdown = '';
+              if (count($keyGestiones["subgestiones"]) >0) {
+                $button = '<button class="btn mr-2 btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="collapse" data-target="#collapseOne'.$keyGestiones["IdGestion"].'" aria-expanded="true" aria-controls="collapseOne'.$keyGestiones["IdGestion"].'">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>';  
 
-              <a href="'.base_url('index.php/documentosView/').$keyGestiones["IdGestion"].'" style="font-weight:bold;">
-                <div class="card d-flex flex-row mb-1 btn-outline-primary" 
-                     style="box-shadow: 0 3px 10px rgb(0 0 0 / 10%), 0 3px 5px rgb(0 0 0 / 10%);">
+                    foreach ($keyGestiones["subgestiones"] as $keySubGestiones ) {
+                      $dropdown .= '<li class="list-group-item"><a href="documentosViewSubgestion/'.$keySubGestiones["IdSubGestion"].'">'.$keySubGestiones["Descripcion"].'</a></li>';
+                    }
+                    
+              }
+                          
 
+              echo '              
+                <div class="card d-flex flex-column mb-1 btn-outline-primary" style="box-shadow: 0 3px 10px rgb(0 0 0 / 10%), 0 3px 5px rgb(0 0 0 / 10%);">
+                  <div id="accordion'.$keyGestiones["IdGestion"].'">                    
                   <div class="d-flex flex-grow-1 min-width-zero">
-                    <div
-                      class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
-                      <!--<i class="iconsminds-folder-add-- text-warning" style="font-size:30px;font-weight:bolder;"></i>-->
-                      <p class="list-item-heading mb-0 w-80 w-xs-100 text-left" href="Pages.Product.Detail.html">'.$keyGestiones["Descripcion"].'</p>
-                      <!--<p style="font-weight:bold;" class="mb-0 text-small w-30 w-xs-100">Ultima Actualizacion: '.$keyGestiones["FechaCrea"].'</p>-->
-                      <div style="font-weight:bold;" class="w-20 w-xs-100"><span class="badge w-100 badge-pill badge-danger">'.strtoupper($keyGestiones["Sigla"]).'</span></div>
+                    '.$button.'
+
+                    <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+                      <a class="w-80" href="'.base_url('index.php/documentosView/').$keyGestiones["IdGestion"].'" style="font-weight:bold;">
+                      <p class="list-item-heading mb-0 w-100 w-xs-100 text-left" href="Pages.Product.Detail.html">'.$keyGestiones["Descripcion"].'</p>
+                      </a>
+                        <div style="font-weight:bold;" class="w-20 w-xs-100">
+                          <span class="badge w-100 badge-pill badge-danger">'.strtoupper($keyGestiones["Sigla"]).'</span>
+                        </div>
+                    </div>
+                  </div>
+                  <div id="collapseOne'.$keyGestiones["IdGestion"].'" class="collapse" aria-labelledby="headingOne'.$keyGestiones["IdGestion"].'" data-parent="#accordion'.$keyGestiones["IdGestion"].'">
+                      <div class="card-body">
+                        <ul class="list-group">                          
+                          '.$dropdown.'
+                        </ul>                      
+                      </div>
                     </div>
                   </div>
                 </div>
-              </a>
+              
               ';
             }
           echo '</div>
@@ -100,6 +122,7 @@
   ?>
 
   </div>
+</div>
  
 </div>
 <script>
@@ -115,5 +138,4 @@
     }
 </script>
 
-<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 </main>
