@@ -71,7 +71,7 @@ class GeneralController extends CI_Controller {
 				$mensaje[0]["mensaje"] = "error al subir archivo:". print_r($this->upload->display_errors());
 				echo json_encode($mensaje);
 				return;
-            }                
+            }
 			else{
                 $data = array('upload_data' => $this->upload->data());
 				$result = $this->GeneralModel->guardarDocumento(
@@ -95,6 +95,11 @@ class GeneralController extends CI_Controller {
 				}
 				//echo json_encode($result);            	
             }
+	}
+
+	function bajaDocumentoGeneral()
+	{
+		$this->GeneralModel->bajaDocumentoGeneral($_POST['id'],$_POST['estado']);
 	}
 
 

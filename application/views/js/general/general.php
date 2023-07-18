@@ -61,4 +61,34 @@
 			]
 		});	
     }
+
+
+    function baja(id,estado) {
+    	$.ajax({
+						url: "<?php echo base_url("index.php/bajaDocumentoGeneral")?>",
+						type: "POST",
+						data: {
+							id: id,
+							estado: estado
+						},
+						success: function(data){
+							let obj = jQuery.parseJSON(data);
+							$.each(obj, function (index, value) {
+								sms = value["mensaje"];
+								tipo = value["tipo"];
+
+								new swal({
+									text: sms,
+									type: tipo,
+									allowOutsideClick: false
+								}).then(function () {
+									location.reload();
+								});
+							});						
+						},
+						error: function(request, status, error){
+							
+				}
+			});
+    }
 </script>
