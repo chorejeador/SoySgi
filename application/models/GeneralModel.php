@@ -38,9 +38,13 @@ class GeneralModel extends CI_Model
                 $json["data"][$i]["FechaEdita"] = $key["FechaEdita"];
                 $json["data"][$i]["Ver"] = '<a href="'.base_url('/uploads/').$key["Url"].'.'.$key["Tipo"].'" class="btn btn-primary btn-sm text-uppercase"><i class="fa fa-eye"></i></a>';
 
-                $json["data"][$i]["Opcion"] = $json["data"][$i]["Opcion"] = '<a href="javascript:void(0)" onclick="baja('.$key["IdDocumento"].')" class="btn btn-primary btn-sm text-uppercase"><i class="fa fa-add">ACTIVAR</i></a>';
+                $estado = 1;
+                if ($key["Estado"] == "INACTIVO") {
+                	$estado = 0;                	
+                }
+                $json["data"][$i]["Opcion"] = $json["data"][$i]["Opcion"] = '<a href="javascript:void(0)" onclick="baja('.$key["IdDocumento"].','.$estado.')" class="btn btn-primary btn-sm text-uppercase"><i class="fa fa-add">ACTIVAR</i></a>';
                 if ($key["Estado"] == 'ACTIVO') {
-                	$json["data"][$i]["Opcion"] = '<a href="javascript:void(0)" onclick="baja('.$key["IdDocumento"].')" class="btn btn-primary btn-sm text-uppercase"><i class="fa fa-add">INACTIVAR</i></a>';
+                	$json["data"][$i]["Opcion"] = '<a href="javascript:void(0)" onclick="baja('.$key["IdDocumento"].','.$estado.')" class="btn btn-primary btn-sm text-uppercase"><i class="fa fa-add">INACTIVAR</i></a>';
                 }
                 
                 $i++;
@@ -119,6 +123,39 @@ class GeneralModel extends CI_Model
 		$results = $this->db->query("SELECT * FROM TblDocumentosGenerales where Estado = 'ACTIVO'");
 
 		return $results->result_array();
+	}
+
+	function bajaDocumentoGeneral($id,$estado)
+	{
+
+		$mensaje = array(); 
+		$this->db->trans_start();
+
+		try {
+			$estadoDes = 'ACTIVO';
+			if ($estado == 1) {
+				$estadoDes = 'INACTIVO';
+			}
+
+			$this->db->where("IdDocumento",$id);
+			$result = $this->db->update('TblDocumentosGenerales',array('Estado'=>$estadoDes));
+
+			if ($result) {				
+				$this->db->trans_commit();
+				$mensaje[0]["retorno"] = 1;
+				$mensaje[0]["tipo"] = "success";
+				$mensaje[0]["mensaje"] = "Documento cambiado a ".$estadoDes." correctamente";				
+				echo json_encode($mensaje);
+				return;
+			}
+		} catch (Exception $ex) {
+			$this->db->rollBack();
+			$mensaje[0]["retorno"] = -1;
+			$mensaje[0]["tipo"] = "error";
+			$mensaje[0]["mensaje"] = "Error: ".$ex;
+			echo json_encode($mensaje);
+			return;
+		}
 	}
 }
 

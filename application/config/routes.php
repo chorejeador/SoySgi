@@ -80,3 +80,4 @@ $route["general"] = "GeneralController/general";
 $route["generalSearch"] = "GeneralController/generalSearch";
 $route["crearDocGeneral"] = "GeneralController/crearDocGeneral";
 $route["guardarDocGeneral"] = "GeneralController/guardarDocGeneral";
+$route["bajaDocumentoGeneral"] = "GeneralController/bajaDocumentoGeneral";
