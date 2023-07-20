@@ -1,6 +1,8 @@
 <script>
 
         $('#guardar').click(function(){
+
+            
             
             let nombre = $('#txtNombre').val();
             let descripcion = $('#txtDescripcion').val();            

@@ -53,7 +53,7 @@ class GeneralController extends CI_Controller {
 
 			//upload configuration			
 			$config['upload_path']          = './uploads/';
-            $config['allowed_types']        = 'gif|jpg|png|pdf|doc|xlsx|xls|docx|mp4';
+            $config['allowed_types']        = 'gif|jpg|png|pdf|doc|xlsx|xls|docx|mp4|jpeg';
             $config['max_size']             = 102400;//100 megas
             $config['detect_mime']          = true;//proteccion para injeccion
             $config['file_ext_tolower']     = true;
@@ -63,12 +63,16 @@ class GeneralController extends CI_Controller {
 			$file_ext = pathinfo($filename,PATHINFO_EXTENSION);
 	
 
-			$this->load->library('upload', $config);
+			$doc = $this->load->library('upload', $config);
+
 			
 			if ( ! $this->upload->do_upload('archivo')){
+				$error = array('error' => $this->upload->display_errors());
+         		
+         		$this->session->set_flashdata('error',$error['error']);
 				$mensaje[0]["retorno"] = -1;
 				$mensaje[0]["tipo"] = "error";
-				$mensaje[0]["mensaje"] = "error al subir archivo:". print_r($this->upload->display_errors());
+				$mensaje[0]["mensaje"] = "error al subir archivo: ". $error['error'];
 				echo json_encode($mensaje);
 				return;
             }

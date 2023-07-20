@@ -44,7 +44,7 @@
                         <div id="collapseAuthorization" class="collapse show">
                             <ul class="list-unstyled inner-level-menu">
                                 <li><a href="<?php echo base_url('index.php/gestiones') ?>"><i class="simple-icon-grid"></i> <span
-                                            class="d-inline-block">Lista de gestiónes</span></a></li>
+                                            class="d-inline-block">Lista de gestiones</span></a></li>
                                 <li><a href="<?php echo base_url('index.php/nuevaGestion') ?>"><i class="iconsminds-folder-add--"></i> <span
                                             class="d-inline-block">Nueva gestión</span></a></li>
                             </ul>
