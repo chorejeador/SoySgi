@@ -94,7 +94,7 @@ class SubGestionController extends CI_Controller {
 
 			//upload configuration
 			$config['upload_path']          = './uploads/';
-            $config['allowed_types']        = 'gif|jpg|png|pdf|doc|xlsx|xls|docx|mp4';
+            $config['allowed_types']        = 'gif|jpg|png|pdf|doc|xlsx|xls|docx|mp4|jpeg';
             $config['max_size']             = 102400;//100 megas
             $config['detect_mime']          = true;//proteccion para injeccion
             $config['file_ext_tolower']     = true;
@@ -159,7 +159,7 @@ class SubGestionController extends CI_Controller {
 
 			//upload configuration			
 			$config['upload_path']          = './uploads/';
-			$config['allowed_types']        = 'gif|jpg|png|pdf|doc|xlsx|xls|docx|mp4';
+			$config['allowed_types']        = 'gif|jpg|png|pdf|doc|xlsx|xls|docx|mp4|jpeg';
             $config['max_size']             = 102400;//100 megas
             $config['detect_mime']          = true;//proteccion para injeccion
             $config['file_ext_tolower']     = true;
