@@ -44,11 +44,11 @@
 
 </style>
 <main class="default-transition" style="margin-left:40px; opacity: 5;">
-<div class="container-fluid library-app">
+<div class="container-fluid library-app row">
 
   <!--<h1 class="display-4">SISTEMA SIG</h1>
   <h2 class="">PROCESOS INTERNOS</h2>-->
-  <div class="col-12 listProcesos">
+  <div class="col-8 listProcesos">
     <?php 
     $i= 1;
     foreach ($procesos as $key ) {
@@ -122,12 +122,17 @@
   ?>
 
   </div>
+
+  <div class="col-4 col sm-12 mapaUbicacion">
+    <img id="mapaUbicacion" width="80%" src="<?php echo base_url()?>assets/img/mapa/mapa-1.png" style="width: 80%;" alt="">
+  </div>
 </div>
  
 </div>
 <script>
 
     function showDiv(params) {
+      console.log(params);
 
       $('#q-1').removeClass('show');
       $('#q-2').removeClass('show');
@@ -135,6 +140,17 @@
       $('#q-4').removeClass('show');
 
       $('#'+params).toggleClass('show');
+
+      if (params == 'q-1') {
+        $("#mapaUbicacion").attr("src","<?php echo base_url()?>assets/img/mapa/mapa-1.png");  
+      }
+      if (params == 'q-2') {
+        $("#mapaUbicacion").attr("src","<?php echo base_url()?>assets/img/mapa/mapa-2.png");  
+      }
+      if (params == 'q-3') {
+        $("#mapaUbicacion").attr("src","<?php echo base_url()?>assets/img/mapa/mapa-3.png");  
+      }
+
     }
 </script>
 

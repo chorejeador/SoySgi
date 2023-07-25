@@ -25,8 +25,7 @@ class PermisosModel extends CI_Model
 
 	function cargarPermisosUsuarios($id)
 	{
-		$query = $this->db->query("
-									SELECT t0.*,
+		$query = $this->db->query("SELECT t0.*,
 									CASE WHEN (SELECT IdUsuario FROM PERMISOSUSUARIOS WHERE IdUsuario = ".$id." and Estado = 'ACTIVO' and IdPermiso =t0.IdPermiso) IS NULL THEN 'INACTIVO' ELSE 'ACTIVO' END AS ESTADOUSUARIO
 									FROM permisos t0
 									where t0.Estado = 'ACTIVO'");
@@ -98,6 +97,30 @@ class PermisosModel extends CI_Model
 			return;
 		}
 
+	}
+
+	function cargarDocumentosPermiso($tipo) {
+		$json = array();
+        $i = 0;
+
+		$query = $this->db->query("SELECT 'Gestion' as Tipo,* FROM TblDocumentos WHERE Estado = 'ACTIVO'");
+
+		if ($tipo == 'subgestion') {
+			$query = $this->db->query("SELECT 'Sub Gestion' as Tipo, * FROM TblDocumentosSubGestion WHERE Estado = 'ACTIVO'");
+		}
+
+		
+
+		foreach ($query->result_array() as $key) {
+            $json["data"][$i]["Tipo"] = $key["Tipo"];
+            $json["data"][$i]["Nombre"] = $key["Nombre"];
+            $json["data"][$i]["Descripcion"] = $key["Descripcion"];
+            $json["data"][$i]["Opcion"] = '<a href="javascript:void(0)" onclick="ver('.$key["Tipo"].','.$key["IdDocumento"].')" class="btn btn-primary btn-sm text-uppercase"><i class="fa fa-eye-o"></i></a>';                            
+        	$i++;
+        }
+            
+		echo json_encode($json);
+        return;
 	}
 
 	

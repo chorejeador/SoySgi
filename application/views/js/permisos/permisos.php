@@ -6,72 +6,12 @@
     });
 
 
-
-    /*$("#filtro").select2({
-			placeholder: ' Buscar Usuario',
-			allowClear: true,
-			ajax: {
-				url: '<?php echo base_url("index.php/filtrarUsuarios")?>',
-				dataType: 'json',
-				type: "POST",
-				quietMillis: 100,
-				data: function (term) {
-					console.log(term.term);
-					return {
-						filtro: term.term
-					};
-				},
-				results: function (data) {
-					let res = [];
-					for(let i  = 0 ; i < data.length; i++) {
-						res.push({id:data[i].IdUsuario, text:'('+data[i].IdUsuario+') '+data[i].Nombre});
-						$("#campo").append('<input type="hidden" name="" id="'+data[i].IdUsuario+'txtpeso" class="form-control" value="'+data[i].IdUsuario+'">');
-					}
-					return {
-						results: res
-					}
-				},
-				cache: true
-			}
-	}).trigger('change.select2');*/
-
-    $("#filtro").select2({
-            placeholder: 'Buscar...',
-            allowClear: true,
-                ajax: {
-                    url: '<?php echo base_url("index.php/filtrarUsuarios")?>',
-                    dataType: 'json',
-                    type: "POST",
-                    quietMillis: 100,
-                    data: function (params) {
-                        let queryParameters = {
-                            filtro: params.term
-                        }
-
-                        return queryParameters;
-                    },
-                    processResults: function (data) {
-                        let res = [];
-                        for(let i  = 0 ; i < data.length; i++) {
-                            res.push({id:data[i].IdUsuario, text:data[i].Nombres});
-                        }
-                        return {
-                            results: res
-                        }
-                    },
-                    cache: true
-                }
-            }
-    ).trigger('change.select2');
-
-	//$( "#filtro option:selected" ).val();
-
 	var $eventSelect = $("#filtro");
 	$eventSelect.on("change", function (e) {	    
 	    console.log($("#filtro option:selected").val())
 	    tabla = $("#tblPermisos").DataTable({
 				"ajax": {
-					"url": "cargarPermisosUsuarios",
+					"url": "cargarDocumentosPermiso",
 					"type": "POST",
 					"data":{
 						id: $("#filtro option:selected").val()
@@ -107,7 +47,7 @@
 					}
 				},
 				"columns": [
-					//{"data" : "IdPermiso"},
+					{"data" : "Tipo"},
 					{"data" : "Nombre","class":"text-center"},
 					{"data" : "Descripcion"},
 					{"data" : "Opcion"},
@@ -167,11 +107,6 @@
 			alert("error");
 			bandera = false
 		}
-        /*globalFunction({
-			"id": this.id,
-			"mensaje" : 'prueba',
-			"tipo" : 'error'
-		});*/
 
 		if (bandera) {
 			$.ajax({
@@ -204,4 +139,8 @@
 		}
 
     })
+
+	function ver(tipo,id) {
+		alert(tipo+id)
+	}
 </script>

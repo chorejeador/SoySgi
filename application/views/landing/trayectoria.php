@@ -45,7 +45,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 ">
                         <li class="nav-item">
-                            <a class="nav-link" href="#services">
+                            <a class="nav-link" href="<?php echo base_url("index.php"); ?>">
                                 <img src="<?php echo base_url() ?>assets/img/logo.png" width="100" alt="">
                             </a>
                         </li>

@@ -39,23 +39,8 @@
 						<div class="form-group position-relative error-l-50"><label>Archivo</label> 
 								<input type="file" name="archivo" id="archivo"  class="form-control" rows="2" required="true"/>
 							<div class="invalid-tooltip">Detalle es requerido!</div>
-						</div>				
-						<div class="form-group position-relative error-l-50"><label>Area:</label> 
-							<select id="selectArea" name="selectArea"  name="selectArea" class="custom-select" required="">								
-								<?php 
-									foreach($areas as $key){
-										$selected = '';
-										if ($datos[0]["IdArea"] == $key["IdArea"]) {
-											$selected = 'selected';
-										}
-										echo '<option value="'.$key["IdArea"].'" "'.$selected.'">'.$key["Descripcion"].'</option>';
-									}
-									
-								?>
-								
-							</select>
-							<div class="invalid-tooltip">Area es requerida!</div>
-						</div>					
+						</div>
+										
 						<button type="button" id="guardar" class="btn btn-primary mb-0">Guardar</button>
 					</form>
 				</div>
@@ -74,7 +59,7 @@
 				}
                     foreach ($documentos as $key) {
                         echo '
-                        <div class="col-xxl-7 col-xl-6 col-12">
+                        <div class="col-12">
                             <div class="card d-flex flex-row mb-4 media-thumb-container">
 								<a class="d-flex align-self-center media-thumbnail-icon" href="Apps.MediaLibrary.ViewFolder.html"><i class="iconsminds-folder-open"></i></a>
                                 <div class="d-flex flex-grow-1 min-width-zero">
