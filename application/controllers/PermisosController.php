@@ -42,4 +42,8 @@ class PermisosController extends CI_Controller {
 	{
 		$this->PermisosModel->asignarPermiso($this->input->post('idPermiso'),$this->input->post('idUsuario'));
 	}
+
+	function cargarDocumentosPermiso() {
+		$this->PermisosModel->cargarDocumentosPermiso($this->input->post("filtro"));
+	}
 }

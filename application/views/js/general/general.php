@@ -83,8 +83,7 @@
 								}).then(function () {
 									if (tipo == 'success') {
 										location.reload();	
-									}
-									
+									}									
 								});
 							});						
 						},

@@ -63,6 +63,7 @@ $route["asignarPermisos"] = "PermisosController";
 $route["filtrarUsuarios"] = "UsuariosController/filtrarUsuarios";
 $route["cargarPermisosUsuarios"] = "PermisosController/cargarPermisosUsuarios";
 $route["asignarPermiso"] = "PermisosController/asignarPermiso";
+$route["cargarDocumentosPermiso"] = "PermisosController/cargarDocumentosPermiso";
 
 /*paginas web planas*/
 $route["misionPolitica"] = "welcome/misionPolitica";

@@ -18,15 +18,15 @@
                 <div class="card mb-4">
                     <div class="card-body">                        
                         <form class="needs-validation tooltip-label-right" novalidate="">
-                            <div class="form-group position-relative error-l-50"><label>Buscar</label> 
-                                <!--<input type="text" id="filtro" class="form-control" required="" value="" >-->
-                                <!--<input type="hidden" id="filtro"  class="form-control col-8 col-md-8 col-sm-12" />-->
-
-                                <select id="filtro"></select>
+                            <div class="form-group position-relative error-l-50">
+                                <label>Buscar por tipo: </label>         
+                                <select id="filtro">
+                                    <option value="gestion">Gestión</option>
+                                    <option value="subgestion">Sub Gestiones</option>
+                                </select>
                             </div>                            
 							<div>
-                            <button type="button" id="btnGuardar" class="btn btn-primary mb-0">Editar</button>
-                            <a href="<?php echo base_url('index.php/procesos') ?>" class="btn btn-danger mb-0">Cancelar</a>
+                                <button type="button" id="btnFiltrar" class="btn btn-primary mb-0">Buscar</button>                            
 							</div>
                         </form>
                     </div>
@@ -40,11 +40,11 @@
                     <div class="card-body">                       
                         <table class="table" id="tblPermisos">
                            <thead>
-                              <tr>                                
-                                 
-                                 <th scope="col">Nombre</th>
-                                 <th scope="col">Descripción</th>                                 
-                                 <th scope="col">Opción</th>
+                              <tr>                                 
+                                 <th scope="col">Tipo Archivo</th>
+                                 <th scope="col">Nombre Archivo</th>                                 
+                                 <th scope="col">Descripción Archivo</th>
+                                 <th scope="col">Asignar permisos</th>
                               </tr>
                            </thead>
                            <tbody>

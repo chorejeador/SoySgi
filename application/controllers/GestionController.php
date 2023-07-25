@@ -181,15 +181,14 @@ class GestionController extends CI_Controller {
 									,$this->input->post('txtId')
 									,$this->input->post('txtNombre')
 									,$this->input->post('txtDescripcion')
-									,$this->input->post('selectArea')
+									,null
+									//,$this->input->post('selectArea')
 									,$this->input->post('txtIdGestion')
 									,$this->input->post('txtIdPadre')
-								);
-								echo json_encode($result);return;
+								);				
 				if ($result[0]["retorno"] == -1) {
 					unlink($data["upload_path"]."/".$config['file_name']);					
-				}
-				echo json_encode($result);
+				}				
             }
 	}
 

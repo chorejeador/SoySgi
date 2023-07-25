@@ -45,7 +45,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 ">
                         <li class="nav-item">
-                            <a class="nav-link" href="#services">
+                            <a class="nav-link" href="<?php echo base_url("index.php"); ?>">
                                 <img src="<?php echo base_url() ?>assets/img/logo.png" width="100" alt="">
                             </a>
                         </li>
@@ -108,24 +108,24 @@
                 </div>                
                 <div class="row text-center">
                     <div class="col-6">
-                        <P class="text-start mb-4">Pensamiento, Conciencia y Acción para la Prevención:</P>
+                        <P class="text-start mb-4 text-bold"><strong>Pensamiento, Conciencia y Acción para la Prevención:</strong></P>
                         <P class="text-start">Planificamos nuestras actividades con inteligencia, e incorporamos a nuestro trabajo el pensamiento basado en la identificación y respuesta efectiva a Riesgos y Oportunidades, para reducir la vulnerabilidad y responder a la dinámica de cambios del mercado y la tecnología</P>
 
-                        <P class="text-start mb-4">Excelencia en Productos, Procesos y Servicios:</P>
+                        <P class="text-start mb-4"><strong>Excelencia en Productos, Procesos y Servicios:</strong></P>
                         <P class="text-start">Ofrecemos a los grupos de interés con quienes interactuamos productos, procesos y servicios de excelencia, inocuos, innovadores y competitivos, bajo criterios de honestidad, seguridad y sostenibilidad.</P>
 
-                        <P class="text-start mb-4">Responsabilidad:</P>
+                        <P class="text-start mb-4"><strong>Responsabilidad:</strong></P>
                         <P class="text-start">La Responsabilidad es nuestra principal fortaleza, y se fundamenta en la lealtad, el respeto, la confianza mutua, y en la toma de decisiones adecuadas basadas en los principios legales, lo que nos permite trazar un camino seguro para el éxito sostenible.</P>
 
                     </div>
                     <div class="col-6">
-                        <P class="text-start mb-4">Inclusión, Equidad y Respeto:</P>
+                        <P class="text-start mb-4"><strong>Inclusión, Equidad y Respeto:</strong></P>
                         <P class="text-start">Reconocemos que la inclusión, la equidad y el respeto por las personas, la legalidad y la reglamentación internacional, se constituyen en la base para una sana convivencia en la organización.</P>
 
-                        <P class="text-start mb-4">Compromiso con la efectividad y el progreso:</P>
+                        <P class="text-start mb-4"><strong>Compromiso con la efectividad y el progreso:</strong></P>
                         <P class="text-start">Estamos comprometidos en brindar todo el esfuerzo y dedicación para lograr un desempeño efectivo focalizado en alcanzar los objetivos y metas previstas.</P>
 
-                        <P class="text-start mb-4">Trabajo en Equipo:</P>
+                        <P class="text-start mb-4"><strong>Trabajo en Equipo:</strong></P>
                         <P class="text-start">Laboramos con armonía y sinergia, consideración, dedicación, constancia, energía e innovación, para ofrecer a las partes interesadas sabor, mucho sabor, con productos, procesos y servicios sanos, limpios, seguros y conformes con los requisitos aplicables.</P>
                     </div>
                 </div>
