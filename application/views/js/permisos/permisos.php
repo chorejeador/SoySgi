@@ -1,14 +1,21 @@
 <script>
 
+	let idDocumentoGlobal;
+
 	let tabla;
+	let tablaUsuarios;
     $(document).ready(function(){
-        //alert("asdad");
+        cargarDocumentos();
     });
 
 
 	var $eventSelect = $("#filtro");
 	$eventSelect.on("change", function (e) {	    
-	    console.log($("#filtro option:selected").val())
+	    cargarDocumentos();
+	});
+
+	function cargarDocumentos() {
+		console.log($("#filtro option:selected").val())
 	    tabla = $("#tblPermisos").DataTable({
 				"ajax": {
 					"url": "cargarDocumentosPermiso",
@@ -22,7 +29,7 @@
 				"info": true,
 				"sort": true,
 				"destroy": true,
-				"searching": false,
+				"searching": true,
 				"paginate": false,
 				"lengthMenu": [
 					[10,20,50,100, -1],
@@ -53,9 +60,11 @@
 					{"data" : "Opcion"},
 				]
 			});
-	});
+	}
 
-	function asignar(idPermiso,IdUsuario) {
+	function asignar(IdUsuario,estado) {
+
+		
 		swal({
 		    title: "¿Esta seguro?",
 		    text: "¿Desea modificar este permiso para el usuario?",
@@ -69,24 +78,29 @@
 		  }).then(result =>{
 		  	if (result.value) {
 		  		$.ajax({
-		  			url: "asignarPermiso",
+		  			url: "asignarPermisoDocumento",
 		  			type: "POST",
 		  			data: {
-		  				idPermiso : idPermiso,
-		  				idUsuario : IdUsuario
+		  				idDocumento : idDocumentoGlobal,
+		  				idUsuario : IdUsuario,
+		  				tipo: $("#filtro").val(),
+		  				estado: estado
 		  			},
 		  			success: function(data){
 						let obj = jQuery.parseJSON(data);
-						$.each(obj, function (index, value) {
-							swal({
-			  					type: value["tipo"],
-			  					text: value["mensaje"]
-			  				}).then(result =>{
-			  					location.reload();
-			  				});
-						});
-		  				
-		  			},
+						$.each(obj, function (index, value) {							
+							sms = value["mensaje"];
+							tipo = value["tipo"];
+							new swal({
+								text: sms,
+								type: tipo,
+								allowOutsideClick: false
+							}).then(function () {
+								//location.reload();
+								ver(idDocumentoGlobal);
+							});
+						});						
+					},
 		  			error: function(){
 		  				swal({
 		  					type: "error",
@@ -140,7 +154,62 @@
 
     })
 
-	function ver(tipo,id) {
-		alert(tipo+id)
+	function ver(id) {
+		idDocumentoGlobal = id;
+		const myModal = new bootstrap.Modal(document.getElementById('myModal'));
+		myModal.hide();
+		tablaUsuarios = $("#tblUsuarios").DataTable({
+				"ajax": {
+					"url": "cargarUsuariosDocumentos",
+					"type": "POST",
+					"data":{
+						id: id,
+						tipo: $("#filtro").val()
+					}
+				},
+				"responsive": false,
+				"info": true,
+				"sort": true,
+				"destroy": true,
+				"searching": true,
+				"paginate": false,
+				"lengthMenu": [
+					[10,20,50,100, -1],
+					[10,20,50,100, "Todo"]
+				],
+				"order": [
+					[0, "asc"]
+				],
+				"language": {
+					"info": "Registro _START_ a _END_ de _TOTAL_ entradas",
+					"infoEmpty": "Registro 0 a 0 de 0 entradas",
+					"zeroRecords": "No se encontro coincidencia",
+					"infoFiltered": "(filtrado de _MAX_ registros en total)",
+					"emptyTable": "NO HAY DATOS DISPONIBLES",
+					"lengthMenu": '_MENU_ ',
+					"search": '<i class="fa fa-search"></i>',					
+					"paginate": {
+						"first": "Primera",
+						"last": "Última ",
+						"next": "Siguiente",
+						"previous": "Anterior"
+					}
+				},
+				"columns": [
+					{"data" : "Nombre"},
+					{"data" : "Area","class":"text-center"},
+					{"data" : "Descripcion"},
+					{"data" : "Opcion"},
+				]
+		});
+		myModal.show();
 	}
+
+	$('.modal-footer .btn-secondary').click(function() {
+        $('#myModal').modal('hide');
+    });
+
+    $('#myModal').on('hidden.bs.modal', function () {
+        $('#myModal').modal('hide');
+      });
 </script>

@@ -79,7 +79,7 @@ class Welcome extends CI_Controller {
     }
 
 
-    public function denegado()
+    public function unauthorized()
     {
         $this->load->view("denegado");
     }

@@ -14,6 +14,8 @@ class GestionModel extends CI_Model
 		if ($this->session->userdata("logged") != 1) {
             redirect(base_url() . 'index.php', 'refresh');
         }
+
+        $this->load->model("PermisosModel");
 	}
 
 	public function GestionSearch($filtro){
@@ -260,10 +262,14 @@ class GestionModel extends CI_Model
 		return $result->result_array();
 	}
 
-	public function downloadFile($id)
+	public function downloadFile($id,$tipo)
 	{
 
 		//todo validar permiso
+		if (!$this->PermisosModel->validarPermiso($id,$tipo)) {
+			redirect('unauthorized', 'refresh');
+		}
+
 		$this->load->helper('download');
 		
 		$fileInfo = $this->db->query("SELECT * FROM TblDocumentos where IdDocumento = ".$id);

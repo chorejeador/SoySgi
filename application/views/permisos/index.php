@@ -58,4 +58,38 @@
         </div>       
 
 	</div> 
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
+
+
+  <div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Asignar permisos a este documento:</h5>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Cerrar"><i class="simple-icon-close"></i> </button>
+        </div>
+        <div class="modal-body">
+          <table class="table" id="tblUsuarios">
+            <thead>
+                <tr>                                 
+                    <th scope="col">Nombre Usuario</th>
+                    <th scope="col">Área</th>
+                    <th scope="col">Permiso en este archivo</th>
+                    <th scope="col">Dar Permiso</th>
+                </tr>
+            </thead>
+            <tbody>                               
+            </tbody>
+        </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>     
+        </div>
+      </div>
+    </div>
+  </div>
+
 </main>
+
