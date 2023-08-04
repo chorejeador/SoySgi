@@ -107,15 +107,13 @@ class PermisosModel extends CI_Model
 
 		if ($tipo == 'subgestion') {
 			$query = $this->db->query("SELECT 'Sub Gestion' as Tipo, * FROM TblDocumentosSubGestion WHERE Estado = 'ACTIVO'");
-		}
-
-		
+		}	
 
 		foreach ($query->result_array() as $key) {
             $json["data"][$i]["Tipo"] = $key["Tipo"];
             $json["data"][$i]["Nombre"] = $key["Nombre"];
             $json["data"][$i]["Descripcion"] = $key["Descripcion"];
-            $json["data"][$i]["Opcion"] = '<a href="javascript:void(0)" onclick="ver('.$key["Tipo"].','.$key["IdDocumento"].')" class="btn btn-primary btn-sm text-uppercase"><i class="fa fa-eye-o"></i></a>';                            
+            $json["data"][$i]["Opcion"] = '<a href="javascript:void(0)" onclick="ver('.$key["IdDocumento"].')" class="btn btn-primary btn-md text-uppercase"><i class="iconsminds-key-lock"></i></a>';                            
         	$i++;
         }
             
@@ -123,6 +121,82 @@ class PermisosModel extends CI_Model
         return;
 	}
 
+	function cargarUsuariosDocumentos($id,$tipo)
+	{
+		$json = array();
+        $i = 0;
+		$consulta = "SELECT t0.*,CASE WHEN t1.Id IS NOT NULL THEN 'AUTORIZADO' ELSE 'NO AUTORIZADO' END AS PERMISO,
+		t2.Descripcion as Area
+		FROM Usuarios t0
+		left join CatAreas t2 on t2.IdArea = t0.IdArea
+		LEFT JOIN PermisosDocumentosUsuario t1 on t1.IdUsuario = T0.IdUsuario and t1.Estado = 'Activo'
+		and t1.Tipo = '".$tipo."'
+		where t0.Estado = 'ACTIVO'";
+
+			//echo $consulta;return;
+		$result = $this->db->query($consulta);
+
+		foreach ($result->result_array() as $key) {
+            $json["data"][$i]["Nombre"] = $key["Nombres"]." ".$key["Apellidos"];
+            $json["data"][$i]["Area"] = $key["Area"];
+            $json["data"][$i]["Descripcion"] = $key["PERMISO"];
+            $json["data"][$i]["Opcion"] = '<a href="javascript:void(0)" onclick="asignar('. $key["IdUsuario"] . ', \'' . $key["PERMISO"] . '\')" class="btn btn-primary btn-md text-uppercase"><i class="iconsminds-key-lock"></i></a>';
+        	$i++;
+        }
+
+		echo json_encode($json);
+        return;
+	}
+
+	function asignarPermisoDocumento($idDocumento,$idUsuario,$tipo,$estado)
+	{
+		$mensaje = array();
+        $i = 0;
+		$this->db->trans_begin();
+		try {
+			$estadoUp = 'ACTIVO';
+			if ($estado == 'AUTORIZADO') {
+				$estadoUp = 'INACTIVO';
+			}
+			$existe = $this->db->query("SELECT * FROM PermisosDocumentosUsuario WHERE IdDocumento = ".$idDocumento." and IdUsuario =".$idUsuario." and Tipo = '".$tipo."'");
+			
+			if ($existe->num_rows()>0) {
+				$this->db->query("UPDATE PermisosDocumentosUsuario SET Estado = '".$estadoUp."' where Id = ".$existe->result_array()[0]["Id"]);
+			}else{
+				$insert = array(
+					"IdDocumento" => $idDocumento,
+					"IdUsuario" => $idUsuario,
+					"Tipo" => $tipo,
+					"Estado" => $estado
+				);
+				$this->db->insert("PermisosDocumentosUsuario", $insert);
+			}
+
+			$this->db->trans_commit();
+			$mensaje[0]["tipo"] = "success";
+            $mensaje[0]["mensaje"] = "Permiso modificado correctamente, se cambio permiso a: ".$estadoUp;
+            echo json_encode($mensaje);
+            return;
+		}catch(Exception $e){
+			$this->db->rollBack();
+			$mensaje[0]["tipo"] = "error";
+            $mensaje[0]["mensaje"] = "Ha ocurrido un error, intentelo nuevamente".$ex->getMessage();
+            echo json_encode($mensaje);
+            return;
+		}
+	}
+
+
+	function validarPermiso($id,$tipo)
+	{
+		return true;
+		$permiso = $this->db->query("SELECT * FROM PermisosDocumentosUsuario WHERE Estado = 'ACTIVO' AND  IdDocumento = ".$id." AND Tipo = '".$tipo."'");
+		if ($permiso->num_rows()>0) {
+			return true;
+		}
+
+		return false;
+	}
 	
 }
 

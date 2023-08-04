@@ -55,7 +55,7 @@ $route['documentosViewSubgestion/(:any)'] = 'SubGestionController/documentosView
 /*****vistas de gerentes */
 $route["gerentesView"] = "GerentesController/gerentesView";
 $route["documentosView/(:any)"] = "GerentesController/documentosView/$1";
-$route["downloadFile/(:any)"] = "GerentesController/downloadFile/$1";
+$route["downloadFile/(:any)/(:any)"] = "GerentesController/downloadFile/$1/$2";
 
 /*******permisos*******/
 $route["permisos"] = "PermisosController";
@@ -64,6 +64,8 @@ $route["filtrarUsuarios"] = "UsuariosController/filtrarUsuarios";
 $route["cargarPermisosUsuarios"] = "PermisosController/cargarPermisosUsuarios";
 $route["asignarPermiso"] = "PermisosController/asignarPermiso";
 $route["cargarDocumentosPermiso"] = "PermisosController/cargarDocumentosPermiso";
+$route["cargarUsuariosDocumentos"] = "PermisosController/cargarUsuariosDocumentos";
+$route["asignarPermisoDocumento"] = "PermisosController/asignarPermisoDocumento";
 
 /*paginas web planas*/
 $route["misionPolitica"] = "welcome/misionPolitica";
@@ -72,7 +74,7 @@ $route["principiosValores"] = "welcome/principiosValores";
 $route["trayectoria"] = "welcome/trayectoria";
 
 /******acceso denegado permiso */
-$route["denegado"] = "welcome/denegado";
+$route["unauthorized"] = "welcome/unauthorized";
 
 
 /***vista general de documentos****/

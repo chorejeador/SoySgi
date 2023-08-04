@@ -33,10 +33,9 @@ header('Access-Control-Allow-Origin: *');
 						</div>
 						<div class="form-side">
 							<div class="text-center">
-								<h6 class="mb-4">Ooops... parece que no tienes autorización!</h6>
-								<p class="mb-0 text-muted text-small mb-0">Código error</p>
+								<h6 class="mb-4">Ooops... parece que no tienes autorización!</h6>								
 								<p class="display-1 font-weight-bold mb-5">403</p>
-								<a href="javascript:history.back()" class="btn btn-primary btn-lg btn-shadow">REGRESAR</a>
+								<a href="<?php echo base_url("index.php") ?>" class="btn btn-primary btn-lg btn-shadow">REGRESAR</a>
 							</div>
 						</div>
 					</div>

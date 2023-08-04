@@ -54,10 +54,10 @@ class GerentesController extends CI_Controller {
         $this->load->view('js/gestion/gestionJs');
 	}
 
-	public function downloadFile($id)
+	public function downloadFile($id,$tipo)
 	{
 		if (!empty($id)) {
-			$this->GestionModel->downloadFile($id);
+			$this->GestionModel->downloadFile($id,$tipo);
 		}
 	}
 
