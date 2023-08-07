@@ -84,12 +84,12 @@
             }
 
             echo '<tr style="border-bottom: 1px solid #dcd9d9;">
-                <td><img style="height:50px;" src="'.base_url().'assets/img/documentos/'.$img.'"></td>
+                <td><img style="height:35px;" src="'.base_url().'assets/img/documentos/'.$img.'"></td>
                 <td>'.$key["Descripcion"].'</td>
                 <td>'.$key["FechaCrea"].'</td>
                 <td>
                     <a style="color: black;  border-color: black;" href="'.base_url('index.php/downloadFile/').$key["IdDocumento"].'/gestion" target="_blank" class="btn btn-outline-theme-3 icon-button edit-button text-black"><i class="simple-icon-arrow-down-circle"></i></a> 
-                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top" style="color: black; border-color: black;" href="'.base_url('/uploads/').$key["Url"].'.'.$key["Tipo"].'" target="_blank"  class="btn btn-outline-theme-3 icon-button view-button"><i class="simple-icon-eye"></i></a>
+                    <!--<a data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top" style="color: black; border-color: black;" href="'.base_url('/uploads/').$key["Url"].'.'.$key["Tipo"].'" target="_blank"  class="btn btn-outline-theme-3 icon-button view-button"><i class="simple-icon-eye"></i></a>-->
                   </td>
             </tr>';
          }
