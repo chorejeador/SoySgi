@@ -51,6 +51,7 @@
                             </a>
                         </li>
                         
+                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php'); ?>">INICIO</a></li>
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" data-mdb-toggle="dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             CORPORACION DELMOR
@@ -65,7 +66,11 @@
                         <li class="nav-item"><a class="nav-link" href="#portfolio">QUIENES SOMOS</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">PORTAFOLIO</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/trayectoria') ?>">TRAYECTORIA</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">SISTEMA DE GESTIÓN INTEGRAL</a></li>
+                        <?php 
+                        if($this->session->userdata("logged") == 1){
+                            echo '<li style="background-color: #ffffff5c;border-radius: 18px;" class="nav-item"><a class="nav-link" href="'.base_url('index.php/gerentesView').'">SISTEMA DE GESTIÓN INTEGRAL</a></li>';
+                        }
+                        ?>   
                         <li class="nav-item"><a class="nav-link" href="#portfolio">NOTICIAS Y EVENTOS</a></li>
                         <!--<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/instalaciones') ?>">INSTALACIONES</a></li>-->
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/contactenos') ?>">CONTÁCTENOS</a></li>

@@ -69,13 +69,11 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">PORTAFOLIO</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/trayectoria') ?>">TRAYECTORIA</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="sgiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">SISTEMA DE GESTIÓN INTEGRAL</a>
-                            <ul class="dropdown-menu" aria-labelledby="sgiDropdown">
-                                <li><a class="dropdown-item" href="#">Generalidades</a></li>
-                                <li><a class="dropdown-item" href="#">Documento de presentación del SGI</a></li>                                
-                            </ul>
-                        </li>
+                        <?php 
+                        if($this->session->userdata("logged") == 1){
+                            echo '<li style="background-color: #ffffff5c;border-radius: 18px;" class="nav-item"><a class="nav-link" href="'.base_url('index.php/gerentesView').'">SISTEMA DE GESTIÓN INTEGRAL</a></li>';
+                        }
+                        ?>   
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/noticiasEventos') ?>">NOTICIAS Y EVENTOS</a></li>
                         <!--<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/instalaciones') ?>">INSTALACIONES</a></li>-->
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/contactenos') ?>">CONTÁCTENOS</a></li>                        
@@ -107,15 +105,15 @@
        <section class="page-section">            
             <div class="container" style="max-width: 95%;">
                 <div class="row">
-                    <div class="col-lg-9 col-sm-12">
-                        <div style="overflow:hidden;margin: auto; margin-top: 20px; max-width:100%;width:90%;height:500px;text-align: center;"><div id="canvas-for-googlemap" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Industrias+Delmor+S.A,+Managua,+Nicaragua&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="code-for-google-map" rel="nofollow" href="https://www.bootstrapskins.com/themes" id="make-map-data">premium bootstrap themes</a><style>#canvas-for-googlemap img{max-width:none!important;background:none!important;font-size: inherit;font-weight:inherit;}</style></div>
-                    </div>
-                    <div class="col-lg-3 col-sm-12">
+                    <div class=" offset-lg-9 col-lg-3 col-sm-12">
                         <div class="phones">
                             <h3 class="mb-0" style="color:white;">(505) 2265-1637</h3>
                             <h3 class="mb-0" style="color:white;">(505) 2265-2219</h3>
                         </div>
                     </div>
+                    <div class="col-lg-12 col-sm-12">
+                        <div style="overflow:hidden;margin: auto; margin-top: 20px; max-width:100%;width:90%;height:500px;text-align: center;"><div id="canvas-for-googlemap" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Industrias+Delmor+S.A,+Managua,+Nicaragua&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="code-for-google-map" rel="nofollow" href="https://www.bootstrapskins.com/themes" id="make-map-data">premium bootstrap themes</a><style>#canvas-for-googlemap img{max-width:none!important;background:none!important;font-size: inherit;font-weight:inherit;}</style></div>
+                    </div>                    
                 </div>
             </div>
         </section>

@@ -34,11 +34,21 @@
 </div>
 
 <div class="row card" style="flex-direction:row!important">
-  <div class="col-lg-6 listDocumentos pt-5">
-    <?php 
-      $i= 1;   
-        foreach ($archivos as $key ) {
-          $img = 'default.png';            
+  <div class="col-lg-6 listDocumentos pt-5"> 
+
+    <table class="table">
+      <thead class="thead-light">
+          <tr style="height:70px;">
+            <th style="vertical-align: middle;" scope="col"></th>
+            <th style="vertical-align: middle;" scope="col"></th>
+            <th style="vertical-align: middle;" scope="col">Fecha</th>
+            <th style="vertical-align: middle;" scope="col">Opción</th>
+          </tr>
+      </thead>
+      <tbody>
+    <?php
+      foreach ($archivos as $key ) {
+        $img = 'default.png';
           switch ($key["Tipo"]) {
             case 'pdf':
               $img = 'pdf.png';
@@ -68,31 +78,20 @@
                 $img = 'default.png';
               break;
           }
-              echo '
-              
-                <div class="card d-flex flex-row mb-2 active">
-                <a class="d-flex listDocumentosImg" href="#">
-                  <img src="'.base_url().'assets/img/icono carpeta.png" alt="Fat Rascal" class="listDocumentosFolder list-thumbnail responsive border-0 card-img-left">
-                </a>
-                  <div class="d-flex flex-grow-1 min-width-zero">
-                    <div
-                      class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
-                      <p class="list-item-heading mb-0 truncate w-70 w-xs-100 text-left" href="#">'.$key["Descripcion"].'</p>
-                      <!--<p class="mb-0 text-small w-15 w-xs-100">Creado el: '.$key["FechaCrea"].'</p>
-                      <p class="mb-0 text-small w-15 w-xs-100">Ultima actualizacion: '.$key["FechaCrea"].'</p>-->
-                      <div class="custom-control custom-checkbox pl-1 align-self-center pr-4">
-                          <a style="color: black;  border-color: black;" href="'.base_url('index.php/downloadFile/').$key["IdDocumento"].'/subgestion" target="_blank" class="btn btn-outline-theme-3 icon-button edit-button text-black"><i class="simple-icon-arrow-down-circle"></i></a> 
-                          <a style="color: black; border-color: black;" href="'.base_url('/uploads/').$key["Url"].'.'.$key["Tipo"].'" target="_blank"  class="btn btn-outline-theme-3 icon-button view-button"><i class="simple-icon-eye"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              
-              ';          
-            }
-      $i++;
-    ?>
 
+          echo '<tr style="border-bottom: 1px solid #dcd9d9;">
+              <td><img style="height:35px;" src="'.base_url().'assets/img/documentos/'.$img.'"></td>
+              <td>'.$key["Descripcion"].'</td>
+              <td>'.$key["FechaCrea"].'</td>
+              <td>
+                  <a style="color: black;  border-color: black;" href="'.base_url('index.php/downloadFile/').$key["IdDocumento"].'/subgestion" target="_blank" class="btn btn-outline-theme-3 icon-button edit-button text-black"><i class="simple-icon-arrow-down-circle"></i></a> 
+                  <!--<a data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top" style="color: black; border-color: black;" href="'.base_url('/uploads/').$key["Url"].'.'.$key["Tipo"].'" target="_blank"  class="btn btn-outline-theme-3 icon-button view-button"><i class="simple-icon-eye"></i></a>-->
+                </td>
+          </tr>';
+      }    
+    ?>
+      </tbody>
+    </table>
   </div>
   <div class="col-lg-6 col sm-12 mapaUbicacion text-center">
     <div class="card-body">

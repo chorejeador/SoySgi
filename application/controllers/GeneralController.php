@@ -19,6 +19,8 @@ class GeneralController extends CI_Controller {
 	function verDocGeneral()
 	{
 		$data["docs"] = $this->GeneralModel->getDocumentos();
+
+		echo json_encode($data);
 		$this->load->view('general/verDocGeneral',$data);
 	}
 
