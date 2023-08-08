@@ -270,6 +270,9 @@ class GestionModel extends CI_Model
 			redirect('unauthorized', 'refresh');
 		}
 
+		echo "--->".$this->PermisosModel->validarPermiso($id,$tipo);
+		return;
+
 		$this->load->helper('download');
 		
 		$fileInfo = $this->db->query("SELECT * FROM TblDocumentos where IdDocumento = ".$id);

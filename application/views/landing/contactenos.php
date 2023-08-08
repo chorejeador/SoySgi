@@ -67,7 +67,7 @@
                                 <li><a class="dropdown-item" href="#">Nuestras instalaciónes</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">PORTAFOLIO</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/portafolio'); ?>">PORTAFOLIO</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/trayectoria') ?>">TRAYECTORIA</a></li>
                         <?php 
                         if($this->session->userdata("logged") == 1){
