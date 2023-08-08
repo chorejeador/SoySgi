@@ -33,7 +33,16 @@ class Welcome extends CI_Controller {
     function trayectoria() {
         $this->load->view('landing/trayectoria');
     }
-    
+
+    function portafolio(){
+        $this->load->view('landing/portafolio');
+    }
+
+    function noticiaseventos()
+    {
+        $this->load->view('landing/noticiaseventos');
+    }    
+
 	public function login(){
 		$this->load->view('login/login');
 	}

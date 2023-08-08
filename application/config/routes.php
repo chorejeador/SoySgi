@@ -72,6 +72,8 @@ $route["misionPolitica"] = "welcome/misionPolitica";
 $route["vision"] = "welcome/vision";
 $route["principiosValores"] = "welcome/principiosValores";
 $route["trayectoria"] = "welcome/trayectoria";
+$route["portafolio"] = "welcome/portafolio";
+$route["noticiaseventos"] = "welcome/noticiaseventos";
 
 /******acceso denegado permiso */
 $route["unauthorized"] = "welcome/unauthorized";

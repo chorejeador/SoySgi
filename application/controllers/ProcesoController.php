@@ -10,11 +10,18 @@ class ProcesoController extends CI_Controller {
 		if ($this->session->userdata("logged") != 1) {
             redirect(base_url() . 'index.php', 'refresh');
         }
+        if (!$this->PermisosModel->validarPermisoUsuario(3)) {
+            redirect('unauthorized', 'refresh');
+        }
 	}
 
 
 	public function index()
 	{       
+
+		if (!$this->PermisosModel->validarPermisoUsuario(3)) {
+            redirect('unauthorized', 'refresh');
+        }
 		$this->load->view('header/header');
 		$this->load->view('menu/menu');
 		$this->load->view('proceso/index');
@@ -24,6 +31,9 @@ class ProcesoController extends CI_Controller {
 
     public function nuevoProcesos()
     {
+    	if (!$this->PermisosModel->validarPermisoUsuario(3)) {
+            redirect('unauthorized', 'refresh');
+        }
         $this->load->view('header/header');
 		$this->load->view('menu/menu');
 		$this->load->view('proceso/nuevoProceso');
@@ -33,6 +43,9 @@ class ProcesoController extends CI_Controller {
 
 	public function editarProceso($id)
 	{
+		if (!$this->PermisosModel->validarPermisoUsuario(3)) {
+            redirect('unauthorized', 'refresh');
+        }
 		$data['datos'] = $this->ProcesoModel->getProceso($id,null);
 		//echo json_encode($data);//return;
 		$this->load->view('header/header');
@@ -59,6 +72,9 @@ class ProcesoController extends CI_Controller {
 
 	public function verGestionesProceso($id)
 	{
+		if (!$this->PermisosModel->validarPermisoUsuario(3)) {
+            redirect('unauthorized', 'refresh');
+        }
 		$data["proceso"] = $this->ProcesoModel->getProceso($id,null);
 		$data["gestiones"] = $this->ProcesoModel->getGestiones($id,null);
 		

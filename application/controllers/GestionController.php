@@ -15,11 +15,15 @@ class GestionController extends CI_Controller {
 		if ($this->session->userdata("logged") != 1) {
             redirect(base_url() . 'index.php', 'refresh');
         }
+
 	}
 
 
 	public function index()
 	{       
+		if (!$this->PermisosModel->validarPermisoUsuario(3)) {
+            redirect('unauthorized', 'refresh');
+        }
 		$this->load->view('header/header');
 		$this->load->view('menu/menu');
 		$this->load->view('gestion/index');
@@ -29,6 +33,9 @@ class GestionController extends CI_Controller {
 
     public function nuevaGestion($idProcesoParam=null)
     {		
+    	if (!$this->PermisosModel->validarPermisoUsuario(3)) {
+            redirect('unauthorized', 'refresh');
+        }
 		$data["procesos"] = $this->ProcesoModel->getProceso(null,'ACTIVO');
 		$data["idProcesoParam"] = $idProcesoParam;
         $this->load->view('header/header');
@@ -40,7 +47,9 @@ class GestionController extends CI_Controller {
 
 	public function editarGestion($id)
 	{
-		
+		if (!$this->PermisosModel->validarPermisoUsuario(3)) {
+            redirect('unauthorized', 'refresh');
+        }
 		//$data['datos'] = $this->ProcesoModel->getProceso($id);
 		$data['datos'] = $this->GestionModel->getGestion($id);
 		$data["procesos"] = $this->ProcesoModel->getProceso(null,'ACTIVO');
@@ -54,6 +63,9 @@ class GestionController extends CI_Controller {
 
 	public function agregarDocumentoGestion($id)
 	{
+		if (!$this->PermisosModel->validarPermisoUsuario(3)) {
+            redirect('unauthorized', 'refresh');
+        }
 		$data["datos"] = $this->GestionModel->getGestion($id);
 		$data["documentos"] = $this->GestionModel->getDocumentos($id);
 		//echo json_encode($data["documentos"]);
@@ -68,6 +80,13 @@ class GestionController extends CI_Controller {
 
 	public function guardarDocumento()
 	{
+		if (!$this->PermisosModel->validarPermisoUsuario(3)) {
+            $mensaje[0]["retorno"] = -1;
+					$mensaje[0]["tipo"] = "error";
+					$mensaje[0]["mensaje"] = "no tiene permisos";
+					echo json_encode($mensaje);
+					return;
+        }
 		$mensaje = array(); 
 
 			//upload configuration			

@@ -14,6 +14,9 @@ class GeneralController extends CI_Controller {
 		if ($this->session->userdata("logged") != 1) {
             redirect(base_url() . 'index.php', 'refresh');
         }
+        if (!$this->PermisosModel->validarPermisoUsuario(3)) {
+            redirect('unauthorized', 'refresh');
+        }
 	}
 
 	function verDocGeneral()

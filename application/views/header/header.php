@@ -1,5 +1,5 @@
-<?PHP
-header('Access-Control-Allow-Origin: *');
+<?php
+    $CI = &get_instance(); // Obtenemos la instancia de CodeIgniter
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -152,7 +152,10 @@ header('Access-Control-Allow-Origin: *');
                     <span><img alt="Profile Picture" src="<?php echo base_url()?>assets/img/notifications/1.jpg"></span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right mt-3">
-                        <a href="<?php echo base_url('index.php/procesos'); ?>" class="dropdown-item">Administración</a>
+                        <?php  if($CI->PermisosModel->validarPermisoUsuario(3)) {
+                            echo '<a href="'.base_url('index.php/procesos').'" class="dropdown-item">Administración</a>';
+                         } 
+                        ?>
                         <a href="<?php echo base_url('index.php/gerentesView'); ?>" class="dropdown-item">Vista de procesos</a>
                         <a href="<?php echo base_url('index.php/welcome'); ?>" class="dropdown-item">Inicio</a>
                         <a class="dropdown-item" href="<?php echo base_url('index.php/salir'); ?>">Salir</a>

@@ -188,9 +188,19 @@ class PermisosModel extends CI_Model
 
 
 	function validarPermiso($id,$tipo)
-	{
-		return true;
+	{		
 		$permiso = $this->db->query("SELECT * FROM PermisosDocumentosUsuario WHERE Estado = 'ACTIVO' AND  IdDocumento = ".$id." AND Tipo = '".$tipo."'");
+		if ($permiso->num_rows()>0) {
+			return true;
+		}
+
+		return false;
+	}
+
+	function validarPermisoUsuario($id)
+	{
+		$permiso = $this->db->query("SELECT * FROM PermisosUsuarios WHERE IdPermiso = $id And IdUsuario = ".$this->session->userdata("id"));
+		
 		if ($permiso->num_rows()>0) {
 			return true;
 		}

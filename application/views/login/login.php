@@ -39,7 +39,7 @@
 									<input class="form-control" name="pwd" type="password" placeholder="">
 									<span>Contraseña</span>
 								</label>
-								<div class="d-flex justify-content-between align-items-center"><a href="#">Olvido su contraseña?</a> <button class="btn btn-primary btn-lg btn-shadow"
+								<div class="d-flex justify-content-between align-items-center"><button class="btn btn-primary btn-lg btn-shadow"
 										type="submit">LOGIN</button></div>
 							</form>
 						</div>
