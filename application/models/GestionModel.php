@@ -265,13 +265,15 @@ class GestionModel extends CI_Model
 	public function downloadFile($id,$tipo)
 	{
 
+		if ($this->session->userdata("logged") != 1) {
+			redirect('unauthorized', 'refresh');            
+        }
+
 		//todo validar permiso
-		if (!$this->PermisosModel->validarPermiso($id,$tipo)) {
+		if ($tipo != 'general' && !$this->PermisosModel->validarPermiso($id,$tipo)) {
 			redirect('unauthorized', 'refresh');
 		}
 
-		echo "--->".$this->PermisosModel->validarPermiso($id,$tipo);
-		return;
 
 		$this->load->helper('download');
 		

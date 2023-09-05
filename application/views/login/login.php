@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-    <title>Dore jQuery</title>
+    <title>Portal SGI</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/font/iconsmind-s/css/iconsminds.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/font/simple-line-icons/css/simple-line-icons.css">

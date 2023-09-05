@@ -47,6 +47,11 @@ class Welcome extends CI_Controller {
 		$this->load->view('login/login');
 	}
 
+    function quienessomos()
+    {
+        $this->load->view('landing/quienessomos');   
+    }
+
 	public function Acreditar()
     {
         $this->form_validation->set_rules('username', 'nombre', 'required');
