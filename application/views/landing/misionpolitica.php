@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Agency - Start Bootstrap Theme</title>
+        <title>Portal SGI</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="<?php echo base_url()?>assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -62,7 +62,7 @@
                             <li><a class="dropdown-item" href="<?php echo base_url('index.php/principiosValores') ?>">Principios y valores</a></li>
                           </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">QUIENES SOMOS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/quienessomos');?>">QUIENES SOMOS</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/portafolio'); ?>">PORTAFOLIO</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/trayectoria'); ?>">TRAYECTORIA</a></li>
                         <?php 
@@ -74,9 +74,7 @@
                         <!--<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/instalaciones') ?>">INSTALACIONES</a></li>-->
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/contactenos') ?>">CONTÁCTENOS</a></li>                       
                         <?php
-                            if($this->session->userdata("logged") == 1){
-                                echo '<li class="nav-item"><a class="nav-link" href="'.base_url('index.php/gerentesView').'">SGC</a></li>';
-                            }                            
+                                                        
                             if($this->session->userdata("logged") == 1){
                                 echo '<li class="nav-item">
                                     <a class="p-1 nav-link btn  btn-sm text-uppercase" href="'.base_url('index.php/salir').'"> Cerrar Sesión</a>
@@ -99,19 +97,16 @@
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">MISIÓN Y POLÍTICA DE GESTIÓN INTEGRAL DELMOR, S.A</h2>
+                    <h2 class="mt-5 section-heading text-uppercase" style="font-size: 2rem;">MISIÓN DEL SGI</h2>
                     
-                    <p class="text-start mt-5 mb-0 text-danger text-bold">Somos una corporación 100%</p>
-                    <P class="text-start">Nicaragüense que se adhiere a los Principios Universales de Responsabilidad Social Empresarial, manteniendo el liderazgo y la excelencia en el procesamiento, distribución y comercialización de Productos Cárnicos, Embutidos, Enlatados y Ahumados. Bajo esta premisa, asumimos los siguientes compromisos:</P>
-                    <p class="text-start mt-5 mb-0 text-danger text-bold">Prevenir:</p>
-                    <P class="text-start">Aplicamos la Prevención y el Pensamiento Basado en Riesgos y Oportunidades en todas nuestras actividades y procesos. De esta manera contribuimos en la protección y el bienestar de la organización, el medio ambiente, los clientes, los consumidores, los colaboradores y las partes interesadas con quienes interactuamos.</P>
-                    <p class="text-start mt-5 mb-0 text-danger text-bold">Cumplir:</p>
-                    <P class="text-start">Cumplimos los requisitos legales y reglamentarios, los acuerdos y demás obligaciones que se generan en la interacción con los grupos de interés desde o hacia los procesos de Industrias DELMOR, en lo relacionado con Calidad, Inocuidad, Asuntos Ambientales, Seguridad y Salud en el Trabajo.</P>
-                    <p class="text-start mt-5 mb-0 text-danger text-bold">Mejorar:</p>
-                    <P class="text-start">Fijamos como premisa institucional para el éxito sostenible, la mejora continua en el desempeño de nuestros procesos, productos y Sistema de Gestión Integral, para contribuir en el desarrollo socioeconómico del país, la seguridad alimentaria, el bienestar de nuestros colaboradores y sus familias. Para lograr esta mejora garantizamos la consulta y participación de los colaboradores, en la planificación y ejecución sistemática de acciones que permitan reducir la vulnerabilidad en los diferentes componentes de riesgos QHSE FS+ (Calidad, Salud y Seguridad en el Trabajo, Gestión Ambiental y Seguridad Alimentaria).</P>
+                    <P class="text-start">Somos una Corporación 100% nicaragüense que se adhiere a los Principios Universales de Responsabilidad Social Empresarial, en el procesamiento, distribución y comercialización de Productos Cárnicos, Embutidos, Enlatados y Ahumados. </P>
                 </div>
-                <div class="row text-center">
+                <div class="text-center">
+                    <h2 class="mt-5 section-heading text-uppercase" style="font-size: 2rem;">POLÍTICA DEL SGI</h2>
                     
+                    <P class="text-start">Aplicamos la Prevención y el Pensamiento Basado en Riesgos y Oportunidades en todas nuestras actividades de procesos productivos, Distribución y Comercialización de nuestros productos. </P>
+                    <P class="text-start">Cumplimos los requisitos legales y reglamentarios aplicables, en lo relacionado con Calidad, Inocuidad, Seguridad y Salud en el Trabajo, y Asuntos Ambientales.</P>
+                    <P class="text-start">Fijamos como premisa institucional para el éxito sostenible, la mejora continua en el desempeño de nuestros procesos, productos y Sistema de Gestión Integral, para contribuir en el desarrollo socioeconómico del país, la seguridad alimentaria, el bienestar de nuestros colaboradores y sus familias. </P>
                 </div>
             </div>
         </section>
@@ -121,7 +116,7 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; DELMOR S.A 2022</div>
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; DELMOR S.A <?php echo date('Y'); ?></div>
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/delmornic/?hl=es-la" aria-label="Twitter"><i class="fab fa-instagram"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/delmornic/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>

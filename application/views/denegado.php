@@ -7,7 +7,7 @@ header('Access-Control-Allow-Origin: *');
 
 <head>
     <meta charset="UTF-8">
-    <title>Dore jQuery</title>
+    <title>Portal SGI</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/font/iconsmind-s/css/iconsminds.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/font/simple-line-icons/css/simple-line-icons.css">
@@ -17,12 +17,11 @@ header('Access-Control-Allow-Origin: *');
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/vendor/component-custom-switch.min.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/main.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/js/sweetalert2@11.js">
-    
-    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+        
 </head>
 
 
-<body class="background show-spinner no-footer">
+<body class="background no-footer">
 	<div class="fixed-background"></div>
 	<main>
 		<div class="container">

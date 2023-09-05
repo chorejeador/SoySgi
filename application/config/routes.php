@@ -74,6 +74,7 @@ $route["principiosValores"] = "welcome/principiosValores";
 $route["trayectoria"] = "welcome/trayectoria";
 $route["portafolio"] = "welcome/portafolio";
 $route["noticiaseventos"] = "welcome/noticiaseventos";
+$route["quienessomos"] = "welcome/quienessomos";
 
 /******acceso denegado permiso */
 $route["unauthorized"] = "welcome/unauthorized";

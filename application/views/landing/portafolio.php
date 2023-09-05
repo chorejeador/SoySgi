@@ -43,6 +43,28 @@
     font-size: 20px;
     color: black;
   }
+  .btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  color: #fff;
+}
 </style>
 </head>
 <body>
@@ -59,6 +81,8 @@
       <p id="seconds"></p>
       <span class="label">segundos</span>
     </div>
+    <a href="javascript:void(0);" onclick="window.history.back();" class="btn btn-primary btn-md text-uppercase">Regresar</a>
+
   </div>
 
   <script>

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Agency - Start Bootstrap Theme</title>
+        <title>Portal SGI</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="<?php echo base_url()?>assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -60,7 +60,7 @@
                             <li><a class="dropdown-item" href="<?php echo base_url('index.php/principiosValores') ?>">Principios y valores</a></li>
                           </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">QUIENES SOMOS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/quienessomos');?>">QUIENES SOMOS</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/portafolio'); ?>">PORTAFOLIO</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/trayectoria'); ?>">TRAYECTORIA</a></li>
                         <?php 
@@ -71,11 +71,12 @@
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/noticiaseventos'); ?>">NOTICIAS Y EVENTOS</a></li>
                         <!--<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/instalaciones') ?>">INSTALACIONES</a></li>-->
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/contactenos') ?>">CONTÁCTENOS</a></li>
-                       
+                        <?php if($this->session->userdata("logged") == 1){
+                                echo '<li class="nav-item"><a class="nav-link" href="'.base_url('index.php/docGeneral').'">VISTA GENERAL</a></li>'; 
+                            }
+                        ?>
                         <?php
-                            if($this->session->userdata("logged") == 1){
-                                echo '<li class="nav-item"><a class="nav-link" href="'.base_url('index.php/gerentesView').'">SGC</a></li>';
-                            }                            
+                                                        
                             if($this->session->userdata("logged") == 1){
                                 echo '<li class="nav-item">
                                     <a class="p-1 nav-link btn  btn-sm text-uppercase" href="'.base_url('index.php/salir').'"> Cerrar Sesión</a>
@@ -166,7 +167,7 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; DELMOR S.A 2022</div>
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; DELMOR S.A <?php echo date('Y'); ?></div>
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/delmornic/?hl=es-la" aria-label="Twitter"><i class="fab fa-instagram"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/delmornic/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>

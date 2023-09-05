@@ -123,15 +123,19 @@ class PermisosModel extends CI_Model
 	{
 		$json = array();
         $i = 0;
-		$consulta = "SELECT t0.*,CASE WHEN t1.Id IS NOT NULL THEN 'AUTORIZADO' ELSE 'NO AUTORIZADO' END AS PERMISO,
+		$consulta = "SELECT t0.*,
+		ISNULL((
+			SELECT Estado FROM PermisosDocumentosUsuario
+			WHERE PermisosDocumentosUsuario.IdDocumento = ".$id." and PermisosDocumentosUsuario.IdUsuario = t0.IdUsuario
+			AND PermisosDocumentosUsuario.Tipo = '".$tipo."'
+		),'NO AUTORIZADO') AS PERMISO, 
 		t2.Descripcion as Area
 		FROM Usuarios t0
 		left join CatAreas t2 on t2.IdArea = t0.IdArea
-		LEFT JOIN PermisosDocumentosUsuario t1 on t1.IdUsuario = T0.IdUsuario and t1.Estado = 'Activo'
-		and t1.Tipo = '".$tipo."'
+		-- LEFT JOIN PermisosDocumentosUsuario t1 on t1.IdUsuario = T0.IdUsuario and t1.Tipo = '".$tipo."'
 		where t0.Estado = 'ACTIVO'";
 
-			//echo $consulta;return;
+		//echo $consulta;return;
 		$result = $this->db->query($consulta);
 
 		foreach ($result->result_array() as $key) {
@@ -152,9 +156,9 @@ class PermisosModel extends CI_Model
         $i = 0;
 		$this->db->trans_begin();
 		try {
-			$estadoUp = 'ACTIVO';
+			$estadoUp = 'AUTORIZADO';
 			if ($estado == 'AUTORIZADO') {
-				$estadoUp = 'INACTIVO';
+				$estadoUp = 'NO AUTORIZADO';
 			}
 			$existe = $this->db->query("SELECT * FROM PermisosDocumentosUsuario WHERE IdDocumento = ".$idDocumento." and IdUsuario =".$idUsuario." and Tipo = '".$tipo."'");
 			
@@ -187,7 +191,7 @@ class PermisosModel extends CI_Model
 
 	function validarPermiso($id,$tipo)
 	{		
-		$permiso = $this->db->query("SELECT * FROM PermisosDocumentosUsuario WHERE Estado = 'ACTIVO' AND  IdDocumento = ".$id." AND Tipo = '".$tipo."'");
+		$permiso = $this->db->query("SELECT * FROM PermisosDocumentosUsuario WHERE Estado = 'AUTORIZADO' AND  IdDocumento = ".$id." AND Tipo = '".$tipo."'");
 		if ($permiso->num_rows()>0) {
 			return true;
 		}

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Agency - Start Bootstrap Theme</title>
+        <title>Portal SGI</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="<?php echo base_url()?>assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -63,7 +63,7 @@
                           </ul>
                         </li>
 
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">QUIENES SOMOS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/quienessomos');?>">QUIENES SOMOS</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/portafolio'); ?>">PORTAFOLIO</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/trayectoria') ?>">TRAYECTORIA</a></li>
                         <?php 
@@ -80,9 +80,7 @@
                         ?>
                         
                         <?php
-                            if($this->session->userdata("logged") == 1){
-                                echo '<li class="nav-item"><a class="nav-link" href="'.base_url('index.php/gerentesView').'">SGC</a></li>';
-                            }                            
+                                                        
                             if($this->session->userdata("logged") == 1){
                                 echo '<li class="nav-item">
                                     <a class="p-1 nav-link btn  btn-sm text-uppercase" href="'.base_url('index.php/salir').'"> Cerrar Sesión</a>
@@ -144,52 +142,64 @@
         </header>
         
         <!-- Services-->        
-        <section class="page-section" id="services">
+        <section class="page-section p-0" id="services">
             <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Generalidades</h2>
-                    <h3 class="section-subheading text-muted">
-                        Industrias Delmor, S. A. pone a su disposición este portal en el cual encontrará información relevante al Sistema Integrado de Gestión implementado bajo las siguientes normas internacionales:
+                <div class="text-left">
+                    <h2 class="section-heading text-uppercase text-center">Generalidades</h2>
+                    <h3 class="section-subheading mb-4 text-muted">
+                        En Nicaragua existen cerca de noventa (90) organizaciones certificadas en los diferentes Sistemas de Gestión. Comparando esta cantidad con el total de organizaciones activas en el país, y la cantidad de organizaciones Certificadas en Centro América podemos afirmar que en términos porcentuales no es significativo. Cabe destacar que ninguna de esta cuenta con un Sistema Integrado de Gestión con las normas de Calidad, Inocuidad, Seguridad y Ambiente.
                     </h3>
-                </div>
-                <div class="row text-center">
-                    <div class="col-md-3">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">FSSC 22000</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-danger"></i>
-                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">ISO 9001:2015</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">ISO 45001:2018</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-danger"></i>
-                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">ISO 14001:2015</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                </div>
+                    <h3 class="section-subheading mb-4 text-muted">
+                        En las investigaciones realizadas por las firmas internacionales se determinó que la principal razón del por qué las organizaciones no logran certificarse, es la ausencia de personas competentes que puedan implementar, mantener y mejorar dichos sistemas de gestión. Esto priva a las organizaciones nicaragüenses de obtener los beneficios que estos sistemas de gestión proponen y así mejorar su competitividad y la del país.
+                    </h3>
+                    <h3 class="section-subheading mb-4 text-muted">
+                       Siendo su base “La Calidad”, se han desarrollado diversos estudios sobre el retorno de inversión de los mismos. A continuación, compartimos uno de los más recientes:
+                    </h3>
+                    <h3 class="section-subheading mb-4 text-muted">
+                       Siendo su base “La Calidad”, se han desarrollado diversos estudios sobre el retorno de inversión de los mismos. A continuación, compartimos uno de los más recientes:
+                    </h3>
+                    <b>Beneficios del Sistema de Gestión Integrado (QHSE FS+ 90k)</b>
+                    <h3 class="section-subheading mb-4 text-muted">
+                       La integración de sistemas de gestión es la acción y efecto de aunar, dos o más políticas, conceptos, corrientes divergentes entre sí, fusionándolos en una sola que sintetice. Su principal objetivo es aportar valor a la organización tomando las prácticas internacionales en cuatro principales temas:
+                    </h3>
+                    <h3 class="section-subheading mb-4 text-muted">
+                        Gestión de la Inocuidad de los Alimentos (FSSC 22000 V5.1):
+                    </h3>
+                    <h3 class="section-subheading mb-4 text-muted">
+                        Asegurar la producción de alimentos inocuos que garanticen una elección segura al momento de compra.
+                        Gestión de la Calidad (ISO 9001:2015):<br>
+                        Proporcionar regularmente productos y servicios que satisfagan los requisitos del cliente y los legales y reglamentarios aplicables y aspirar a aumentar la satisfacción del cliente. 
+                    </h3>
+                    <h3 class="section-subheading mb-4 text-muted">
+                        Gestión de la Seguridad y Salud en el Trabajo (ISO 45001:2018): 
+                    </h3>
+                    <h3 class="section-subheading mb-4 text-muted">
+                        La adopción de este sistema de gestión, permite a la organización mejorar su desempeño relacionado a la salud y seguridad de los trabajadores y gestionar los riesgos de forma adecuada. 
+                    </h3>
+                    <h3 class="section-subheading mb-4 text-muted">
+                        Gestión Ambiental (ISO 14001:2015): 
+                    </h3>
+                    <h3 class="section-subheading mb-4 text-muted">
+                        Mejorar el desempeño ambiental, cumplimiento de requisitos legales u otros requisitos y lograr los objetivos ambientales.
+                        El Sistema de Gestión Integrado implementado, permite a la organización obtener: 
+                    </h3>
+
+                         <ul style="list-style-type: disc;padding-left: 20px;" class="section-subheading mb-4 text-muted">
+                            <li style=" margin-bottom: 5px;">Una sola política</li>
+                            <li style=" margin-bottom: 5px;">Una sola documentación</li>
+                            <li style=" margin-bottom: 5px;">Un solo tablero de indicadores</li>
+                            <li style=" margin-bottom: 5px;">Un solo equipo de coordinación</li>
+                            <li style=" margin-bottom: 5px;">Una sola revisión por la dirección</li>
+                            <li style=" margin-bottom: 5px;">Una sola red de procesos</li>
+                        </ul>
+                    <h3 class="section-subheading mb-4 text-muted">
+                        El presente portal resume los avances alcanzados durante el proceso de implementación, mantenimiento y mejora del Sistema de Gestión Integrado QHSE FS+ 90k.
+                    </h3>
+                </div>               
             </div>
         </section>
         <!-- Portfolio Grid-->
-        <section class="page-section bg-light" id="portfolio">
+        <section class="page-section bg-light pt-5" id="portfolio">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">CERTIFICACIÓN</h2>
@@ -288,75 +298,9 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- About-->
-        <section class="page-section" id="about">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">CRONOLOGÍA</h2>
-                    <!--<h3 class="section-subheading text-muted">Nuestra historia.</h3>-->
-                </div>
-                <ul class="timeline">
-                    <li>
-                        <div class="timeline-image"><div class="anio"><h3>1992</h3></div></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>1962</h4>
-                                <h4 class="subheading">Nuestros comienzos</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">
-                                Los últimos sesenta y un años los ha dedicado al mejoramiento de la calidad de sus productos, construyendo una imagen imperdurable entre los consumidores nicaragüenses. Durante este tiempo adquirió tecnología moderna que le permitió rediseñar nuevos empaques y presentaciones de sus productos, así como también reformulaciones en todos los aspectos.
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><div class="anio"><h3>1992</h3></div></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>2022</h4>
-                                <h4 class="subheading">Aniversario 60</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-image"><div class="anio"><h3>1992</h3></div></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>December 2015</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><div class="anio"><h3>1992</h3></div></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>July 2020</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <h4>
-                                Be Part
-                                <br />
-                                Of Our
-                                <br />
-                                Story!
-                            </h4>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
+        </section>       
         <!-- Team-->
-        <section class="page-section bg-light" id="team">
+        <!--<section class="page-section bg-light" id="team">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Nuestro equipo</h2>
@@ -393,14 +337,9 @@
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8 mx-auto text-center">
-                        <p class="large text-muted">DELMOR, ayuda al desarrollo económico del país, creando fuentes de trabajo en la empresa y en los distintos puestos de distribución, estableciendo precios diferenciados para los diferentes segmentos de mercado y estratos sociales.</p>
-                    </div>
-                </div>
+                </div>               
             </div>
-        </section>
+        </section>-->
        
         <!-- Contact-->
         <section class="page-section" id="contact">
@@ -449,10 +388,7 @@
                                             Illustration
                                         </li>
                                     </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Cerrar
-                                    </button>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -484,10 +420,6 @@
                                             Graphic Design
                                         </li>
                                     </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close 
-                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -519,10 +451,7 @@
                                             Identity
                                         </li>
                                     </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Cerrar
-                                    </button>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -554,10 +483,7 @@
                                             Branding
                                         </li>
                                     </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Cerrar
-                                    </button>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -589,10 +515,7 @@
                                             Website Design
                                         </li>
                                     </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Cerrar
-                                    </button>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -624,10 +547,7 @@
                                             Photography
                                         </li>
                                     </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Cerrar
-                                    </button>
+                                   
                                 </div>
                             </div>
                         </div>
