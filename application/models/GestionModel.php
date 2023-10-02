@@ -262,15 +262,16 @@ class GestionModel extends CI_Model
 		return $result->result_array();
 	}
 
-	public function downloadFile($id,$tipo)
+	public function downloadFile($id,$tipo,$path="")
 	{
+
 
 		if ($this->session->userdata("logged") != 1) {
 			redirect('unauthorized', 'refresh');            
         }
 
 		//todo validar permiso
-		if ($tipo != 'general' && !$this->PermisosModel->validarPermiso($id,$tipo)) {
+		if (($tipo != 'general' && $tipo != 'gerente') && !$this->PermisosModel->validarPermiso($id,$tipo)) {
 			redirect('unauthorized', 'refresh');
 		}
 
@@ -278,10 +279,14 @@ class GestionModel extends CI_Model
 		$this->load->helper('download');
 		
 		$fileInfo = $this->db->query("SELECT * FROM TblDocumentos where IdDocumento = ".$id);
+
+		if ($tipo = 'gerente') {
+			$fileInfo = $this->db->query("SELECT * FROM TblDocumentosGerentes where Id = ".$id);
+		}
 		if ($fileInfo->num_rows()==0) {
 			return null;
 		}
-		$file = 'uploads/'.$fileInfo->result_array()[0]["Url"].".".$fileInfo->result_array()[0]["Tipo"];
+		$file = 'uploads/'.$path.$fileInfo->result_array()[0]["Url"].".".$fileInfo->result_array()[0]["Tipo"];
         $stored_file_name .= $fileInfo->result_array()[0]["Nombre"]; 
 
 		$original .= $result['file_name']; 

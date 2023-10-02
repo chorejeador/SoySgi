@@ -154,8 +154,13 @@
                 <div class="dropdown-menu dropdown-menu-right mt-3">
                         <?php  if($CI->PermisosModel->validarPermisoUsuario(3)) {
                             echo '<a href="'.base_url('index.php/procesos').'" class="dropdown-item">Administración</a>';
-                         } 
+                        } 
                         ?>
+
+                        <?php  if($CI->PermisosModel->validarPermisoUsuario(4) || $CI->PermisosModel->validarPermisoUsuario(5)) {
+                            echo '<a href="'.base_url('index.php/misIndicadores').'" class="dropdown-item">Mis indicadores</a>';
+                        } 
+                        ?>                        
                         <a href="<?php echo base_url('index.php/gerentesView'); ?>" class="dropdown-item">Vista de procesos</a>
                         <a href="<?php echo base_url('index.php/welcome'); ?>" class="dropdown-item">Inicio</a>
                         <a class="dropdown-item" href="<?php echo base_url('index.php/salir'); ?>">Salir</a>

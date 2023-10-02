@@ -87,3 +87,12 @@ $route["generalSearch"] = "GeneralController/generalSearch";
 $route["crearDocGeneral"] = "GeneralController/crearDocGeneral";
 $route["guardarDocGeneral"] = "GeneralController/guardarDocGeneral";
 $route["bajaDocumentoGeneral"] = "GeneralController/bajaDocumentoGeneral";
+
+
+/***mis indicadores */
+$route["misIndicadores"] = "indicadoresController/misIndicadores";
+$route["indicadoresSearch"] = "indicadoresController/indicadoresSearch";
+$route["agregarIndicadorGerente"] = "indicadoresController/agregarIndicadorGerente";
+$route["subirArchivoMisIndicadores"] = "indicadoresController/subirArchivoMisIndicadores";
+$route["subirArchivoMisIndicadores"] = "indicadoresController/subirArchivoMisIndicadores";
+$route["downloadFileGerente/(:any)/(:any)"] = "GerentesController/downloadFileGerente/$1/$2";

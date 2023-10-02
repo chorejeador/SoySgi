@@ -61,4 +61,11 @@ class GerentesController extends CI_Controller {
 		}
 	}
 
+	public function downloadFileGerente($id,$tipo)
+	{
+		if (!empty($id)) {
+			$this->GestionModel->downloadFile($id,$tipo,"gerentes/");			
+		}
+	}
+
 }

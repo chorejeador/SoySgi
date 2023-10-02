@@ -3,7 +3,7 @@
 	<div class="row app-row">
 		<div class="col-12 survey-app">
 			<div class="mb-2">
-				<h1>Developer Survey</h1>
+				<h1>Lista de Gestiones</h1>
 				<div class="text-zero top-right-button-container"><button type="button"
 						class="btn btn-lg btn-outline-primary dropdown-toggle dropdown-toggle-split top-right-button top-right-button-single"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ACTIONS</button>

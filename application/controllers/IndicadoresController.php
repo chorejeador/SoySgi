@@ -1,60 +1,53 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class GeneralController extends CI_Controller {
+class IndicadoresController extends CI_Controller {
 
 	protected $helpers = ['form'];
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('GeneralModel');
-		$this->load->model('AreasModel');
+		$this->load->model('IndicadoresModel');				
 		$this->load->helper(array('form', 'url'));
 		if ($this->session->userdata("logged") != 1) {
             redirect(base_url() . 'index.php', 'refresh');
-        }     
+        }
+
 	}
 
-	function verDocGeneral()
-	{
-		$data["docs"] = $this->GeneralModel->getDocumentos();
-		
-		$this->load->view('general/verDocGeneral',$data);
-	}
-
-
-	function general()
-	{		
-		$this->load->view('header/header');
-		$this->load->view('menu/menu');
-		$this->load->view('general/general');
+    function misindicadores() {
+        if (!$this->PermisosModel->validarPermisoUsuario(4) && !$this->PermisosModel->validarPermisoUsuario(5) ) {
+            redirect('unauthorized', 'refresh');
+        }
+        $this->load->view('header/header');
+		//$this->load->view('menu/menu');
+		$this->load->view('indicadores/index');
 		$this->load->view('footer/footer');
-        $this->load->view('js/general/general');
-	}
+        $this->load->view('js/indicadores/indicadoresJs');
+    }
 
-	function generalSearch()
-	{
-		$this->GeneralModel->generalSearch('ACTIVO',$this->input->post("filtro"));
-	}
-
-	function crearDocGeneral()
+    function agregarIndicadorGerente()
 	{
 		$this->load->view('header/header');
-		$this->load->view('menu/menu');
-		$this->load->view('general/crearGeneral');
+		//$this->load->view('menu/menu');
+		$this->load->view('indicadores/agregarIndicadorGerente');
 		$this->load->view('footer/footer');
-        $this->load->view('js/general/crearDocGeneral');			
+        $this->load->view('js/indicadores/agregarIndicadorGerenteJs');			
 	}
 
 
-	public function guardarDocGeneral()
-	{
-		$mensaje = array(); 
+    function indicadoresSearch() {
+        return $this->IndicadoresModel->search($this->input->post('filtro'));
+    }
+
+    function subirArchivoMisIndicadores()
+    {
+    	$mensaje = array(); 
 
 			//upload configuration			
-			$config['upload_path']          = './uploads/';
-            $config['allowed_types']        = 'gif|jpg|png|pdf|doc|xlsx|xls|docx|mp4|jpeg';
+			$config['upload_path']          = './uploads/gerentes';
+            $config['allowed_types']        = 'xlsx|xls';
             $config['max_size']             = 102400;//100 megas
             $config['detect_mime']          = true;//proteccion para injeccion
             $config['file_ext_tolower']     = true;
@@ -79,13 +72,14 @@ class GeneralController extends CI_Controller {
             }
 			else{
                 $data = array('upload_data' => $this->upload->data());
-				$result = $this->GeneralModel->guardarDocumento(
+				$result = $this->IndicadoresModel->guardarDocumento(
 					$file_ext
 					,$config['file_name']
 					,$this->input->post('txtId')
 					,$this->input->post('txtNombre')
-					,$this->input->post('txtDescripcion')
-					,$this->input->post('selectArea')
+					,$this->input->post('txtDescripcion')					
+					,$this->input->post('mes')
+					,$this->input->post('anio')
 					,null
 					,null
 				);
@@ -100,13 +94,6 @@ class GeneralController extends CI_Controller {
 				}
 				//echo json_encode($result);            	
             }
-	}
+    }
 
-	function bajaDocumentoGeneral()
-	{
-		$this->GeneralModel->bajaDocumentoGeneral($_POST['id'],$_POST['estado']);
-	}
-
-
-	
 }
