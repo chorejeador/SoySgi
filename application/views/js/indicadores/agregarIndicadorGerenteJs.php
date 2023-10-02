@@ -49,7 +49,7 @@
 									type: tipo,
 									allowOutsideClick: false
 								}).then(function () {
-									location.reload();
+									window.location.href = "<?php echo base_url('index.php/misIndicadores'); ?>";
 								});
                             });
                         },

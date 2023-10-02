@@ -22,7 +22,7 @@
             if (nombre.length <= 5) {
                 alert("Nombre demasiado corto (5 caracteres mínimo)");bandera = false;
             }
-            if (nombre.length <= 5) {
+            if (descripcion.length <= 5) {
                 alert("Descripción requerida (5 caracteres mínimo)");bandera = false;
             }
             if (area== '') {
