@@ -54,7 +54,7 @@
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php'); ?>">INICIO</a></li>
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" data-mdb-toggle="dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            CORPORACION DELMOR
+                            CORPORACIÓN DELMOR
                           </a>
                           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="<?php echo base_url('index.php/misionPolitica') ?>">Misión y política</a></li>
@@ -62,7 +62,7 @@
                             <li><a class="dropdown-item" href="<?php echo base_url('index.php/principiosValores') ?>">Principios y valores</a></li>
                           </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/quienessomos');?>">QUIENES SOMOS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/quienessomos');?>">¿QUIÉNES SOMOS?</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/portafolio'); ?>">PORTAFOLIO</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/trayectoria'); ?>">TRAYECTORIA</a></li>
                         <?php 

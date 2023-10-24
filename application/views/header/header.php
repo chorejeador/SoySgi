@@ -158,7 +158,7 @@
                         ?>
 
                         <?php  if($CI->PermisosModel->validarPermisoUsuario(4) || $CI->PermisosModel->validarPermisoUsuario(5)) {
-                            echo '<a href="'.base_url('index.php/misIndicadores').'" class="dropdown-item">Mis indicadores</a>';
+                            echo '<a href="'.base_url('index.php/misIndicadores').'" class="dropdown-item">Indicadores</a>';
                         } 
                         ?>                        
                         <a href="<?php echo base_url('index.php/gerentesView'); ?>" class="dropdown-item">Vista de procesos</a>

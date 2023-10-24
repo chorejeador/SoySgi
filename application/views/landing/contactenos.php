@@ -51,7 +51,7 @@
                         </li>
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" data-mdb-toggle="dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            CORPORACION DELMOR
+                            CORPORACIÓN DELMOR
                           </a>
                           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="<?php echo base_url('index.php/misionPolitica') ?>">Misión y política</a></li>
@@ -60,7 +60,7 @@
                           </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="quienesSomosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">QUIENES SOMOS</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="quienesSomosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">¿QUIÉNES SOMOS?</a>
                             <ul class="dropdown-menu" aria-labelledby="quienesSomosDropdown">
                                 <li><a class="dropdown-item" href="#">Esquema organizacional</a></li>
                                 <li><a class="dropdown-item" href="#">Equipo de dirección</a></li>                            
@@ -78,7 +78,7 @@
                         <!--<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/instalaciones') ?>">INSTALACIONES</a></li>-->
                         <li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/contactenos') ?>">CONTÁCTENOS</a></li>
                         <?php if($this->session->userdata("logged") == 1){
-                                echo '<li class="nav-item"><a class="nav-link" href="'.base_url('index.php/docGeneral').'">VISTA GENERAL</a></li>'; 
+                                echo '<li class="nav-item"><a class="nav-link" href="'.base_url('index.php/docGeneral').'">Vista General</a></li>'; 
                             }
                         ?>
                         <?php

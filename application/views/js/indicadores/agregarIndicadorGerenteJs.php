@@ -14,17 +14,33 @@
                 let imagen = document.getElementById('archivo').files[0];
                 let extensiones = imagen.name.split('.').pop().toLowerCase();
                 if(jQuery.inArray(extensiones,['xls','xlsx']) == -1){
-                    alert('Solo se permiten las siguientes extensiones: (xls, xlsx)'); bandera = false;
+                    new swal({
+                        text: "Solo se permiten las siguientes extensiones: (xls, xlsx)",
+                        type: "error",
+                        allowOutsideClick: false
+                    }); bandera = false;
                 }
             }
             if($('#archivo').val() == ''){
-                alert("Seleccione un archivo");bandera = false;
+                new swal({
+                        text: "Seleccione un archivo",
+                        type: "error",
+                        allowOutsideClick: false
+                    }); bandera = false;
             }
             if (nombre.length <= 5) {
-                alert("Nombre demasiado corto (5 caracteres mínimo)");bandera = false;
+                new swal({
+                        text: "Nombre demasiado corto (5 caracteres mínimo)",
+                        type: "error",
+                        allowOutsideClick: false
+                    }); bandera = false;
             }
             if (nombre.length <= 5) {
-                alert("Descripción requerida (5 caracteres mínimo)");bandera = false;
+                new swal({
+                        text: "Descripción requerida (5 caracteres mínimo)",
+                        type: "error",
+                        allowOutsideClick: false
+                    }); bandera = false;
             }
 
             if (bandera) {

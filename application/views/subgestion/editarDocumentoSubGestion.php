@@ -6,7 +6,7 @@
 				<h1>Edición del archivo: <?php echo $datos[0]["Nombre"]; ?></h1>				
 				<nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">
 					<ol class="breadcrumb pt-0">						
-						<li class="breadcrumb-item"><a href="<?php echo base_url('index.php/subGestiones') ?>">Lista de gestiones</a></li>
+						<li class="breadcrumb-item"><a href="<?php echo base_url('index.php/subGestiones') ?>">Lista de Gestiones</a></li>
 					</ol>
 				</nav>
 			</div>

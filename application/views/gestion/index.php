@@ -6,7 +6,7 @@
 				<nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">
 					<ol class="breadcrumb pt-0">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item"><a href="<?php echo base_url('index.php/nuevaGestion');?>">Nueva gestión</a></li>						
+						<li class="breadcrumb-item"><a href="<?php echo base_url('index.php/nuevaGestion');?>">Nueva Gestión</a></li>						
 					</ol>
 				</nav>
 				<div class="separator mb-5"></div>
@@ -36,10 +36,10 @@
                                     <th scope="col">Descripción</th>
                                     <th scope="col">Estado</th>
                                     <th scope="col">Fecha Creación</th>
-                                    <th scope="col">Ultima Actualización</th>
+                                    <th scope="col">Última Actualización</th>
                                     <th scope="col">Editar</th>
-                                    <th scope="col">Agregar documento</th>
-                                    <th scope="col">Agregar SubGestión</th>
+                                    <th scope="col">Agregar Documento</th>
+                                    <th scope="col">Agregar Sub Gestión</th>
                                 </tr>
                             </thead>
                             <tbody>

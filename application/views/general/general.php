@@ -36,9 +36,9 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Descripcion</th>
+                                    <th scope="col">Descripción</th>
                                     <th scope="col">Fecha Creación</th>
-                                    <th scope="col">Ultima Actualización</th>
+                                    <th scope="col">Última Actualización</th>
                                     <th scope="col">Ver</th>
                                     <th scope="col">Opción</th>
                                     
