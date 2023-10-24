@@ -280,11 +280,11 @@ class GestionModel extends CI_Model
 		$fileInfo = $this->db->query("SELECT * FROM TblDocumentos where IdDocumento = ".$id);
 
 		if ($tipo == 'gerente') {
-			echo "gerente";
+			
 			$fileInfo = $this->db->query("SELECT * FROM TblDocumentosGerentes where Id = ".$id);
 		}
 		if ($tipo == 'general') {
-			echo "generalllll";
+			
 			
 			$fileInfo = $this->db->query("SELECT * FROM TblDocumentosGenerales where Estado = 'ACTIVO' and IdDocumento = ".$id);
 			
@@ -298,8 +298,7 @@ class GestionModel extends CI_Model
 
 		$file = 'uploads/'.$path.$fileInfo->result_array()[0]["Url"].".".$fileInfo->result_array()[0]["Tipo"];
 
-		echo "<br>".$file;
-		return;
+		
         $stored_file_name .= $fileInfo->result_array()[0]["Nombre"]; 
 
 		$original .= $result['file_name']; 
