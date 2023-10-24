@@ -4,7 +4,7 @@
                 <ul class="list-unstyled">
                     <li><a href="#dashboard"><i class="iconsminds-shop-4"></i> <span>Dashboards</span></a></li>
                     <li><a href="#procesos"><i class="iconsminds-digital-drawing"></i> Procesos</a></li>
-                    <li><a href="#general"><i class="iconsminds-digital-drawing"></i> Vista general</a></li>
+                    <li><a href="#general"><i class="iconsminds-digital-drawing"></i> Vista General</a></li>
                     <li><a href="#permisos"><i class="iconsminds-air-balloon-1"></i> Permisos</a></li>                    
                 </ul>
             </div>
@@ -25,11 +25,11 @@
                     <li><a href="#" data-toggle="collapse" data-target="#collapseAuthorization" aria-expanded="true"
                             aria-controls="collapseAuthorization" class="rotate-arrow-icon opacity-50"><i
                                 class="simple-icon-arrow-down"></i> <span
-                                class="d-inline-block">Administración de procesos</span></a>
+                                class="d-inline-block">Administración de Procesos</span></a>
                         <div id="collapseAuthorization" class="collapse show">
                             <ul class="list-unstyled inner-level-menu">
                                 <li><a href="<?php echo base_url('index.php/procesos') ?>"><i class="simple-icon-grid"></i> <span
-                                            class="d-inline-block">Lista de procesos</span></a></li>
+                                            class="d-inline-block">Lista de Procesos</span></a></li>
                                 <li><a href="<?php echo base_url('index.php/nuevoProcesos') ?>"><i class="iconsminds-folder-add--"></i> <span
                                             class="d-inline-block">Nuevo Proceso</span></a></li>
                             </ul>
@@ -39,14 +39,14 @@
                         <a href="#" data-toggle="collapse" data-target="#collapseAuthorization" aria-expanded="true"
                             aria-controls="collapseAuthorization" class="rotate-arrow-icon opacity-50">
                             <i class="simple-icon-arrow-down"></i>
-                            <span class="d-inline-block">Administración de gestiones</span>
+                            <span class="d-inline-block">Administración de Gestiones</span>
                         </a>
                         <div id="collapseAuthorization" class="collapse show">
                             <ul class="list-unstyled inner-level-menu">
                                 <li><a href="<?php echo base_url('index.php/gestiones') ?>"><i class="simple-icon-grid"></i> <span
-                                            class="d-inline-block">Lista de gestiones</span></a></li>
+                                            class="d-inline-block">Lista de Gestiones</span></a></li>
                                 <li><a href="<?php echo base_url('index.php/nuevaGestion') ?>"><i class="iconsminds-folder-add--"></i> <span
-                                            class="d-inline-block">Nueva gestión</span></a></li>
+                                            class="d-inline-block">Nueva Gestión</span></a></li>
                             </ul>
                         </div>
                     </li>
@@ -55,12 +55,12 @@
                         <a href="#" data-toggle="collapse" data-target="#collapseAuthorization" aria-expanded="true"
                             aria-controls="collapseAuthorization" class="rotate-arrow-icon opacity-50">
                             <i class="simple-icon-arrow-down"></i>
-                            <span class="d-inline-block">Administración de sub gestiones</span>
+                            <span class="d-inline-block">Administración de Sub Gestiones</span>
                         </a>
                         <div id="collapseAuthorization" class="collapse show">
                             <ul class="list-unstyled inner-level-menu">
                                 <li><a href="<?php echo base_url('index.php/subGestiones') ?>"><i class="simple-icon-grid"></i> <span
-                                            class="d-inline-block">Lista de sub gestiónes</span></a></li>                                
+                                            class="d-inline-block">Lista de Sub Gestiones</span></a></li>                                
                             </ul>
                         </div>
                     </li>
@@ -68,7 +68,7 @@
                 <ul class="list-unstyled" data-link="general" id="general">
                     <ul class="list-unstyled inner-level-menu">
                         <li><a href="<?php echo base_url('index.php/general') ?>"><i class="simple-icon-grid"></i> <span
-                                            class="d-inline-block">Documentos generales</span></a></li>                        
+                                            class="d-inline-block">Documentos Generales</span></a></li>                        
                     </ul>
                 </ul>
 
@@ -77,7 +77,7 @@
                       <a href="#" data-toggle="collapse" data-target="#collapseMenuDetached" aria-expanded="true" aria-controls="collapseMenuDetached" class="rotate-arrow-icon"><i class="simple-icon-arrow-down"></i> <span class="d-inline-block">Permisos</span></a>
                       <div id="collapseMenuDetached" class="collapse show" style="">
                          <ul class="list-unstyled inner-level-menu">
-                            <li><a href="<?php echo base_url('index.php/permisos')?>"><i class="simple-icon-layers"></i> <span class="d-inline-block">Permisos a documentos</span></a></li>
+                            <li><a href="<?php echo base_url('index.php/permisos')?>"><i class="simple-icon-layers"></i> <span class="d-inline-block">Permisos a Documentos</span></a></li>
                          </ul>
                       </div>
                    </li>

@@ -5,7 +5,7 @@
 				<h1>Nueva sub Gestión</h1>
 				<nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">
 					<ol class="breadcrumb pt-0">						
-						<li class="breadcrumb-item"><a href="<?php echo base_url('index.php/gestiones');?>">Lista de Sub Gestiónes</a></li>
+						<li class="breadcrumb-item"><a href="<?php echo base_url('index.php/gestiones');?>">Lista de Sub Gestiones</a></li>
 					</ol>
 				</nav>
 				<div class="separator mb-3"></div>

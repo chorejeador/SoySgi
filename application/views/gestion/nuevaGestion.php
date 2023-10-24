@@ -14,7 +14,7 @@
 		</div>
 		<div class="row">
             <div class="col-12 col-lg-12 mb-3">
-                <h5 class="mb-5">Nueva gestión</h5>
+                <h5 class="mb-5">Nueva Gestión</h5>
                 <div class="card mb-4">
                     <div class="card-body">
                         <form class="needs-validation tooltip-label-right" novalidate="">
