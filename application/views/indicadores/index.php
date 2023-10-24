@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-12">
-				<h1>Mis  indicadores</h1>				
+				<h1>Indicadores</h1>				
 				<div class="separator mb-5"></div>
 			</div>
 		</div>
@@ -23,7 +23,7 @@
                             <div class="col-md-4">
                                 <!-- Este div ocupa las 4 columnas restantes y contiene el botón "Agregar" -->
                                 <div class="text-md-right mb-2">
-                                    <a type="button" href="<?php echo base_url('index.php/agregarIndicadorGerente') ?>"  class="btn btn-sm btn-outline-primary">Agregar indicadores</a>
+                                    <a type="button" href="<?php echo base_url('index.php/agregarIndicadorGerente') ?>"  class="btn btn-sm btn-outline-primary">Agregar Indicadores</a>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                                     <th scope="col">Mes</th>
                                     <th scope="col">Año</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Descripcion</th>                                    
+                                    <th scope="col">Descripción</th>                                    
                                     <th scope="col">Fecha Creación</th>                                    
                                     <th scope="col">Descargar</th>
                                 </tr>

@@ -80,7 +80,7 @@ $route["quienessomos"] = "welcome/quienessomos";
 $route["unauthorized"] = "welcome/unauthorized";
 
 
-/***vista general de documentos****/
+/***Vista General de documentos****/
 $route["docGeneral"] = "GeneralController/verDocGeneral";
 $route["general"] = "GeneralController/general";
 $route["generalSearch"] = "GeneralController/generalSearch";

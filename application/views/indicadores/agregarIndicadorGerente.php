@@ -3,11 +3,11 @@
 	<div class="row">
 		<div class="col-12">
 			<div class="mb-3">
-				<h1>Mis inicadores</h1>				
+				<h1>Indicadores</h1>				
 				<nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">
 					<ol class="breadcrumb pt-0">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item"><a href="<?php echo base_url('index.php/misIndicadores') ?>">Mis indicadores</a></li>						
+						<li class="breadcrumb-item"><a href="<?php echo base_url('index.php/misIndicadores') ?>">Indicadores</a></li>						
 					</ol>
 				</nav>
 			</div>
@@ -17,10 +17,10 @@
 	</div>
 	<div class="row">
 		<div class="col-12 col-xl-12">
-			<h5 class="mb-5">Carga de documentos</h5>
+			<h5 class="mb-5">Carga de Documentos</h5>
 			<div class="card mb-4">
 				<div class="card-body">
-					<h5 class="mb-4">Subir documento</h5>
+					<h5 class="mb-4">Subir Documento</h5>
 					<form class="needs-validation tooltip-label-right" id="formDocumento" novalidate="">						
 						<div class="form-group">
 						    <label for="meses">Selecciona un mes:</label>

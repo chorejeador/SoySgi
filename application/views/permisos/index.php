@@ -3,7 +3,7 @@
 	<div class="container-fluid">
 		<div class="row app-row">
 			<div class="col-12">
-				<h1>Asignar permisos</h1>
+				<h1>Asignar Permisos</h1>
 				<nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">
 					<ol class="breadcrumb pt-0">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>						
@@ -44,7 +44,7 @@
                                  <th scope="col">Tipo Archivo</th>
                                  <th scope="col">Nombre Archivo</th>                                 
                                  <th scope="col">Descripción Archivo</th>
-                                 <th scope="col">Asignar permisos</th>
+                                 <th scope="col">Asignar Permisos</th>
                               </tr>
                            </thead>
                            <tbody>
@@ -67,7 +67,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Asignar permisos a este documento:</h5>
+          <h5 class="modal-title">Asignar Permisos a este documento:</h5>
           <button type="button" class="btn-close" data-dismiss="modal" aria-label="Cerrar"><i class="simple-icon-close"></i> </button>
         </div>
         <div class="modal-body">
