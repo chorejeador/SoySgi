@@ -296,8 +296,8 @@ class GestionModel extends CI_Model
 
 		$file = 'uploads/'.$path.$fileInfo->result_array()[0]["Url"].".".$fileInfo->result_array()[0]["Tipo"];
 
-		echo $file;
-		return;
+		/*echo $file;
+		return;*/
         $stored_file_name .= $fileInfo->result_array()[0]["Nombre"]; 
 
 		$original .= $result['file_name']; 
