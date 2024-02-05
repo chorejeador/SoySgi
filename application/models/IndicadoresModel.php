@@ -36,7 +36,7 @@ class IndicadoresModel extends CI_Model
 				 $json["data"][$i]["Nombre"] = $key["Nombre"];
 				 $json["data"][$i]["Descripcion"] = $key["Descripcion"];
 				 $json["data"][$i]["FechaCrea"] = $key["FechaCrea"];
-				 $json["data"][$i]["Opcion"] = '<a style="color: black;  border-color: black;" href="'.base_url('index.php/downloadFileGerente/').$key["Id"].'/gerente" target="_blank" class="btn btn-outline-theme-3 icon-button edit-button text-black"><i class="simple-icon-arrow-down-circle"></i></a>';
+				 $json["data"][$i]["Opcion"] = '<a style="color: black;  border-color: black;" href="'.base_url('index.php/downloadFileGerente/').$key["Id"].'/gerente" target="_blank" class="w-100 btn btn-outline-theme-3 icon-button edit-button text-black"><i class="simple-icon-arrow-down-circle"></i></a>';
 				 $i++;
          	}
 		}

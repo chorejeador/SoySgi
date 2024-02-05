@@ -8,6 +8,7 @@ class Welcome extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model("LoginModel");
+        $this->load->model("PortafolioModel");
 	}
 
 
@@ -34,9 +35,6 @@ class Welcome extends CI_Controller {
         $this->load->view('landing/trayectoria');
     }
 
-    function portafolio(){
-        $this->load->view('landing/portafolio');
-    }
 
     function noticiaseventos()
     {

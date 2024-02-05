@@ -21,7 +21,7 @@ class AreasModel extends CI_Model
 		}
 		
 
-		$result = $this->db->query("SELECT * FROM CatAreas where 1= 1 ".$query);
+		$result = $this->db->query("SELECT * FROM CatAreas where 1 = 1 ".$query);
 
 		return $result->result_array();
 	}
