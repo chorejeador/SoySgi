@@ -23,6 +23,9 @@
 			"processing": true,
 			"info": true,
 			"sort":true,
+			"paging" : false,
+			"info": false,
+			"searching": false,
 			"destroy": true,
 			"lengthMenu": [
 				[10,20,50,100, -1],

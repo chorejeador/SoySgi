@@ -58,10 +58,10 @@ $route["documentosView/(:any)"] = "GerentesController/documentosView/$1";
 $route["downloadFile/(:any)/(:any)"] = "GerentesController/downloadFile/$1/$2";
 
 /*******permisos*******/
-$route["permisos"] = "PermisosController";
-$route["asignarPermisos"] = "PermisosController";
+$route["permisos"] = "PermisosController"
+;$route["asignarPermisos"] = "PermisosController";
 $route["filtrarUsuarios"] = "UsuariosController/filtrarUsuarios";
-$route["cargarPermisosUsuarios"] = "PermisosController/cargarPermisosUsuarios";
+$route["cargarPermisosUsuarios"] = "PermisosController/cargarPermisosUsuraios";
 $route["asignarPermiso"] = "PermisosController/asignarPermiso";
 $route["cargarDocumentosPermiso"] = "PermisosController/cargarDocumentosPermiso";
 $route["cargarUsuariosDocumentos"] = "PermisosController/cargarUsuariosDocumentos";
@@ -72,9 +72,10 @@ $route["misionPolitica"] = "welcome/misionPolitica";
 $route["vision"] = "welcome/vision";
 $route["principiosValores"] = "welcome/principiosValores";
 $route["trayectoria"] = "welcome/trayectoria";
-$route["portafolio"] = "welcome/portafolio";
+$route["portafolio"] = "PortafolioController/portafolio";
 $route["noticiaseventos"] = "welcome/noticiaseventos";
 $route["quienessomos"] = "welcome/quienessomos";
+$route["filtrarImagenes"] = "PortafolioController/filtrarImagenes";
 
 /******acceso denegado permiso */
 $route["unauthorized"] = "welcome/unauthorized";
@@ -96,3 +97,4 @@ $route["agregarIndicadorGerente"] = "indicadoresController/agregarIndicadorGeren
 $route["subirArchivoMisIndicadores"] = "indicadoresController/subirArchivoMisIndicadores";
 $route["subirArchivoMisIndicadores"] = "indicadoresController/subirArchivoMisIndicadores";
 $route["downloadFileGerente/(:any)/(:any)"] = "GerentesController/downloadFileGerente/$1/$2";
+

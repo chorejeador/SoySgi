@@ -1,4 +1,4 @@
-<?php
+.<?php
     $CI = &get_instance(); // Obtenemos la instancia de CodeIgniter
 ?>
 <!DOCTYPE html>
@@ -33,10 +33,10 @@
             background-image: url(<?= base_url()?>assets/img/logo.png);
             
             background-repeat: no-repeat !important;
-            background-size: 70px 70px !important;
+            background-size: 80px 82px !important;
             padding-left: 70px !important;
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 82px;
         }
 
         .logo-mobile {
