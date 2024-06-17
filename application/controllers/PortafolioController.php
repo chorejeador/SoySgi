@@ -18,7 +18,6 @@ class PortafolioController extends CI_Controller {
 		$data["categorias"] = $this->PortafolioModel->getCategorias();
 
 		
-		//echo json_encode($data);return;
         $this->load->view('landing/portafolio',$data);
         $this->load->view('js/general/portafolio');
     }
