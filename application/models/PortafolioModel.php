@@ -28,7 +28,7 @@ class PortafolioModel extends CI_Model
 	    $groupedImages = array();
 
 	    foreach ($result->result_array() as $value) {
-	        $groupedImages[$i][] = '<div class="shadow card h-100 text-center ml-2 " > <!-- Agregada clase ml-2 para separación izquierda -->
+	        $groupedImages[$i][] = '<div class="shadow card h-100 text-center ml-2 " >
 	                                  <img style="width:200px!important;" class="card-img-top img-fluid" src="'.base_url('assets/portafolio/items/').$value["Imagen"].'">
 	                              </div>';
 

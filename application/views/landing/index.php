@@ -23,6 +23,74 @@
         <!--<link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
         <!--<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">-->-->
+
+        <style>
+            #sliderHome {
+                position: relative;
+                width: 100%;
+                height: 500px; /* Ajusta la altura según tus necesidades */
+                overflow: hidden;
+            }
+
+            .slide {
+                display: none;
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Esto asegura que las imágenes se adapten al contenedor manteniendo sus proporciones */
+                object-position: center; /* Centra la imagen en el contenedor */
+            }
+
+            input[type="radio"]:nth-of-type(1):checked ~ .slide:nth-of-type(1),
+            input[type="radio"]:nth-of-type(2):checked ~ .slide:nth-of-type(2),
+            input[type="radio"]:nth-of-type(3):checked ~ .slide:nth-of-type(3),
+            input[type="radio"]:nth-of-type(4):checked ~ .slide:nth-of-type(4) {
+                display: block;
+                animation: fade 1s ease-in-out;
+            }
+
+            @keyframes fade {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            label {
+                display: inline-block;
+                cursor: pointer;
+                margin: 0 5px;
+            }
+
+            label img {
+                max-width: 100px; 
+                height: auto;
+            }
+
+        </style>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const slides = document.querySelectorAll('.slide');
+                const radios = document.querySelectorAll('input[name="animate"]');
+                let currentSlide = 0;
+                const totalSlides = slides.length;
+                const interval = 4000; // Cambia cada 3 segundos
+
+                function showSlide(index) {
+                    radios[index].checked = true;
+                }
+
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    showSlide(currentSlide);
+                }
+
+                setInterval(nextSlide, interval);
+            });
+
+        </script>   
     </head>
 
     <body id="page-top">
@@ -101,34 +169,33 @@
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead">
-            <div class="box" id="sliderHome">
+            <header class="masthead">
+                <div class="box" id="sliderHome">
                 <input type="radio" name="animate" id="box1"/>
                 <label for="box1">
-                    <img src="<?php echo base_url()?>assets/img/header-bg.jpg" width="80"/>
+                    <img src="<?php echo base_url()?>assets/img/banner1.jpg" width="80"/>
                 </label>
-                <img src="<?php echo base_url()?>assets/img/header-bg.jpg"/>
-                
+                <img src="<?php echo base_url()?>assets/img/banner1.jpg" class="slide"/>
+
                 <input type="radio" name="animate" id="box2" checked="checked"/>
                 <label for="box2">
-                    <img src="<?php echo base_url()?>assets/img/header-bg.jpg" width="80"/>
+                    <img src="<?php echo base_url()?>assets/img/banner2.jpg" width="80"/>
                 </label>
-                <img src="<?php echo base_url()?>assets/img/header-bg.jpg"/>
+                <img src="<?php echo base_url()?>assets/img/banner2.jpg" class="slide"/>
 
                 <input type="radio" name="animate" id="box3"/>
                 <label for="box3">
-                    <img src="<?php echo base_url()?>assets/img/header-bg.jpg" width="80"/>
+                    <img src="<?php echo base_url()?>assets/img/banner3.jpg" width="80"/>
                 </label>
-                <img src="<?php echo base_url()?>assets/img/header-bg.jpg"/>
+                <img src="<?php echo base_url()?>assets/img/banner3.jpg" class="slide"/>
 
                 <input type="radio" name="animate" id="box4"/>
                 <label for="box4">
-                    <img src="<?php echo base_url()?>assets/img/header-bg.jpg" width="80"/>
+                    <img src="<?php echo base_url()?>assets/img/banner4.jpg" width="80"/>
                 </label>
-                <img src="<?php echo base_url()?>assets/img/header-bg.jpg"/>
-
-                <!--<img class="imgPatron" src="<?php echo base_url() ?>assets/img/patron.png" alt="">-->
+                <img src="<?php echo base_url()?>assets/img/banner4.jpg" class="slide"/>
             </div>
+
 
             <div class="container">
                 <div class="masthead-subheading">Sistema Integrado de Gestión</div>
@@ -209,90 +276,90 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                            <a class="portfolio-link"  href="#portfolioModal1">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/planta3.jpg" alt="..." />
+                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/1.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">La tia</div>
-                                <div class="portfolio-caption-subheading text-muted">Calidad</div>
+                                <div class="portfolio-caption-heading">Variedad</div>
+                                <div class="portfolio-caption-subheading text-muted">Calidad artesanal</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 2-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                            <a class="portfolio-link"  href="#portfolioModal2">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/planta3.jpg" alt="..." />
+                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/2.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Team</div>
-                                <div class="portfolio-caption-subheading text-muted">Equipo Delmor</div>
+                                <div class="portfolio-caption-heading">Equipo Delmor</div>
+                                <div class="portfolio-caption-subheading text-muted">Compromiso con la Calidad</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 3-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                            <a class="portfolio-link"  href="#portfolioModal3">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/planta3.jpg" alt="..." />
+                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/3.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Identidad</div>
-                                <div class="portfolio-caption-subheading text-muted">Identity</div>
+                                <div class="portfolio-caption-heading">Sabor Delmor</div>
+                                <div class="portfolio-caption-subheading text-muted">Tradición y Frescura</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
                         <!-- Portfolio item 4-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                            <a class="portfolio-link"  href="#portfolioModal4">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/planta3.jpg" alt="..." />
+                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/4.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Linea</div>
-                                <div class="portfolio-caption-subheading text-muted">Producción</div>
+                                <div class="portfolio-caption-heading">Creatividad Gastronómica</div>
+                                <div class="portfolio-caption-subheading text-muted">Para Niños y Adultos</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
                         <!-- Portfolio item 5-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                            <a class="portfolio-link"  href="#portfolioModal5">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/planta3.jpg" alt="..." />
+                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/5.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Control</div>
-                                <div class="portfolio-caption-subheading text-muted">Producción</div>
+                                <div class="portfolio-caption-heading">Tradición Nicaragüense</div>
+                                <div class="portfolio-caption-subheading text-muted">Sabores Auténticos</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6">
                         <!-- Portfolio item 6-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                            <a class="portfolio-link"  href="#portfolioModal6">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/planta3.jpg" alt="..." />
+                                <img class="img-fluid" src="<?php echo base_url(); ?>assets/img/landing/6.jpg" alt="..." />
                             </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Supervisión</div>
-                                <div class="portfolio-caption-subheading text-muted">Calidad</div>
+                             <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Ambiente Familiar</div>
+                                <div class="portfolio-caption-subheading text-muted">Calidad y Confort</div>
                             </div>
                         </div>
                     </div>
