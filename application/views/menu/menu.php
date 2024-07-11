@@ -5,8 +5,10 @@
                     <li><a href="#dashboard"><i class="iconsminds-shop-4"></i> <span>Dashboards</span></a></li>
                     <li><a href="#procesos"><i class="iconsminds-digital-drawing"></i> Procesos</a></li>
                     <li><a href="#general"><i class="iconsminds-digital-drawing"></i> Vista General</a></li>
-                    <li><a href="#permisos"><i class="iconsminds-air-balloon-1"></i> Permisos</a></li>                    
-                </ul>
+                    <li><a href="#permisos"><i class="iconsminds-air-balloon-1"></i> Permisos</a></li>
+					<li><a href="#eventos"><i class="iconsminds-calendar-1"></i> Publicar </a></li>
+
+				</ul>
             </div>
         </div>
         <div class="sub-menu">
@@ -20,6 +22,9 @@
                                 class="d-inline-block">Ecommerce</span></a></li>
                     <li><a href="Dashboard.Content.html"><i class="simple-icon-doc"></i> <span
                                 class="d-inline-block">Content</span></a></li>
+
+					<li><a href="Dashboard.Content.html"><i class="simple-icon-event"></i> <span
+								class="d-inline-block">Content</span></a></li>
                 </ul>
                 <ul class="list-unstyled" data-link="procesos" id="procesos">
                     <li><a href="#" data-toggle="collapse" data-target="#collapseAuthorization" aria-expanded="true"
@@ -60,7 +65,7 @@
                         <div id="collapseAuthorization" class="collapse show">
                             <ul class="list-unstyled inner-level-menu">
                                 <li><a href="<?php echo base_url('index.php/subGestiones') ?>"><i class="simple-icon-grid"></i> <span
-                                            class="d-inline-block">Lista de Sub Gestiones</span></a></li>                                
+                                            class="d-inline-block">Lista de Sub Gestiones</span></a></li>
                             </ul>
                         </div>
                     </li>
@@ -68,11 +73,11 @@
                 <ul class="list-unstyled" data-link="general" id="general">
                     <ul class="list-unstyled inner-level-menu">
                         <li><a href="<?php echo base_url('index.php/general') ?>"><i class="simple-icon-grid"></i> <span
-                                            class="d-inline-block">Documentos Generales</span></a></li>                        
+                                            class="d-inline-block">Documentos Generales</span></a></li>
                     </ul>
                 </ul>
 
-                <ul class="list-unstyled" data-link="permisos" id="permisos">                  
+                <ul class="list-unstyled" data-link="permisos" id="permisos">
                    <li>
                       <a href="#" data-toggle="collapse" data-target="#collapseMenuDetached" aria-expanded="true" aria-controls="collapseMenuDetached" class="rotate-arrow-icon"><i class="simple-icon-arrow-down"></i> <span class="d-inline-block">Permisos</span></a>
                       <div id="collapseMenuDetached" class="collapse show" style="">
@@ -82,6 +87,24 @@
                       </div>
                    </li>
                 </ul>
+
+				<ul class="list-unstyled" data-link="eventos" id="eventos">
+					<li>
+						<a href="#" data-toggle="collapse" data-target="#collapseMenuDetached" aria-expanded="true" aria-controls="collapseMenuDetached" class="rotate-arrow-icon">
+							<i class="simple-icon-arrow-down"></i> <span class="d-inline-block">Eventos</span></a>
+						<div id="collapseMenuDetached" class="collapse show" style="">
+							<ul class="list-unstyled inner-level-menu">
+								<li><a href="<?php echo base_url('index.php/nuevapublicacion')?>">
+										<i class="simple-icon-layers"></i> <span class="d-inline-block">Nueva publicación</span></a></li>
+							</ul>
+
+							<ul class="list-unstyled inner-level-menu">
+								<li><a href="<?php echo base_url('index.php/publicacion')?>">
+										<i class="simple-icon-layers"></i> <span class="d-inline-block">Lista de publicaciones</span></a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
             </div>
         </div>
     </div>

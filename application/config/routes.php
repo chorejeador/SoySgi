@@ -98,3 +98,11 @@ $route["subirArchivoMisIndicadores"] = "indicadoresController/subirArchivoMisInd
 $route["subirArchivoMisIndicadores"] = "indicadoresController/subirArchivoMisIndicadores";
 $route["downloadFileGerente/(:any)/(:any)"] = "GerentesController/downloadFileGerente/$1/$2";
 
+/****publicacion controller */
+
+$route["publicacion"] = "PublicacionController/index";
+$route["nuevapublicacion"] = "PublicacionController/nuevaPublicacion";
+$route["getPublicaciones"] = "PublicacionController/getPublicaciones";
+$route["guardarPublicacion"] = "PublicacionController/guardarPublicacion";
+
+
