@@ -42,10 +42,8 @@ class PublicacionController extends CI_Controller
 
 	public function getPublicaciones()
 	{
-//		$this->load->model('PublicacionModel');
-//		$publicaciones = $this->PublicacionModel->getPublicaciones();
-//		echo json_encode($publicaciones);
-
+		$filtro = $this->input->get_post('filtro');
+		$this->PublicacionModel->getPublicaciones($filtro);
 	}
 
 	public function guardarPublicacion()
@@ -55,15 +53,14 @@ class PublicacionController extends CI_Controller
 
 			$titulo = $this->input->get_post('txtTitulo');
 			$txtDescripcion = $this->input->get_post('txtDescripcion');
+			$paths = $this->guardarImagenPublicaciones();
 
-			$path = $this->guardarImagenPublicaciones();
-
-			if ($path === null || $path === false || (is_array($path) && empty($path))) {
+			if ($paths === null || $paths === false || (is_array($paths) && empty($paths))) {
 				throw new Exception("Error al guardar la imagen");
 			}
 
 			// Llamar al método de tu modelo para guardar la publicación
-			$this->PublicacionModel->guardarPublicacion($titulo, $txtDescripcion, $path);
+			$this->PublicacionModel->guardarPublicacion($titulo, $txtDescripcion, $paths);
 
 		} catch (Exception $e) {
 			$mensaje[0]["retorno"] = -1;
