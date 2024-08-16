@@ -98,3 +98,5 @@ $route["subirArchivoMisIndicadores"] = "indicadoresController/subirArchivoMisInd
 $route["subirArchivoMisIndicadores"] = "indicadoresController/subirArchivoMisIndicadores";
 $route["downloadFileGerente/(:any)/(:any)"] = "GerentesController/downloadFileGerente/$1/$2";
 
+/****EVENTOS */
+$route["adminEventos"] = "EventosController";

@@ -5,7 +5,8 @@
                     <li><a href="#dashboard"><i class="iconsminds-shop-4"></i> <span>Dashboards</span></a></li>
                     <li><a href="#procesos"><i class="iconsminds-digital-drawing"></i> Procesos</a></li>
                     <li><a href="#general"><i class="iconsminds-digital-drawing"></i> Vista General</a></li>
-                    <li><a href="#permisos"><i class="iconsminds-air-balloon-1"></i> Permisos</a></li>                    
+                    <li><a href="#permisos"><i class="iconsminds-air-balloon-1"></i> Permisos</a></li>
+                    <li><a href="#eventos"><i class="iconsminds-museum"></i> Eventos</a></li>
                 </ul>
             </div>
         </div>
@@ -78,6 +79,18 @@
                       <div id="collapseMenuDetached" class="collapse show" style="">
                          <ul class="list-unstyled inner-level-menu">
                             <li><a href="<?php echo base_url('index.php/permisos')?>"><i class="simple-icon-layers"></i> <span class="d-inline-block">Permisos a Documentos</span></a></li>
+                         </ul>
+                      </div>
+                   </li>
+                </ul>
+
+                <!--eventoxs menu-->
+                <ul class="list-unstyled" data-link="eventos" id="eventos">                  
+                   <li>
+                      <a href="#" data-toggle="collapse" data-target="#collapseMenuDetached" aria-expanded="true" aria-controls="collapseMenuDetached" class="rotate-arrow-icon"><i class="simple-icon-arrow-down"></i> <span class="d-inline-block">Eventos</span></a>
+                      <div id="collapseMenuDetached" class="collapse show" style="">
+                         <ul class="list-unstyled inner-level-menu">
+                            <li><a href="<?php echo base_url('index.php/adminEventos')?>"><i class="simple-icon-layers"></i> <span class="d-inline-block">Administrar eventos</span></a></li>
                          </ul>
                       </div>
                    </li>
