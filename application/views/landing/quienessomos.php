@@ -103,14 +103,14 @@
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">¿Quiénes somos?</h2>
                                         
-                    <P class="text-start">Es la empresa líder y la más grande embutidora de Nicaragua. Cuenta con un personal altamente capacitado y comprometido para aplicar diferentes tecnologías de formulación y procesos.</P>
+                    <P class="text-start">Somos el líder y la embutidora más grande de Nicaragua. Contamos con un personal altamente capacitado y comprometido, aplicando diferentes tecnologías de formulación y procesos.</P>
 
-                    <p class="text-start">Con nuestra maquinaria y equipos  modernos logramos cumplir con los niveles de exigencias del mercado sobre la plataforma de un Sistema de Gestión de Calidad el cual constituye el sello de garantía para nuestros consumidores.</p>
-                    <p class="text-start">Industrias DELMOR S.A, cuenta actualmente con la Certificación Internacional de su Sistema Integrado de Gestión, el cuál se compone de las normas ISO 9001:2015 (Gestión de la Calidad), ISO 14001:2015 (Gestión Ambiental), ISO 45001:2018 (Gestión de la Seguridad y Salud del Trabajador) y FSSC 22000 versión 5, ISO 22000:2018, ISO/TS 22002-1:2009 (Gestión de la Inocuidad de los Alimentos).</p>
-                    <p class="text-start">Nos enorgullece poder afirmar que somos de las pocas empresas en el país que cuenta con este alto reconocimiento internacional y lo hacemos por usted, nuestro cliente.</p>
-                    <p class="text-start">DELMOR, ayuda al desarrollo económico del país, creando fuentes de trabajo en la empresa y en los distintos puestos de distribución, estableciendo precios diferenciados para los diferentes segmentos de mercado y estratos sociales.</p>
-                    <p class="text-start">La Empresa ha segmentado su mercado en grupos metas por afinidad en sus características y distribución geográfica: Clientes Mayoristas, mercados, Supermercados, Hoteles y Restaurantes, Tiendas de Conveniencia y puntos de venta al detalle a nivel Nacional.</p>
-                    <p class="text-start">La Empresa cuenta con el respaldo de sus Clientes y consumidores a quienes realmente nos debemos, ya que ellos nos han sabido orientar hacia la satisfacción de su preferencias alimenticias y tradiciones culinarias y poder hacer realidad nuestro eslogan:</p>
+                    <p class="text-start">Con nuestra maquinaria y equipos modernos, logramos cumplir con los niveles de exigencia del mercado, basándonos en un Sistema de Gestión de Calidad que constituye el sello de garantía para nuestros consumidores.</p>
+                    <p class="text-start">En Industrias DELMOR S.A., contamos actualmente con la Certificación Internacional de nuestro Sistema Integrado de Gestión, compuesto por las normas ISO 9001:2015 (Gestión de la Calidad), ISO 14001:2015 (Gestión Ambiental), ISO 45001:2018 (Gestión de la Seguridad y Salud del Trabajador) y FSSC 22000 versión 5, ISO 22000:2018, ISO/TS 22002-1:2009 (Gestión de la Inocuidad de los Alimentos).</p>
+                    <p class="text-start">Nos enorgullece poder afirmar que somos una de las pocas empresas en el país que cuenta con este alto reconocimiento internacional, y lo hacemos por usted, nuestro cliente.</p>
+                    <p class="text-start">En DELMOR, ayudamos al desarrollo económico del país, creando fuentes de trabajo en la empresa y en los distintos puestos de distribución, estableciendo precios diferenciados para los diferentes segmentos de mercado y estratos sociales.</p>
+                    <p class="text-start">Hemos segmentado nuestro mercado en grupos metas por afinidad en sus características y distribución geográfica: Clientes Mayoristas, mercados, Supermercados, Hoteles y Restaurantes, Tiendas de Conveniencia y puntos de venta al detalle a nivel Nacional.</p>
+                    <p class="text-start">Contamos con el respaldo de nuestros clientes y consumidores, a quienes realmente nos debemos, ya que ellos nos han sabido orientar hacia la satisfacción de sus preferencias alimenticias y tradiciones culinarias, haciendo realidad nuestro eslogan:</p>
 
                     <p style="font-weight: bold;" class="text-center font-weight-bold">“SABOR, MUCHO SABOR CON DELMOR”.</p>
 
