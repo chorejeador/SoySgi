@@ -6,7 +6,7 @@
 				<nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">
 					<ol class="breadcrumb pt-0">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item"><a href="<?php echo base_url('index.php/nuevaPublicacion');?>">Nueva publicación</a></li>
+						<li class="breadcrumb-item"><a href="<?php echo base_url('index.php/nuevapublicacion');?>">Nueva publicación</a></li>
 					</ol>
 				</nav>
 				<div class="separator mb-5"></div>
@@ -32,13 +32,13 @@
 							<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">Descripción</th>
+								<th scope="col">Título</th>
 								<th scope="col">Estado</th>
 								<th scope="col">Fecha Creación</th>
 								<th scope="col">Última Actualización</th>
 								<th scope="col">Editar</th>
-								<th scope="col">Ver Gestiones</th>
-								<th scope="col">Agregar gestiones</th>
+								<th scope="col">Ver Publicacioes</th>
+								<th scope="col">Agregar Publicación</th>
 							</tr>
 							</thead>
 							<tbody>

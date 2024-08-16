@@ -98,8 +98,10 @@ class PublicacionModel extends CI_Model
 		try {
 			$publicaciones = $this->obtenerPublicaciones($filtro);
 
+			if ($publicaciones == null) throw new Exception("Error al obtener las publicaciones");
 
-			echo json_encode($publicaciones);
+			echo json_encode($this->construirdataTable($publicaciones));
+
 		} catch (Exception $e) {
 			$this->enviarMensaje(-1, "error", "Error: " . $e->getMessage());
 		}
@@ -116,4 +118,39 @@ class PublicacionModel extends CI_Model
 		return $query->result();
 
 	}
+
+	private function construirDataTable(array $publicaciones)
+	{
+		$i = 0;
+		$json = array();
+		$json['data'] = array();
+
+		// Convertir publicaciones a array asociativo si es stdClass
+		if (!is_array($publicaciones)) {
+			$publicaciones = json_decode(json_encode($publicaciones), true);
+		}
+
+		// Recorre cada publicación y construye la fila de datos
+		foreach ($publicaciones as $key => $value) {
+//			$fila = array();
+//			$fila['data'] = $value['IdPublicacion'];
+//			$fila['Titulo'] = $value['Titulo'];
+//
+//			// Agregar botones de acción
+//			$fila['Editar'] = "<a href='" . base_url() . "index.php/PublicacionController/editarPublicacion/" . $value['IdPublicacion'] . "' class='btn btn-primary btn-sm'>Editar</a>";
+//			$fila['AgregarDocumento'] = "<a href='" . base_url() . "index.php/PublicacionController/agregarDocumento/" . $value['IdPublicacion'] . "' class='btn btn-primary btn-sm'>Agregar Documento</a>";
+//			$fila['AgregarSubGestion'] = "<a href='" . base_url() . "index.php/PublicacionController/agregarSubGestion/" . $value['IdPublicacion'] . "' class='btn btn-primary btn-sm'>Agregar SubGestión</a>";
+//
+//			// Agregar fila al JSON
+//			$json['data'][] = $fila;
+
+			//todo: hacero esto luego
+//			$json['data'][$i][]
+			$i++;
+		}
+
+		// Codifica los datos como JSON y envíalos al cliente
+		echo json_encode($json);
+	}
+
 }

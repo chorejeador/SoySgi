@@ -12,7 +12,7 @@
 	function buscar() {
 		var table = $("#idPublicaiones").DataTable({
 			"ajax": {
-				"url": "gestionSearch",
+				"url": "getPublicaciones",
 				"type": "POST",
 				"data": {
 					filtro: $('#filtro').val()
@@ -49,16 +49,14 @@
 				}
 			},
 			"columns": [
-				{"data" : "IdGestion"},
-				{"data" : "Descripcion"},
-				{"data" : "Estado"},
-				{"data" : "FechaCrea"},
-				{"data" : "FechaEdita"},
-				{"data" : "Editar"},
-				{"data" : "AgregarDocumento"},
-				{"data" : "AgregarSubGestion"}
-
-
+				{"data" : "IdPublicacion"},
+				{"data" : "Titulo"},
+				// {"data" : "Estado"},
+				// {"data" : "FechaCrea"},
+				// {"data" : "FechaEdita"},
+				// {"data" : "Editar"},
+				// {"data" : "AgregarDocumento"},
+				// {"data" : "AgregarSubGestion"}
 			]
 		});
 	}

@@ -43,7 +43,13 @@ class PublicacionController extends CI_Controller
 	public function getPublicaciones()
 	{
 		$filtro = $this->input->get_post('filtro');
-		$this->PublicacionModel->getPublicaciones($filtro);
+		$resp = $this->PublicacionModel->getPublicaciones($filtro);
+		if ($resp == null) {
+			$resp = array();
+			return;
+		}
+
+		echo json_encode($resp);
 	}
 
 	public function guardarPublicacion()
