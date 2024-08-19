@@ -9,6 +9,7 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		$this->load->model("LoginModel");
         $this->load->model("PortafolioModel");
+		$this->load->model('PublicacionModel');
 	}
 
 
@@ -38,8 +39,15 @@ class Welcome extends CI_Controller {
 
     function noticiaseventos()
     {
-        $this->load->view('landing/noticiaseventos');
-    }    
+		$data["publicaciones"] = $this->PublicacionModel->publicaciones_landing();
+        $this->load->view('landing/noticiaseventos', $data);
+    }
+
+	function verNoticia($id)
+	{
+		$data["publicacion"] = $this->PublicacionModel->obtener_publicacion($id);
+		$this->load->view('landing/verNoticia', $data);
+	}
 
 	public function login(){
 		$this->load->view('login/login');

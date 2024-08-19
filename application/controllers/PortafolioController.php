@@ -26,4 +26,5 @@ class PortafolioController extends CI_Controller {
     {
         $this->PortafolioModel->filtrarImagenes($this->input->post('categorias'));
     }
+
 }

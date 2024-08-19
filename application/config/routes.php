@@ -104,5 +104,7 @@ $route["publicacion"] = "PublicacionController/index";
 $route["nuevapublicacion"] = "PublicacionController/nuevaPublicacion";
 $route["getPublicaciones"] = "PublicacionController/getPublicaciones";
 $route["guardarPublicacion"] = "PublicacionController/guardarPublicacion";
-
-
+$route["actualizarPublicacion/(:any)"] = "PublicacionController/actualizarPublicacion/$1";
+$route["actualizarInformacionPublicacion"] = "PublicacionController/actualizarInformacionPublicacion";
+$route["cambiarEstadoPublicacion"] = "PublicacionController/cambiarEstadoPublicacion";
+$route["verNoticia/(:any)"] = "Welcome/verNoticia/$1";

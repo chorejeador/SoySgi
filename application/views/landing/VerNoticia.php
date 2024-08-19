@@ -9,84 +9,19 @@
 	<!-- Favicon-->
 	<link rel="icon" type="image/x-icon" href="<?php echo base_url() ?>assets/favicon.ico"/>
 	<!-- Font Awesome icons (free version)-->
-
+	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 	<!-- Google fonts-->
 
 	<link href="<?php echo base_url() ?>assets/css/roboto.css" rel="stylesheet" type="text/css"/>
 	<!-- Core theme CSS (includes Bootstrap)-->
 	<link href="<?php echo base_url() ?>assets/css/styles.css" rel="stylesheet"/>
 	<link href="<?php echo base_url() ?>assets/css/custom_landing.css" rel="stylesheet"/>
-	<link href="<?php echo base_url() ?>assets/css/custom_timeline.css" rel="stylesheet"/>
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/font/iconsmind-s/css/iconsminds.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/font/simple-line-icons/css/simple-line-icons.css">
-
-	<style>
-		#sliderHome {
-			position: relative;
-			width: 100%;
-			height: 500px;
-			overflow: hidden;
-		}
-
-		.slide {
-			display: none;
-			width: 100%;
-			height: 100%;
-			object-fit: cover; /* Esto asegura que las imágenes se adapten al contenedor manteniendo sus proporciones */
-			object-position: center; /* Centra la imagen en el contenedor */
-		}
-
-		input[type="radio"]:nth-of-type(1):checked ~ .slide:nth-of-type(1),
-		input[type="radio"]:nth-of-type(2):checked ~ .slide:nth-of-type(2),
-		input[type="radio"]:nth-of-type(3):checked ~ .slide:nth-of-type(3),
-		input[type="radio"]:nth-of-type(4):checked ~ .slide:nth-of-type(4) {
-			display: block;
-			animation: fade 1s ease-in-out;
-		}
-
-		@keyframes fade {
-			from {
-				opacity: 0;
-			}
-			to {
-				opacity: 1;
-			}
-		}
-
-		label {
-			display: inline-block;
-			cursor: pointer;
-			margin: 0 5px;
-		}
-
-		label img {
-			max-width: 100px;
-			height: auto;
-		}
-
-	</style>
-
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			const slides = document.querySelectorAll('.slide');
-			const radios = document.querySelectorAll('input[name="animate"]');
-			let currentSlide = 0;
-			const totalSlides = slides.length;
-			const interval = 4000; // Cambia cada 3 segundos
-
-			function showSlide(index) {
-				radios[index].checked = true;
-			}
-
-			function nextSlide() {
-				currentSlide = (currentSlide + 1) % totalSlides;
-				showSlide(currentSlide);
-			}
-
-			setInterval(nextSlide, interval);
-		});
-
-	</script>
+	<!--<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<!--<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">-->-->
+	<link href="<?php echo base_url() ?>assets/css/custom_carousel.css" rel="stylesheet"/>
 </head>
 
 <body id="page-top">
@@ -111,7 +46,7 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 ">
 				<li class="nav-item">
-					<a class="nav-link" href="<?php echo base_url('index.php'); ?>">
+					<a class="nav-link" href="<?php echo base_url("index.php"); ?>">
 						<img src="<?php echo base_url() ?>assets/img/logo.png" width="100" alt="">
 					</a>
 				</li>
@@ -130,12 +65,11 @@
 								y valores</a></li>
 					</ul>
 				</li>
-
 				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/quienessomos'); ?>">¿QUIÉNES
 						SOMOS?</a></li>
 				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/portafolio'); ?>">PORTAFOLIO</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/trayectoria') ?>">TRAYECTORIA</a>
+				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/trayectoria'); ?>">TRAYECTORIA</a>
 				</li>
 				<?php
 				if ($this->session->userdata("logged") == 1) {
@@ -144,14 +78,13 @@
 				?>
 				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/noticiaseventos'); ?>">NOTICIAS
 						Y EVENTOS</a></li>
-				<!--<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/instalaciones'); ?>">INSTALACIONES</a></li>-->
+				<!--<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/instalaciones') ?>">INSTALACIONES</a></li>-->
 				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('index.php/contactenos') ?>">CONTÁCTENOS</a>
 				</li>
 				<?php if ($this->session->userdata("logged") == 1) {
 					echo '<li class="nav-item"><a class="nav-link" href="' . base_url('index.php/docGeneral') . '">Vista General</a></li>';
 				}
 				?>
-
 				<?php
 
 				if ($this->session->userdata("logged") == 1) {
@@ -173,68 +106,26 @@
 		</div>
 	</div>
 </nav>
-<!-- Masthead-->
-<header class="masthead">
-	<div class="box" id="sliderHome">
-		<input type="radio" name="animate" id="box1"/>
-		<label for="box1">
-			<img src="<?php echo base_url() ?>assets/img/banner1.jpg" width="80"/>
-		</label>
-		<img src="<?php echo base_url() ?>assets/img/banner1.jpg" class="slide"/>
-
-		<input type="radio" name="animate" id="box2" checked="checked"/>
-		<label for="box2">
-			<img src="<?php echo base_url() ?>assets/img/banner2.jpg" width="80"/>
-		</label>
-		<img src="<?php echo base_url() ?>assets/img/banner2.jpg" class="slide"/>
-
-		<input type="radio" name="animate" id="box3"/>
-		<label for="box3">
-			<img src="<?php echo base_url() ?>assets/img/banner3.jpg" width="80"/>
-		</label>
-		<img src="<?php echo base_url() ?>assets/img/banner3.jpg" class="slide"/>
-
-		<input type="radio" name="animate" id="box4"/>
-		<label for="box4">
-			<img src="<?php echo base_url() ?>assets/img/banner4.jpg" width="80"/>
-		</label>
-		<img src="<?php echo base_url() ?>assets/img/banner4.jpg" class="slide"/>
-	</div>
-</header>
-<section class="page-section bg-light pt-5" id="portfolio">
+<section class="page-section" id="services">
 	<div class="container">
 		<div class="text-center">
-			<h2 class="section-heading text-uppercase">NOTICIAS Y EVENTOS</h2>
-			<h3 class="section-subheading text-muted">Galeria de eventos.</h3>
+			<h2 class="section-heading text-uppercase"><?= $publicacion->Titulo ?></h2>
+			<h4 class="text-muted"><?= $publicacion->Subtitulo ?></h4>
+			<div class="" style="width: 100%; height: Auto;">
+				<img src="../../uploads/Publicaciones/<?= $publicacion->ImagePath ?>" class="img-fluid"/>
+			</div>
+			<hr>
+			<div class="text-start">
+				<?= $publicacion->Descripcion ?>
+			</div>
+			<p style="font-weight: bold;" class="text-center font-weight-bold">“SABOR, MUCHO SABOR CON DELMOR”.</p>
 		</div>
-		<div class="row">
-			<?php if ($publicaciones) {
-				foreach ($publicaciones as $publicacion) {
-					$img = $publicacion["ImagePath"] ? '../uploads/Publicaciones/' . $publicacion["ImagePath"] : '<?php echo base_url() ?>assets/img/landing/6.jpg';
-					?>
-					<div class="col-lg-4 col-sm-6 mb-4">
-						<div class="portfolio-item">
-							<a class="portfolio-link"
-							   href="<?= base_url('index.php/verNoticia') .'/'. $publicacion["Id"] ?>">
-								<div class="portfolio-hover">
-									<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-								</div>
-								<img class="img-fluid" src='<?= $img ?>'
-									 alt="..."/>
-							</a>
-							<div class="portfolio-caption">
-								<div class="portfolio-caption-heading"><?= $publicacion["Titulo"] ?></div>
-								<div
-									class="portfolio-caption-subheading text-muted"><?= $publicacion["Subtitulo"] ?></div>
-							</div>
-						</div>
-					</div>
-				<?php }
-			} ?>
+		<div class="row text-center">
 
 		</div>
 	</div>
 </section>
+
 
 <!-- Footer-->
 <footer class="footer py-4">
@@ -256,8 +147,11 @@
 		</div>
 	</div>
 </footer>
+<!-- Bootstrap core JS-->
 <script src="<?php echo base_url() ?>assets/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
 <script src="<?php echo base_url() ?>assets/js/scriptslanding.js"></script>
-
+<!--<script src="<?php echo base_url() ?>assets/js/sb-forms-latest.js"></script>-->
 </body>
+
 </html>

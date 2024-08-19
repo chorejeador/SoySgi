@@ -3,12 +3,6 @@
 		<div class="row">
 			<div class="col-12">
 				<h1>Listado de publicaciones</h1>
-				<nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" aria-label="breadcrumb">
-					<ol class="breadcrumb pt-0">
-						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item"><a href="<?php echo base_url('index.php/nuevapublicacion');?>">Nueva publicación</a></li>
-					</ol>
-				</nav>
 				<div class="separator mb-5"></div>
 			</div>
 		</div>
@@ -16,11 +10,21 @@
 			<div class="col-12 col-lg-12">
 				<div class="card mb-4">
 					<div class="card-body">
-						<h5 class="mb-4">Filtros</h5>
-						<form class="form-inline"><label class="sr-only" for="filtro">Name</label>
-							<input type="text"class="form-control mb-2 mr-sm-2" id="filtro" placeholder="Descripción">
-							<button type="button" id="btnBuscar" class="btn btn-sm btn-outline-primary mb-2">Buscar</button>
-						</form>
+						<div class="row">
+							<div class="col-6">
+								<h5 class="mb-4">Filtros</h5>
+								<div class="d-flex justify-content-between">
+									<input type="text" class="form-control mx-4" id="filtro" placeholder="Descripción"/>
+									<button id="btnBuscar" class="btn btn-outline-primary">Buscar</button>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="text-center mt-5">
+									<a href="<?= base_url('index.php/nuevapublicacion') ?>"
+									   class="btn btn-outline-success btn-editar" id="btnNueva">Nueva Publicación</a>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -37,12 +41,9 @@
 								<th scope="col">Fecha Creación</th>
 								<th scope="col">Última Actualización</th>
 								<th scope="col">Editar</th>
-								<th scope="col">Ver Publicacioes</th>
-								<th scope="col">Agregar Publicación</th>
 							</tr>
 							</thead>
 							<tbody>
-
 							</tbody>
 						</table>
 					</div>

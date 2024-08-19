@@ -12,145 +12,100 @@ class PublicacionModel extends CI_Model
 		if ($this->session->userdata("logged") != 1) {
 			redirect(base_url() . 'index.php', 'refresh');
 		}
-//		$this->load->model("PermisosModel");
 	}
 
-	public function guardarPublicacion($titulo, $descripcion, $paths)
+	public function guardarPublicacion($data)
 	{
-		$mensaje = array();
-
 		try {
 			$this->db->trans_start();
-
-			if ($this->insertarPublicacion($titulo, $descripcion) == -1) throw new Exception("Error al insertar la publicación: " . $this->db->error()['message']);
-
-			if ($this->insertarImagePaths($paths, $this->db->insert_id()) == -1) throw new Exception("Error al guardar el path de la imagen: " . $this->db->error()['message']);
-
-			$this->db->trans_complete();
-
-			$mensaje[0]["retorno"] = 1;
-			$mensaje[0]["tipo"] = "success";
-			$mensaje[0]["mensaje"] = "Publicación guardada correctamente";
-			echo json_encode($mensaje);
-		} catch (Exception $e) {
-			$this->db->trans_rollback();
-
-			$mensaje[0]["retorno"] = -1;
-			$mensaje[0]["tipo"] = "error";
-			$mensaje[0]["mensaje"] = "Error: " . $e->getMessage();
-
-
-			echo json_encode($mensaje);
-		}
-	}
-
-	private function insertarImagePaths($path, $insert_id)
-	{
-		$mensaje = array();
-		try {
-			$data = array();
-			foreach ($path as $key => $value) {
-				$data[] = array(
-					"IdPublicacion" => $insert_id,
-					"Path" => $value
-				);
-			}
-
-			if (!$this->db->insert_batch('ImagenesPublicaciones', $data)) throw new Exception("Error al guardar el path");
-
-			return 1;
-		} catch (Exception $e) {
-			return -1;
-		}
-	}
-
-	private function enviarMensaje($retorno, $tipo, $mensaje)
-	{
-		$respuesta = array(
-			"etorno" => $retorno,
-			"tipo" => $tipo,
-			"mensaje" => $mensaje
-		);
-		echo json_encode(array($respuesta));
-	}
-
-	private function insertarPublicacion($titulo, $descripcion)
-	{
-		try {
-			$data = array(
-				"Titulo" => $titulo,
-				"Descripcion" => $descripcion,
-				"FechaCrea" => date("Y-m-d H:i:s"),
-				"Estado" => "ACTIVO",
-				"IdUsuarioCrea" => $this->session->userdata("idUsuario")
-			);
 			$this->db->insert('Publicaciones', $data);
-			return 0;
+			$this->db->trans_commit();
+			return array(
+				"status" => true,
+				"text" => "La publicación ha sido guardada correctamente",
+				"type" => "success"
+			);
 		} catch (Exception $e) {
-//			$this->enviarMensaje(-1, "error", "Error: " . $e->getMessage() . " " . $this->db->error()['message']);
-			return -1;
+			return array(
+				"status" => false,
+				"text" => "Ha ocurrido un error guardando la publicación. " . $e->getMessage(),
+				"type" => "danger"
+			);
 		}
 	}
 
 	public function getPublicaciones($filtro)
 	{
-		$publicaciones = null;
-		try {
-			$publicaciones = $this->obtenerPublicaciones($filtro);
-
-			if ($publicaciones == null) throw new Exception("Error al obtener las publicaciones");
-
-			echo json_encode($this->construirdataTable($publicaciones));
-
-		} catch (Exception $e) {
-			$this->enviarMensaje(-1, "error", "Error: " . $e->getMessage());
-		}
+		$publicaciones = $this->obtenerPublicaciones($filtro);
 		return $publicaciones;
 	}
 
 	private function obtenerPublicaciones($filtro)
 	{
-
-		$query = $filtro != '' ?
-			$this->db->like('Titulo', $filtro, 'both')->get('Publicaciones')
-			: $this->db->get('Publicaciones');
-
-		return $query->result();
-
+		if ($filtro) {
+			$this->db->like("Titulo", $filtro);
+			$result = $this->db->get('Publicaciones');
+			if ($result->num_rows() > 0) {
+				return $result->result_array();
+			}
+		} else {
+			$result = $this->db->get('Publicaciones');
+			if ($result->num_rows() > 0) {
+				return $result->result_array();
+			}
+		}
+		return array();
 	}
 
-	private function construirDataTable(array $publicaciones)
+	public function obtener_publicacion($id)
 	{
-		$i = 0;
-		$json = array();
-		$json['data'] = array();
-
-		// Convertir publicaciones a array asociativo si es stdClass
-		if (!is_array($publicaciones)) {
-			$publicaciones = json_decode(json_encode($publicaciones), true);
+		$this->db->where("Id", $id);
+		$result = $this->db->get('Publicaciones');
+		if ($result->num_rows() > 0) {
+			return $result->row();
+		} else {
+			return array();
 		}
-
-		// Recorre cada publicación y construye la fila de datos
-		foreach ($publicaciones as $key => $value) {
-//			$fila = array();
-//			$fila['data'] = $value['IdPublicacion'];
-//			$fila['Titulo'] = $value['Titulo'];
-//
-//			// Agregar botones de acción
-//			$fila['Editar'] = "<a href='" . base_url() . "index.php/PublicacionController/editarPublicacion/" . $value['IdPublicacion'] . "' class='btn btn-primary btn-sm'>Editar</a>";
-//			$fila['AgregarDocumento'] = "<a href='" . base_url() . "index.php/PublicacionController/agregarDocumento/" . $value['IdPublicacion'] . "' class='btn btn-primary btn-sm'>Agregar Documento</a>";
-//			$fila['AgregarSubGestion'] = "<a href='" . base_url() . "index.php/PublicacionController/agregarSubGestion/" . $value['IdPublicacion'] . "' class='btn btn-primary btn-sm'>Agregar SubGestión</a>";
-//
-//			// Agregar fila al JSON
-//			$json['data'][] = $fila;
-
-			//todo: hacero esto luego
-//			$json['data'][$i][]
-			$i++;
-		}
-
-		// Codifica los datos como JSON y envíalos al cliente
-		echo json_encode($json);
 	}
 
+	public function actualizar_publicacion($id, $data)
+	{
+		$this->db->trans_start();
+		$this->db->where("Id", $id);
+		$this->db->update("Publicaciones", $data);
+		if ($this->db->trans_status()) {
+			$this->db->trans_commit();
+			return array('status' => true, 'type' => "success", "mensaje" => "Se ha actualizado la publicación correctamente");
+		} else {
+			$this->db->trans_rollback();
+			return array('status' => false, 'type' => "error", 'mensaje' => 'La publicación no ha sido actualizada.');
+		}
+	}
+
+	public function cambiar_estado($id, $estado)
+	{
+		$this->db->trans_start();
+		$this->db->where("Id", $id);
+		$this->db->set('Estado', $estado);
+		$this->db->update("Publicaciones");
+		if ($this->db->trans_status()) {
+			$this->db->trans_commit();
+			return array('status' => true, 'type' => "success", 'mensaje' => "Se ha cambiado el estado correctamente");
+		} else {
+			$this->db->trans_rollback();
+			return array('status' => false, 'type' => 'error', 'mensaje' => 'Ha ocurrido un error al cambiar el estado.');
+		}
+	}
+
+	public function publicaciones_landing()
+	{
+		$this->db->where('Estado', 1);
+		$this->db->order_by('FechaCrea', 'desc');
+		$result = $this->db->get('Publicaciones');
+		if ($result->num_rows() > 0) {
+			return $result->result_array();
+		} else {
+			return array();
+		}
+	}
 }
