@@ -14,11 +14,17 @@ class PublicacionModel extends CI_Model
 		}
 	}
 
-	public function guardarPublicacion($data)
+	public function guardarPublicacion($data, $images_name)
 	{
 		try {
 			$this->db->trans_start();
 			$this->db->insert('Publicaciones', $data);
+			$id = $this->db->insert_id();
+			foreach ($images_name as $image) {
+				$data_imagen = array('Path' => $image, 'IdPublicacion' => $id);
+				$this->db->insert('ImagenesPublicaciones', $data_imagen);
+			}
+
 			$this->db->trans_commit();
 			return array(
 				"status" => true,
@@ -68,17 +74,46 @@ class PublicacionModel extends CI_Model
 		}
 	}
 
-	public function actualizar_publicacion($id, $data)
+	public function obtener_imagenes_publicacion($id)
+	{
+		$this->db->where("IdPublicacion", $id);
+		$result = $this->db->get('ImagenesPublicaciones');
+		if ($result->num_rows() > 0) {
+			return $result->result_array();
+		} else {
+			return array();
+		}
+	}
+
+	public function eliminar_imagen($name)
+	{
+		$this->db->trans_start();
+		$this->db->where('Path', $name);
+		$this->db->delete('ImagenesPublicaciones');
+		if ($this->db->trans_status()) {
+			$this->db->trans_commit();
+			return array("status" => true, "text" => "La imagen ha sido eliminada correctamente", "type" => "success");
+		} else {
+			$this->db->trans_rollback();
+			return array("status" => false, "text" => "Ha ocurrido un error eliminando la imagen", "type" => "error");
+		}
+	}
+
+	public function actualizar_publicacion($id, $data, $image_names)
 	{
 		$this->db->trans_start();
 		$this->db->where("Id", $id);
 		$this->db->update("Publicaciones", $data);
+		foreach ($image_names as $image) {
+			$data_imagen = array('Path' => $image, 'IdPublicacion' => $id);
+			$this->db->insert('ImagenesPublicaciones', $data_imagen);
+		}
 		if ($this->db->trans_status()) {
 			$this->db->trans_commit();
-			return array('status' => true, 'type' => "success", "mensaje" => "Se ha actualizado la publicación correctamente");
+			return array('status' => true, 'type' => "success", "text" => "Se ha actualizado la publicación correctamente");
 		} else {
 			$this->db->trans_rollback();
-			return array('status' => false, 'type' => "error", 'mensaje' => 'La publicación no ha sido actualizada.');
+			return array('status' => false, 'type' => "error", 'text' => 'La publicación no ha sido actualizada.');
 		}
 	}
 

@@ -22,8 +22,6 @@
 		});
 		const myDropzone = new Dropzone(".my-dropzone", {
 			url: "<?= base_url('index.php/guardarPublicacion') ?>",
-			maxFileSize: 10,
-			maxFiles: 4,
 			acceptedFiles: 'image/*',
 			autoProcessQueue: false,
 		});

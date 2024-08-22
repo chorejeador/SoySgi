@@ -1,3 +1,13 @@
+<style>
+	.dropzone .dz-preview {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		margin: 16px;
+		min-height: 250px !important;
+		padding: inherit;
+	}
+</style>
 <main class="default-transition" style="opacity: 1;">
 	<div class="container-fluid">
 		<div class="row">
@@ -26,7 +36,7 @@
 						</div>
 						<div class="drop_zone">
 							<label class="form-label">Ingrese las imágenes a postear</label>
-							<div class="my-dropzone">
+							<div class="my-dropzone dropzone">
 								<div class="dz-message" data-dz-message>
 									  <span>Arrastra y suelta acá las imágenes,
 										<a class="btn-choose-file btn-link" id="btn-upload">o click para buscar</a>
@@ -34,17 +44,14 @@
 								</div>
 							</div>
 						</div>
-						<div class="form-group">
-						</div>
-						<div class="d-none mb-4" id="idContenedorImagen">
-							<h3>Imagen actual</h3>
-							<div class="text-center" style="width: 400px; height: auto;">
-								<img src="" class="img-fluid" id="idImagen"/>
+						<div class="d-none mb-4 mt-4" id="idContenedorImagen">
+							<h3>Imagenes actuales</h3>
+							<div class="row border border-4 p-4" id="imagenes">
 							</div>
 						</div>
-						<div>
-							<button id="btnGuardar" class="btn btn-primary mb-0">Guardar</button>
-							<a href="<?php echo base_url('index.php/publicacion') ?>" class="btn btn-danger mb-0">Cancelar</a>
+						<div class="text-center">
+							<button id="btnGuardar" class="btn btn-primary btn-lg mb-0">Guardar</button>
+							<a href="<?php echo base_url('index.php/publicacion') ?>" class="btn btn-danger btn-lg mb-0">Cancelar</a>
 						</div>
 					</div>
 				</div>

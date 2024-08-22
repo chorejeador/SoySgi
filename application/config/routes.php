@@ -108,3 +108,4 @@ $route["actualizarPublicacion/(:any)"] = "PublicacionController/actualizarPublic
 $route["actualizarInformacionPublicacion"] = "PublicacionController/actualizarInformacionPublicacion";
 $route["cambiarEstadoPublicacion"] = "PublicacionController/cambiarEstadoPublicacion";
 $route["verNoticia/(:any)"] = "Welcome/verNoticia/$1";
+$route["eliminarImagen"] = "PublicacionController/eliminarImagen";
