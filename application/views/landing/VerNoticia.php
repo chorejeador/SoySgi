@@ -20,7 +20,41 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/font/simple-line-icons/css/simple-line-icons.css">
 	<!--<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<!--<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">-->-->
+	<!--<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">-->
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.boxes-con{
+			display: flex;
+			flex-direction: row;
+			gap: 10px;
+		}
+
+		.boxes {
+			margin: 10px auto;
+			width: 100%;
+			padding: 10px;
+			height: 13rem;
+			overflow: hidden;
+		}
+
+		.box2 .boxes:nth-child(2n) {
+			width: 100%;
+			height: 12rem;
+		}
+
+		.box1 .boxes:nth-child(odd) {
+			height: 14rem;
+			width: 100%;
+		}
+		.box3 .boxes:nth-child(odd) {
+			height: 17rem;
+			width: 100%;
+		}
+	</style>
 	<link href="<?php echo base_url() ?>assets/css/custom_carousel.css" rel="stylesheet"/>
 </head>
 
@@ -111,17 +145,23 @@
 		<div class="text-center">
 			<h2 class="section-heading text-uppercase"><?= $publicacion->Titulo ?></h2>
 			<h4 class="text-muted"><?= $publicacion->Subtitulo ?></h4>
-			<div class="" style="width: 100%; height: Auto;">
-				<img src="../../uploads/Publicaciones/<?= $publicacion->ImagePath ?>" class="img-fluid"/>
+			<div class="boxes-con mb-4">
+				<?php if ($imagenes): ?>
+					<?php foreach ($imagenes as $imagen): ?>
+						<div class="boxes">
+							<a class="venobox" data-gall="myGallery-<?= $publicacion->Id ?>" data-maxwidth="50%"
+							   href="../../uploads/Publicaciones/<?= $imagen['Path'] ?>">
+								<img class="img-fluid rounded" alt=".." src="../../uploads/Publicaciones/<?= $imagen['Path'] ?>"/>
+							</a>
+						</div>
+					<?php endforeach; ?>
+				<?php endif; ?>
 			</div>
-			<hr>
 			<div class="text-start">
 				<?= $publicacion->Descripcion ?>
 			</div>
-			<p style="font-weight: bold;" class="text-center font-weight-bold">“SABOR, MUCHO SABOR CON DELMOR”.</p>
-		</div>
-		<div class="row text-center">
 
+			<p style="font-weight: bold;" class="text-center font-weight-bold">“SABOR, MUCHO SABOR CON DELMOR”.</p>
 		</div>
 	</div>
 </section>

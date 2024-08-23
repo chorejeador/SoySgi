@@ -34,21 +34,24 @@
 				});
 			},
 			"stateSave": false,
-			"serverSide": true,
+			"serverSide": false,
 			"processing": true,
 			"destroy": true,
+			"order": [[4,'desc']],
 			"columns": [
-				{data: "Id"},
+				{data: "Id", render: RenderId},
 				{data: "Titulo"},
 				{data: "Estado", render: RenderEstado},
 				{data: "FechaCrea", render: RenderFecha},
 				{data: "FechaEdita", render: RenderFecha},
 				{data: "Id", render: RenderEdita}
-			]
+			],
 		});
 
 	}
-
+	function RenderId(data, type, row, meta){
+		return meta.row + meta.settings._iDisplayStart + 1;
+	}
 	function RenderFecha(data, type, row) {
 		let fecha = data ?? row.FechaCrea;
 		return moment(fecha, 'YYYY-MM-DD HH:mm:ss').format('DD-MM-YYYY HH:mm:ss');

@@ -64,6 +64,122 @@
 			height: auto;
 		}
 
+		:root {
+			font-size: 16px;
+			--card-img-height: 200px;
+		}
+
+		.card-container {
+			width: 100%;
+			/*height: 100vh;*/
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			align-items: center;
+			gap: 2rem;
+			padding: 1rem;
+			transition: all 200ms ease-in-out;
+			background-color: #f4f5f7;
+		}
+
+		.card-especial {
+			align-self: flex-start;
+			position: relative;
+			width: 325px;
+			min-width: 275px;
+			min-height: 400px;
+			margin: 1.25rem 0.75rem;
+			background: white;
+			border-radius: 10px;
+			overflow: hidden;
+			box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+			transition: all 300ms ease-in-out;
+		}
+
+		.card-img {
+			width: 100%;
+			height: var(--card-img-height);
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: cover;
+			visibility: visible;
+		}
+
+		.card-img-hovered {
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: cover;
+			width: 100%;
+			position: absolute;
+			height: var(--card-img-height);
+			top: 0;
+			transition: all 350ms ease-in-out;
+			background: rgba(0, 0, 0, 0.3);
+		}
+
+		.card-info {
+			position: relative;
+			padding: 1rem;
+			transition: all 200ms ease-in-out;
+			background-color: white;
+			z-index: 1;
+		}
+
+		.card-about {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 0.5rem;
+			transition: all 200ms ease-in-out;
+		}
+
+		.card-tag {
+			padding: 0.2rem 0.5rem;
+			font-size: 12px;
+			text-align: center;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			border-radius: 3px;
+			background: #505f79;
+			color: #fff;
+		}
+
+		.card-title {
+			font-size: 1.5rem;
+			color: #333;
+			margin-bottom: 0.5rem;
+			transition: all 350ms ease-in-out;
+		}
+
+		.card-creator {
+			color: #777;
+			font-size: 0.875rem;
+			transition: all 250ms ease-in-out;
+		}
+
+		.card-especial:hover {
+			cursor: pointer;
+			box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.15);
+			transform: scale(1.025);
+
+			.card-img-hovered {
+				background: rgba(0, 0, 0, 0.5);
+				height: 100%;
+			}
+
+			.card-info {
+				background-color: transparent;
+			}
+
+			.card-title {
+				color: #fff;
+				transform: translate(0, 20px);
+			}
+
+			.card-about, .card-creator {
+				opacity: 0;
+			}
+		}
 	</style>
 
 	<script>
@@ -202,37 +318,49 @@
 	</div>
 </header>
 <section class="page-section bg-light pt-5" id="portfolio">
-	<div class="container">
-		<div class="text-center">
-			<h2 class="section-heading text-uppercase">NOTICIAS Y EVENTOS</h2>
-			<h3 class="section-subheading text-muted">Galeria de eventos.</h3>
-		</div>
-		<div class="row">
-			<?php if ($publicaciones) {
-				foreach ($publicaciones as $publicacion) {
-					$img = $publicacion["ImagePath"] ? '../uploads/Publicaciones/' . $publicacion["ImagePath"] : '<?php echo base_url() ?>assets/img/landing/6.jpg';
-					?>
-					<div class="col-lg-4 col-sm-6 mb-4">
-						<div class="portfolio-item">
-							<a class="portfolio-link"
-							   href="<?= base_url('index.php/verNoticia') .'/'. $publicacion["Id"] ?>">
-								<div class="portfolio-hover">
-									<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-								</div>
-								<img class="img-fluid" src='<?= $img ?>'
-									 alt="..."/>
-							</a>
-							<div class="portfolio-caption">
-								<div class="portfolio-caption-heading"><?= $publicacion["Titulo"] ?></div>
-								<div
-									class="portfolio-caption-subheading text-muted"><?= $publicacion["Subtitulo"] ?></div>
-							</div>
-						</div>
-					</div>
-				<?php }
-			} ?>
+	<?php
+	function obtenerImagenPublicacion($idPublicacion, $imagenes)
+	{
+		$imgPath = array_filter($imagenes, function ($imagen) use ($idPublicacion) {
+			return $imagen["IdPublicacion"] == $idPublicacion;
+		});
 
-		</div>
+		if (count($imgPath) > 0) {
+			$randomImage = $imgPath[array_rand($imgPath)];
+			return '../uploads/Publicaciones/' . $randomImage["Path"];
+		}
+
+		return base_url("assets/img/landing/6.jpg");
+	}
+
+	?>
+
+	<div class="text-center">
+		<h2 class="section-heading text-uppercase">Noticias y eventos</h2>
+		<h3 class="section-subheading text-muted">Galeria de eventos.</h3>
+	</div>
+	<div class="card-container">
+		<?php if ($publicaciones): ?>
+			<?php foreach ($publicaciones as $publicacion):
+				$img = obtenerImagenPublicacion($publicacion["Id"], $imagenes);
+				$fechaCrea = date_create($publicacion["FechaCrea"]);
+				?>
+				<div class="card-especial card-1" onclick="location.href= '<?= base_url("index.php/verNoticia/{$publicacion["Id"]}") ?>'">
+					<div class="card-img" style='background-image:url("<?= $img ?>")'></div>
+					<a href="<?= base_url("index.php/verNoticia/{$publicacion["Id"]}") ?>" class="card-link">
+						<div class="card-img-hovered"></div>
+					</a>
+					<div class="card-info">
+						<div class="card-about">
+							<a class="card-tag tag-news">Noticia</a>
+							<div class="card-time"><?= date_format($fechaCrea, "d-m-Y") ?></div>
+						</div>
+						<h1 class="card-title"><?= $publicacion["Titulo"] ?></h1>
+						<div class="card-creator"><?= $publicacion["Subtitulo"] ?></div>
+					</div>
+				</div>
+			<?php endforeach; ?>
+		<?php endif; ?>
 	</div>
 </section>
 
@@ -240,7 +368,8 @@
 <footer class="footer py-4">
 	<div class="container">
 		<div class="row align-items-center">
-			<div class="col-lg-4 text-lg-start">Copyright &copy; DELMOR S.A <?php echo date('Y'); ?></div>
+			<div class="col-lg-4 text-lg-start">Copyright &copy; DELMOR S.A
+<?php echo date('Y'); ?></div>
 			<div class="col-lg-4 my-3 my-lg-0">
 				<a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/delmornic/?hl=es-la"
 				   aria-label="Twitter"><i class="fab fa-instagram"></i></a>
@@ -249,9 +378,6 @@
 				<a class="btn btn-dark btn-social mx-2"
 				   href="https://www.linkedin.com/company/industrias-delmor-s-a/?originalSubdomain=ni"
 				   aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<div class="col-lg-4 text-lg-end">
-
 			</div>
 		</div>
 	</div>

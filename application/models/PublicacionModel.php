@@ -50,6 +50,7 @@ class PublicacionModel extends CI_Model
 	{
 		if ($filtro) {
 			$this->db->like("Titulo", $filtro);
+			$this->db->order_by("FechaCrea", "DESC");
 			$result = $this->db->get('Publicaciones');
 			if ($result->num_rows() > 0) {
 				return $result->result_array();
@@ -137,6 +138,16 @@ class PublicacionModel extends CI_Model
 		$this->db->where('Estado', 1);
 		$this->db->order_by('FechaCrea', 'desc');
 		$result = $this->db->get('Publicaciones');
+		if ($result->num_rows() > 0) {
+			return $result->result_array();
+		} else {
+			return array();
+		}
+	}
+
+	public function imagenes_landing()
+	{
+		$result = $this->db->get('ImagenesPublicaciones');
 		if ($result->num_rows() > 0) {
 			return $result->result_array();
 		} else {
