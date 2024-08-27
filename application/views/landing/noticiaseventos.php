@@ -290,34 +290,38 @@
 	</div>
 </nav>
 <!-- Masthead-->
-<header class="masthead">
-	<div class="box" id="sliderHome">
-		<input type="radio" name="animate" id="box1"/>
-		<label for="box1">
-			<img src="<?php echo base_url() ?>assets/img/banner1.jpg" width="80"/>
-		</label>
-		<img src="<?php echo base_url() ?>assets/img/banner1.jpg" class="slide"/>
-
-		<input type="radio" name="animate" id="box2" checked="checked"/>
-		<label for="box2">
-			<img src="<?php echo base_url() ?>assets/img/banner2.jpg" width="80"/>
-		</label>
-		<img src="<?php echo base_url() ?>assets/img/banner2.jpg" class="slide"/>
-
-		<input type="radio" name="animate" id="box3"/>
-		<label for="box3">
-			<img src="<?php echo base_url() ?>assets/img/banner3.jpg" width="80"/>
-		</label>
-		<img src="<?php echo base_url() ?>assets/img/banner3.jpg" class="slide"/>
-
-		<input type="radio" name="animate" id="box4"/>
-		<label for="box4">
-			<img src="<?php echo base_url() ?>assets/img/banner4.jpg" width="80"/>
-		</label>
-		<img src="<?php echo base_url() ?>assets/img/banner4.jpg" class="slide"/>
-	</div>
-</header>
+<!--<header class="masthead">-->
+<!--	<div class="box" id="sliderHome">-->
+<!--		<input type="radio" name="animate" id="box1"/>-->
+<!--		<label for="box1">-->
+<!--			<img src="--><?php //echo base_url() ?><!--assets/img/banner1.jpg" width="80"/>-->
+<!--		</label>-->
+<!--		<img src="--><?php //echo base_url() ?><!--assets/img/banner1.jpg" class="slide"/>-->
+<!---->
+<!--		<input type="radio" name="animate" id="box2" checked="checked"/>-->
+<!--		<label for="box2">-->
+<!--			<img src="--><?php //echo base_url() ?><!--assets/img/banner2.jpg" width="80"/>-->
+<!--		</label>-->
+<!--		<img src="--><?php //echo base_url() ?><!--assets/img/banner2.jpg" class="slide"/>-->
+<!---->
+<!--		<input type="radio" name="animate" id="box3"/>-->
+<!--		<label for="box3">-->
+<!--			<img src="--><?php //echo base_url() ?><!--assets/img/banner3.jpg" width="80"/>-->
+<!--		</label>-->
+<!--		<img src="--><?php //echo base_url() ?><!--assets/img/banner3.jpg" class="slide"/>-->
+<!---->
+<!--		<input type="radio" name="animate" id="box4"/>-->
+<!--		<label for="box4">-->
+<!--			<img src="--><?php //echo base_url() ?><!--assets/img/banner4.jpg" width="80"/>-->
+<!--		</label>-->
+<!--		<img src="--><?php //echo base_url() ?><!--assets/img/banner4.jpg" class="slide"/>-->
+<!--	</div>-->
+<!--</header>-->
 <section class="page-section bg-light pt-5" id="portfolio">
+
+	<div class="text-center mt-5 pt-5">
+		<h2 class="section-heading text-uppercase">Noticias y eventos</h2>
+	</div>
 	<?php
 	function obtenerImagenPublicacion($idPublicacion, $imagenes)
 	{
@@ -335,10 +339,6 @@
 
 	?>
 
-	<div class="text-center">
-		<h2 class="section-heading text-uppercase">Noticias y eventos</h2>
-		<h3 class="section-subheading text-muted">Galeria de eventos.</h3>
-	</div>
 	<div class="card-container">
 		<?php if ($publicaciones): ?>
 			<?php foreach ($publicaciones as $publicacion):

@@ -67,24 +67,6 @@ class PublicacionController extends CI_Controller
 		return;
 	}
 
-	private function guardarImagen($files)
-	{
-		$targetPath = SITE_ROOT . '/uploads/Publicaciones/';
-		if (!file_exists($targetPath)) {
-			mkdir($targetPath, 0777, true);
-		}
-		$data = array();
-		foreach ($files['name'] as $key => $name) {
-			$imageName = $name;
-			$extension = pathinfo($imageName, PATHINFO_EXTENSION);
-			$image = uniqid() . "." . $extension;
-			$targetFile = $targetPath . $image;
-			move_uploaded_file($files['tmp_name'][$key], $targetFile);
-			array_push($data, $image);
-		}
-		return $data;
-	}
-
 	public function actualizarPublicacion($idPublicacion)
 	{
 		$data["publicacion"] = $this->PublicacionModel->obtener_publicacion($idPublicacion);
@@ -112,6 +94,24 @@ class PublicacionController extends CI_Controller
 		);
 		$result = $this->PublicacionModel->actualizar_publicacion($id, $data, $image_names);
 		echo json_encode($result);
+	}
+
+	private function guardarImagen($files)
+	{
+		$targetPath = SITE_ROOT . '/uploads/Publicaciones/';
+		if (!file_exists($targetPath)) {
+			mkdir($targetPath, 0777, true);
+		}
+		$data = array();
+		foreach ($files['name'] as $key => $name) {
+			$imageName = $name;
+			$extension = pathinfo($imageName, PATHINFO_EXTENSION);
+			$image = uniqid() . "." . $extension;
+			$targetFile = $targetPath . $image;
+			move_uploaded_file($files['tmp_name'][$key], $targetFile);
+			array_push($data, $image);
+		}
+		return $data;
 	}
 
 	public function eliminarImagen()
