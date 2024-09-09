@@ -77,6 +77,7 @@ $route["noticiaseventos"] = "welcome/noticiaseventos";
 $route["quienessomos"] = "welcome/quienessomos";
 $route["filtrarImagenes"] = "PortafolioController/filtrarImagenes";
 
+
 /******acceso denegado permiso */
 $route["unauthorized"] = "welcome/unauthorized";
 
@@ -97,6 +98,7 @@ $route["agregarIndicadorGerente"] = "indicadoresController/agregarIndicadorGeren
 $route["subirArchivoMisIndicadores"] = "indicadoresController/subirArchivoMisIndicadores";
 $route["subirArchivoMisIndicadores"] = "indicadoresController/subirArchivoMisIndicadores";
 $route["downloadFileGerente/(:any)/(:any)"] = "GerentesController/downloadFileGerente/$1/$2";
+$route["getProcesos"] = "GerentesController/getProcesos";
 
 /****publicacion controller */
 

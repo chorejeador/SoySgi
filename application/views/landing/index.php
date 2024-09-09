@@ -179,9 +179,9 @@
 
                 <input type="radio" name="animate" id="box2" checked="checked"/>
                 <label for="box2">
-                    <img src="<?php echo base_url()?>assets/img/banner2.jpg" width="80"/>
+                    <img src="<?php echo base_url()?>assets/img/LQF-144.jpg" width="80"/>
                 </label>
-                <img src="<?php echo base_url()?>assets/img/banner2.jpg" class="slide"/>
+                <img src="<?php echo base_url()?>assets/img/LQF-144.jpg" class="slide"/>
 
                 <input type="radio" name="animate" id="box3"/>
                 <label for="box3">

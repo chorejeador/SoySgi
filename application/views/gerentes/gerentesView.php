@@ -1,157 +1,154 @@
-
 <style>
-  .listProcesos .card{
-    background-color: #d7d7d7;
-    color: black!important;    
-  }
 
-  .listProcesos .card .titulo2{
-    text-align:center;
-  }
+	* {
+		margin: 0;
+		padding: 0;
+	}
 
-  .listProcesos .card .question-collapse.show{
-    left: calc(100% + 10px);
-    position: absolute;
-    width: 90%;
-    padding: 26px;
-    padding-top:0px!important;    
-    border-radius: 50px;
-    transition: visibility 0s, opacity 0.5s linear!important;
+	.btn-primary {
+		background-color: #C11A1D !important;
+		border: #C11A1D;
+		min-width: 300px !important;
+	}
 
-  }
-  .listProcesos .card .question-collapse.show .card-body{
-    margin: 0px!important;
-    padding: 0px!important;
-  }
-  .listProcesos .card .question-collapse.show .card-body.pt-0{
-    background-color: #d7d7d7;
-    padding: 20px!important;
-    border-radius: 50px;
-  }
-  .listProcesos .card .question-collapse.show .card-body .card{
-    box-shadow: none!important;
-  }
-  .listProcesos .card .question-collapse.show .card{
-    padding:8px!important;
-  }
+	.btn-secondary {
+		background-color: #373A70 !important;
+		border: #373A70;
+		min-width: 620px !important;
+	}
 
-  .question-collapse.collapse.show{
-    cursor: auto!important;
-  }
-  .question-collapse.collapse.show .btn-outline-primary:active,.question-collapse.collapse.show .btn-outline-primary:hover{
-    background-color: #c1baba!important;
-  }
-
+	svg.markmap {
+		width: 100%;
+		height: 70vh;
+	}
 </style>
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/style.css">-->
+<script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.16"></script>
 <main class="default-transition" style="margin-left:40px; opacity: 5;">
-<div class="container-fluid library-app row">
 
-  <!--<h1 class="display-4">SISTEMA SIG</h1>
-  <h2 class="">PROCESOS INTERNOS</h2>-->
-  <div class="col-8 listProcesos">
-    <?php 
-    $i= 1;
-    foreach ($procesos as $key ) {
-      
-      echo '
-      <div class="card w-50 question d-flex mb-4 edit-quesiton active" style="font-weight:bolder;cursor:pointer;" onClick="showDiv('."'q-".$i."'".')">
-        <div class="d-flex flex-grow-1 min-width-zero">
-          <div
-            class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
-            <div class="list-item-heading mb-0 truncate w-80 mb-1 mt-1" style="text-align:left;">              
-              <strong class="titulo2">'.$key["Descripcion"].'</strong>              
-            </div>
-          </div>
-          <div class="custom-control custom-checkbox pl-1 align-self-center pr-4">
-              <!--<button class="btn btn-outline-theme-3 icon-button rotate-icon-click collapsed" type="button" data-toggle="collapse" data-target="#q-'.$i.'" aria-expanded="false" aria-controls="q-'.$i.'">
-                  <i class="simple-icon-arrow-down with-rotate-icon"></i>
-              </button>-->
-              </div>
-        </div>
-        <div class="question-collapse collapse" id="q-'.$i.'" style="">
-          <div class="card-body pt-0">';
-            foreach ($key["gestiones"] as $keyGestiones ) {
-              $button = '';
-              $dropdown = '';
-              if (count($keyGestiones["subgestiones"]) >0) {
-                $button = '<button class="btn mr-2 btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="collapse" data-target="#collapseOne'.$keyGestiones["IdGestion"].'" aria-expanded="true" aria-controls="collapseOne'.$keyGestiones["IdGestion"].'">
-                        <span class="sr-only">Toggle Dropdown</span>
-                    </button>';  
+	<!--<svg id="mindmap"></svg>-->
 
-                    foreach ($keyGestiones["subgestiones"] as $keySubGestiones ) {
-                      $dropdown .= '<li class="list-group-item"><a href="documentosViewSubgestion/'.$keySubGestiones["IdSubGestion"].'">'.$keySubGestiones["Descripcion"].'</a></li>';
-                    }
-                    
-              }
-                          
+	<div class="markmap">
+		<script type="text/template">
+			<?php
+			$data = trim('# <button class="btn btn-primary">SISTEMA DE GESTIÓN INTEGRAL</button>') . "\n";
+			foreach ($procesos as $proceso) {
+				$data .= trim('## ' . '<button class="btn btn-primary">' . $proceso["Descripcion"] . '</button>') . "\n";
+				foreach ($proceso["gestiones"] as $gestion) {
+					$url = base_url('index.php/documentosView').'/'.$gestion["IdGestion"];
+					$data .= trim('### ' . '<a href="'.$url.'" class="btn btn-secondary text-white">' . $gestion["Descripcion"] . '</a>') . "\n";
+					foreach ($gestion["subgestiones"] as $subgestion) {
+						$url2 = base_url('index.php/documentosViewSubgestion').'/'.$subgestion["IdSubGestion"];
+						$data .= trim('#### ' . '<a href="'.$url2.'" class="btn btn-secondary text-white">' . $subgestion["Descripcion"] . '</a>') . "\n";
+					}
+				}
+			}
+			echo $data;
+			?>
+		</script>
+	</div>
 
-              echo '              
-                <div class="card d-flex flex-column mb-1 btn-outline-primary" style="box-shadow: 0 3px 10px rgb(0 0 0 / 10%), 0 3px 5px rgb(0 0 0 / 10%);">
-                  <div id="accordion'.$keyGestiones["IdGestion"].'">                    
-                  <div class="d-flex flex-grow-1 min-width-zero">
-                    '.$button.'
 
-                    <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
-                      <a class="w-80" href="'.base_url('index.php/documentosView/').$keyGestiones["IdGestion"].'" style="font-weight:bold;">
-                      <p class="list-item-heading mb-0 w-100 w-xs-100 text-left" href="Pages.Product.Detail.html">'.$keyGestiones["Descripcion"].'</p>
-                      </a>
-                        <div style="font-weight:bold;" class="w-20 w-xs-100">
-                          <span class="badge w-100 badge-pill badge-danger">'.strtoupper($keyGestiones["Sigla"]).'</span>
-                        </div>
-                    </div>
-                  </div>
-                  <div id="collapseOne'.$keyGestiones["IdGestion"].'" class="collapse" aria-labelledby="headingOne'.$keyGestiones["IdGestion"].'" data-parent="#accordion'.$keyGestiones["IdGestion"].'">
-                      <div class="card-body">
-                        <ul class="list-group">                          
-                          '.$dropdown.'
-                        </ul>                      
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              
-              ';
-            }
-          echo '</div>
-        </div>
-      </div>
-      ';
-      $i++;
-    }
-  
-  ?>
+	<!--	<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>-->
+	<!--	<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.0/dist/browser/index.js"></script>-->
+	<!--	<script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.0/dist/index.js"></script>-->
+	<!--	<script>-->
+	<!--		(() => {-->
+	<!--			setTimeout(() => {-->
+	<!--				const {markmap: q, mm: v} = window, j = new q.Toolbar;-->
+	<!--				j.attach(v);-->
+	<!--				const we = j.render();-->
+	<!--				we.setAttribute("style", "position:absolute;bottom:20px;right:20px"), document.body.append(we)-->
+	<!--			})-->
+	<!--		})()</script>-->
 
-  </div>
-
-  <div class="col-4 col sm-12 mapaUbicacion">
-    <img id="mapaUbicacion" width="80%" src="<?php echo base_url()?>assets/img/mapa/mapa-1.png" style="width: 80%;" alt="">
-  </div>
-</div>
- 
-</div>
-<script>
-
-    function showDiv(params) {
-      console.log(params);
-
-      $('#q-1').removeClass('show');
-      $('#q-2').removeClass('show');
-      $('#q-3').removeClass('show');
-      $('#q-4').removeClass('show');
-
-      $('#'+params).toggleClass('show');
-
-      if (params == 'q-1') {
-        $("#mapaUbicacion").attr("src","<?php echo base_url()?>assets/img/mapa/mapa-1.png");  
-      }
-      if (params == 'q-2') {
-        $("#mapaUbicacion").attr("src","<?php echo base_url()?>assets/img/mapa/mapa-2.png");  
-      }
-      if (params == 'q-3') {
-        $("#mapaUbicacion").attr("src","<?php echo base_url()?>assets/img/mapa/mapa-3.png");  
-      }
-
-    }
-</script>
-
+	<!--	<script>-->
+	<!--		((f, d, h, u) => {-->
+	<!--			const g = f();-->
+	<!--			window.mm = g.Markmap.create("svg#mindmap", (d || g.deriveOptions)(u), {-->
+	<!--				...h,-->
+	<!--				zoom: false,-->
+	<!--				pan: false // Disable zoom and pan-->
+	<!--			})-->
+	<!--		})(() => window.markmap, null, {-->
+	<!--			"content": "<a href='#' class='btn btn-sm btn-primary text-white'>Sistema de gestión integral</a>",-->
+	<!--			"children": [{-->
+	<!--				"content": "<a href='#' class='btn btn-sm btn-primary text-white' >PROCESOS ESTRATÉGICOS</a>",-->
+	<!--				"children": [{-->
+	<!--					"content": "<a href='#' class='btn btn-sm btn-secondary text-white'>PLANIFICACIÓN Y GESTIÓN INTEGRAL</a>",-->
+	<!--					"children": [{-->
+	<!--						"content": "<a href='#' class='btn btn-sm btn-info text-white'>GESTIÓN DE LABORATORIO</a>",-->
+	<!--						"children": [],-->
+	<!--						"payload": {"lines": "2,3"}-->
+	<!--					}],-->
+	<!--					"payload": {"lines": "1,2"}-->
+	<!--				}, {-->
+	<!--					"content": "<a href='#' class='btn btn-sm btn-secondary text-white'>GESTIÓN ESTRATÉGICA CORPORATIVA</a>",-->
+	<!--					"children": [{-->
+	<!--						"content": "<a href='#' class='btn btn-sm btn-info text-white'>CONTROL INTERNO</a>",-->
+	<!--						"children": [],-->
+	<!--						"payload": {"lines": "4,5"}-->
+	<!--					}],-->
+	<!--					"payload": {"lines": "3,4"}-->
+	<!--				}],-->
+	<!--				"payload": {"lines": "0,1"}-->
+	<!--			}, {-->
+	<!--				"content": "<a href='#' class='btn btn-sm btn-primary text-white' >PROCESOS OPERACIONALES</a>",-->
+	<!--				"children": [{-->
+	<!--					"content": "<a href='#' class='btn btn-sm btn-secondary text-white'>GESTIÓN DE MERCADEO Y VENTAS",-->
+	<!--					"children": [],-->
+	<!--					"payload": {"lines": "6,7"}-->
+	<!--				}, {-->
+	<!--					"content": "<a href='#' class='btn btn-sm btn-secondary text-white'>INVESTIGACIÓN Y DESARROLLO DE NUEVOS PRODUCTOS</a>",-->
+	<!--					"children": [],-->
+	<!--					"payload": {"lines": "7,8"}-->
+	<!--				}, {-->
+	<!--					"content": "<a href='#' class='btn btn-sm btn-secondary text-white'>LOGÍSTICA DE ABASTECIMIENTO</a>",-->
+	<!--					"children": [],-->
+	<!--					"payload": {"lines": "8,9"}-->
+	<!--				}, {-->
+	<!--					"content": "<a href='#' class='btn btn-sm btn-secondary text-white'>PLANEACIÓN Y DESARROLLO DE LA PRODUCCIÓN</a>",-->
+	<!--					"children": [],-->
+	<!--					"payload": {"lines": "9,10"}-->
+	<!--				}, {-->
+	<!--					"content": "<a href='#' class='btn btn-sm btn-secondary text-white'>LOGÍSTICA DE DISTRIBUCIÓN</a>",-->
+	<!--					"children": [],-->
+	<!--					"payload": {"lines": "10,11"}-->
+	<!--				}],-->
+	<!--				"payload": {"lines": "5,6"}-->
+	<!--			}, {-->
+	<!--				"content": "<a href='#' class='btn btn-sm btn-primary text-white' >PROCESOS DE APOYO</a>",-->
+	<!--				"children": [{-->
+	<!--					"content": "<a href='#' class='btn btn-sm btn-secondary text-white'>GESTIÓN DEL TALENTO HUMANO</a>",-->
+	<!--					"children": [],-->
+	<!--					"payload": {"lines": "12,13"}-->
+	<!--				}, {-->
+	<!--					"content": "<a href='#' class='btn btn-sm btn-secondary text-white'>GESTIÓN FINANCIERA</a>",-->
+	<!--					"children": [],-->
+	<!--					"payload": {"lines": "13,14"}-->
+	<!--				}, {-->
+	<!--					"content": "<a href='#' class='btn btn-sm btn-secondary text-white'>SEGURIDAD FÍSICA, BIO Y DEFENSA ALIMENTARIA</a>",-->
+	<!--					"children": [],-->
+	<!--					"payload": {"lines": "14,15"}-->
+	<!--				}, {-->
+	<!--					"content": "<a href='#' class='btn btn-sm btn-secondary text-white'>MANTENIMIENTO INDUSTRIAL DE PLANTA Y METROLOGÍA</a>",-->
+	<!--					"children": [],-->
+	<!--					"payload": {"lines": "15,16"}-->
+	<!--				}, {-->
+	<!--					"content": "<a href='#' class='btn btn-sm btn-secondary text-white'>MANTENIMIENTO DE LA FLOTA VEHÍCULAR</a>",-->
+	<!--					"children": [],-->
+	<!--					"payload": {"lines": "16,17"}-->
+	<!--				}, {-->
+	<!--					"content": "<a href='#' class='btn btn-sm btn-secondary text-white'>GESTIÓN DE INFRAESTRUCTURA E INSTALACIONES</a>",-->
+	<!--					"children": [],-->
+	<!--					"payload": {"lines": "17,18"}-->
+	<!--				}, {-->
+	<!--					"content": "<a href='#' class='btn btn-sm btn-secondary text-white'>GESTIÓN DE LA TECNOLOGÍA DE LA INFORMACIÓN Y LAS COMUNICACIONES</a>",-->
+	<!--					"children": [],-->
+	<!--					"payload": {"lines": "18,19"}-->
+	<!--				}],-->
+	<!--				"payload": {"lines": "11,12"}-->
+	<!--			}]-->
+	<!--		}, null)-->
+	<!--	</script>-->
 </main>

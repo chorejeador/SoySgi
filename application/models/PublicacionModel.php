@@ -9,9 +9,6 @@ class PublicacionModel extends CI_Model
 		parent::__construct();
 		$this->load->database();
 		date_default_timezone_set("America/Managua");
-		if ($this->session->userdata("logged") != 1) {
-			redirect(base_url() . 'index.php', 'refresh');
-		}
 	}
 
 	public function guardarPublicacion($data, $images_name)

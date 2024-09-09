@@ -17,7 +17,11 @@
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/vendor/component-custom-switch.min.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/main.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/sweetalert2.css">
-    <!--<link rel="stylesheet" href="<?php echo base_url()?>assets/js/sweetalert2@11.js">-->
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/js/tree-view/main.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/js/tree-view/tree_maker-min.css">
+
+
+	<!--<link rel="stylesheet" href="<?php echo base_url()?>assets/js/sweetalert2@11.js">-->
 
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/datatables.css">
     <script src="<?php echo base_url()?>assets/js/vendor/jquery-3.3.1.min.js"></script>
