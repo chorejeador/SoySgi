@@ -11,7 +11,12 @@ function loadStyle(e, t) {
 console.log(base_url);
     var l = $(a).find('[href$="main.css"]');
     //console.log(l[0].before(r) +"": a.appendChild(r));
-    r.href = 'http://192.168.1.9:8080/sgi/css/dore.light.bluenavy.min.css';    
+    var protocol = window.location.protocol;
+    const host = window.location.hostname;
+const puerto = window.location.port;
+
+console.log(protocol + '//'+base_url+puerto+'/sgi/css/dore.light.bluenavy.min.css');
+    r.href = base_url+puerto+'/sgi/css/dore.light.bluenavy.min.css';
         0 !== l.length ? l[0].before(r) : a.appendChild(r)
     
     
