@@ -17,21 +17,27 @@
 	</div>
 </footer>
 
+<script> const BASE_URL = "<?php echo base_url(); ?>";</script>
 <script src="<?php echo base_url() ?>assets/js/vendor/bootstrap.bundle.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/vendor/perfect-scrollbar.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/vendor/mousetrap.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/dore.script.js"></script>
 <script src="<?php echo base_url() ?>assets/js/scripts.js"></script>
-<!--<script src="<?php echo base_url() ?>assets/js/jquery.dataTables.min.js"></script>-->
 <script src="<?php echo base_url() ?>assets/js/sweetalert2.min.js"></script>
-<script src="<?php echo base_url() ?>assets/js/select2.min.js">"></script>
-<script src="<?php echo base_url() ?>assets/js/tree-view/tree-maker.js">"></script>
-<script src="<?php echo base_url() ?>assets/js/tree-view/tree_maker-min.js">"></script>
-
-
-
-<script src="<?php echo base_url() ?>assets/js/jquery.dataTables.js"></script>
+<script src="<?php echo base_url() ?>assets/bootstrap/js/bootstrap-treeview.min.js.css"></script>
+<script src="<?php echo base_url() ?>assets/js/vendor/venoBox/venobox.min.js"></script>
+<script src="<?php echo base_url() ?>assets/datatables/js/jquery.dataTables.min.js.css"></script>
 <script src="<?php echo base_url() ?>assets/js/datatables.js"></script>
 <script src="<?php echo base_url() ?>assets/js/dataTables.fixedColumns.js"></script>
+<script src="<?php echo base_url() ?>assets/js/choices.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/select2/select2.min.js"></script>
+<script src="<?php echo base_url() ?>assets/datatables/js/dataTables.rowGroup.min.js.css"></script>
+
+<?php if (isset($scripts) && is_array($scripts)): ?>
+	<?php foreach ($scripts as $script): ?>
+		<?= $script . "\n"; ?>
+	<?php endforeach; ?>
+<?php endif; ?>
+
 </body>
 </html>

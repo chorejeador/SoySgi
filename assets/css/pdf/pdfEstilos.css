@@ -1,0 +1,44 @@
+/* 1) Asegura que el navbar esté siempre encima */
+.navbar.fixed-top {
+	z-index: 1060; /* por encima de otros elementos, igual que Bootstrap por defecto */
+}
+
+/* 2) Padding-top limpio para el body */
+body {
+	padding-top: 20px; /* altura estándar de un navbar Bootstrap */
+}
+
+/* Resto de tus estilos PDF… */
+.sidebar {
+	height: calc(90vh - 56px - 30px); /* navbar + footer */
+	overflow-y: auto;
+	padding-top: 1rem;
+}
+
+.list-group-item.active {
+	background-color: #01498D;
+	color: #fff;
+	border: none;
+	font-weight: bold;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+}
+
+.list-group-item.active:hover {
+	background-color: #01498D;
+	transform: scale(1.02);
+}
+
+.iframe-container {
+	height: calc(100vh - 56px - 56px); /* navbar + footer */
+}
+
+.folder-title {
+	font-size: 1rem;
+	letter-spacing: 1.5px;
+	text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+.nombre-carpeta {
+	background: #01498D;
+}

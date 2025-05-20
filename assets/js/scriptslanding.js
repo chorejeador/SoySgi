@@ -5,7 +5,33 @@
 */
 //
 // Scripts
-// 
+//
+
+$(document).ready(function () {
+	// Oculta todas las descripciones por defecto
+	$('.descripcion').hide();
+
+	// Click en el nombre para mostrar/ocultar descripción (si existe)
+	$('.nombre-documento').on('click', function (e) {
+		const descripcion = $(this).closest('.card').find('.descripcion');
+		if (descripcion.text().trim() === '' || descripcion.text === null) return;
+
+		e.stopPropagation(); // Evita que el click se propague al card
+
+		descripcion.toggle();
+
+		const icon = $(this).find('.icon-dropdown');
+		icon.toggleClass('fa-chevron-down fa-chevron-up');
+	});
+
+	// Click en la imagen o cualquier parte general del card
+	$('.card-click').on('click', function () {
+		const url = $(this).data('url');
+		if (url) {
+			window.location.href = url;
+		}
+	});
+});
 
 window.addEventListener('DOMContentLoaded', event => {
 	new VenoBox({

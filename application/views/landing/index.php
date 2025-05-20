@@ -17,7 +17,7 @@
 	<link href="<?php echo base_url() ?>assets/css/styles.css" rel="stylesheet"/>
 	<link href="<?php echo base_url() ?>assets/css/custom_landing.css" rel="stylesheet"/>
 	<link href="<?php echo base_url() ?>assets/css/custom_timeline.css" rel="stylesheet"/>
-	<link href="<?= base_url('assets/js/vendor/venoBox/venobox.css') ?>" rel="stylesheet"/>
+	<link href="<?= base_url() ?>assets/js/vendor/venoBox/venobox.css" rel="stylesheet"/>
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/font/iconsmind-s/css/iconsminds.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/font/simple-line-icons/css/simple-line-icons.css">
 	<!--<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,10 +97,10 @@
 <!-- lateral menu-->
 <div class="card setting-toggle" href="#settings-offcanvas" data-bs-toggle="offcanvas">
 	<div class="card-body d-flex align-items-center py-md-2 px-2 py-1">
-		<a href="#"><img src="<?php echo base_url() ?>assets/img/twitter.png" width="26" alt=""></a>
-		<a href="#"><img src="<?php echo base_url() ?>assets/img/facebook.png" width="26" alt=""></a>
-		<a href="#"><img src="<?php echo base_url() ?>assets/img/instagram.png" width="26" alt=""></a>
-		<a href="#"><img src="<?php echo base_url() ?>assets/img/youtube.png" width="26" alt=""></a>
+		
+		<a href="https://www.facebook.com/delmornic/"  target="_blank"><img src="<?php echo base_url() ?>assets/img/facebook.png" width="26" alt=""></a>
+		<a href="https://www.instagram.com/delmornic/?hl=es-la" target="_blank"><img src="<?php echo base_url() ?>assets/img/instagram.png" width="26" alt=""></a>
+		<a href="https://www.youtube.com/@delmornicaragua932/featured" target="_blank"><img src="<?php echo base_url() ?>assets/img/youtube.png" width="26" alt=""></a>
 	</div>
 </div>
 <!-- Navigation-->

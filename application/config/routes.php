@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
+$route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['salir'] = 'welcome/salir';
@@ -89,6 +90,21 @@ $route["generalSearch"] = "GeneralController/generalSearch";
 $route["crearDocGeneral"] = "GeneralController/crearDocGeneral";
 $route["guardarDocGeneral"] = "GeneralController/guardarDocGeneral";
 $route["bajaDocumentoGeneral"] = "GeneralController/bajaDocumentoGeneral";
+$route["getDocumentoById"] = "GeneralController/getDocumentoById";
+$route["actualizarDocGeneral"] = "GeneralController/actualizarDocGeneral";
+
+/****Ver Pdf */
+$route["verPdf/(:any)"]      = "GeneralController/verPdf/$1";
+$route["obtenerPdf/(:any)"]  = "GeneralController/obtenerPdf/$1";
+
+/****Carpetas */
+$route["administrarCarpetas"] = "CarpetasController/index";
+$route["getCarpetas"] = "CarpetasController/getCarpetas";
+$route["guardarCarpeta"] = "CarpetasController/guardarCarpeta";
+$route["editarCarpeta"] = "CarpetasController/editarCarpeta";
+
+
+
 
 
 /***mis indicadores */

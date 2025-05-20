@@ -18,6 +18,7 @@
 					data: {
 						filtro: $("#filtro").val()
 					},
+
 					success: function (result) {
 						let parsed = JSON.parse(result);
 						let response = {
@@ -31,13 +32,14 @@
 					error: function (xhr, error, thrown) {
 						console.error('Error en la petición AJAX: ', error);
 					}
-				});
+				}
+				);
 			},
 			"stateSave": false,
 			"serverSide": false,
 			"processing": true,
 			"destroy": true,
-			"order": [[4,'desc']],
+			"order": [[0,'desc']],
 			"columns": [
 				{data: "Id", render: RenderId},
 				{data: "Titulo"},

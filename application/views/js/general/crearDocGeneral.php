@@ -24,7 +24,7 @@
                 alert("Nombre demasiado corto (5 caracteres mínimo)");bandera = false;
             }
             if (descripcion.length <= 5) {
-                alert("Descripción requerida (5 caracteres mínimo)");bandera = false;
+				descripcion = ' ';
             }
 
             if (bandera) {

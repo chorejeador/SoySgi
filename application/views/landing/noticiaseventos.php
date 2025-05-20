@@ -19,7 +19,16 @@
 	<link href="<?php echo base_url() ?>assets/css/custom_timeline.css" rel="stylesheet"/>
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/font/iconsmind-s/css/iconsminds.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/font/simple-line-icons/css/simple-line-icons.css">
+	<script src="<?php echo base_url()?>assets/js/vendor/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/js/vendor/venoBox/venobox.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/fot-awesome-all.min.css">
 
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/vendor/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/vendor/bootstrap.rtl.only.min.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/vendor/perfect-scrollbar.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/vendor/component-custom-switch.min.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/main.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/sweetalert2.css">
 	<style>
 		#sliderHome {
 			position: relative;
@@ -183,24 +192,25 @@
 	</style>
 
 	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			const slides = document.querySelectorAll('.slide');
-			const radios = document.querySelectorAll('input[name="animate"]');
-			let currentSlide = 0;
-			const totalSlides = slides.length;
-			const interval = 4000; // Cambia cada 3 segundos
-
-			function showSlide(index) {
-				radios[index].checked = true;
-			}
-
-			function nextSlide() {
-				currentSlide = (currentSlide + 1) % totalSlides;
-				showSlide(currentSlide);
-			}
-
-			setInterval(nextSlide, interval);
-		});
+		// document.addEventListener('DOMContentLoaded', function () {
+		// 	// const slides = document.querySelectorAll('.slide');
+		// 	const radios = document.querySelectorAll('input[name="animate"]');
+		// 	let currentSlide = 0;
+		// 	const totalSlides = slides.length;
+		// 	const interval = 4000; // Cambia cada 3 segundos
+		//
+		// 	function showSlide(index) {
+		// 		// todo: Comentado temporalmente
+		// 		radios[index].checked = true;
+		// 	}
+		//
+		// 	function nextSlide() {
+		// 		currentSlide = (currentSlide + 1) % totalSlides;
+		// 		// showSlide(currentSlide);
+		// 	}
+		//
+		// 	setInterval(nextSlide, interval);
+		// });
 
 	</script>
 </head>
@@ -209,10 +219,10 @@
 <!-- lateral menu-->
 <div class="card setting-toggle" href="#settings-offcanvas" data-bs-toggle="offcanvas">
 	<div class="card-body d-flex align-items-center py-md-2 px-2 py-1">
-		<a href="#"><img src="<?php echo base_url() ?>assets/img/twitter.png" width="26" alt=""></a>
-		<a href="#"><img src="<?php echo base_url() ?>assets/img/facebook.png" width="26" alt=""></a>
-		<a href="#"><img src="<?php echo base_url() ?>assets/img/instagram.png" width="26" alt=""></a>
-		<a href="#"><img src="<?php echo base_url() ?>assets/img/youtube.png" width="26" alt=""></a>
+		
+		<a href="https://www.facebook.com/delmornic/"  target="_blank"><img src="<?php echo base_url() ?>assets/img/facebook.png" width="26" alt=""></a>
+		<a href="https://www.instagram.com/delmornic/?hl=es-la" target="_blank"><img src="<?php echo base_url() ?>assets/img/instagram.png" width="26" alt=""></a>
+		<a href="https://www.youtube.com/@delmornicaragua932/featured" target="_blank"><img src="<?php echo base_url() ?>assets/img/youtube.png" width="26" alt=""></a>
 	</div>
 </div>
 <!-- Navigation-->
@@ -384,6 +394,7 @@
 </footer>
 <script src="<?php echo base_url() ?>assets/js/bootstrap.bundle.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/scriptslanding.js"></script>
+<script src="<?php echo base_url() ?>assets/js/vendor/venoBox/venobox.min.js"></script>
 
 </body>
 </html>
