@@ -101,7 +101,7 @@
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">VISIÓN DEL SGI</h2>
+                    <h2 class="section-heading text-uppercase">VISIÓN SGI</h2>
                     <p class="color-red text-start mt-5">La construcción del futuro de DELMOR se fundamenta en cuatro ejes claves de acción:</p>
 
                     <P class="text-start">1. Mantener el liderazgo y la competitividad en el procesamiento y distribución de productos cárnicos integrando talento humano y tecnología de punta para lograr mayor productividad, eficiencia y rentabilidad empresarial.</P>

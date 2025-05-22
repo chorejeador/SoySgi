@@ -6,11 +6,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '192.168.1.205',
+	'hostname' => '192.168.1.9',
 	//'hostname' => '.',
 	'username' => 'sa',
 	//'password' => '123',
-	'password' => '123',
+	'password' => 'Delmor2k18!',
 	'database' => 'SIG',
 	'dbdriver' => 'sqlsrv',
 	'dbprefix' => '',

@@ -97,12 +97,12 @@
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="mt-5 section-heading text-uppercase" style="font-size: 2rem;">MISIÓN DEL SGI</h2>
+                    <h2 class="mt-5 section-heading text-uppercase" style="font-size: 2rem;">MISIÓN SGI</h2>
                     
                     <P class="text-start">Somos una Corporación 100% nicaragüense que se adhiere a los Principios Universales de Responsabilidad Social Empresarial, en el procesamiento, distribución y comercialización de Productos Cárnicos, Embutidos, Enlatados y Ahumados. </P>
                 </div>
                 <div class="text-center">
-                    <h2 class="mt-5 section-heading text-uppercase" style="font-size: 2rem;">POLÍTICA DEL SGI</h2>
+                    <h2 class="mt-5 section-heading text-uppercase" style="font-size: 2rem;">POLÍTICA SGI</h2>
                     
                     <P class="text-start">Aplicamos la Prevención y el Pensamiento Basado en Riesgos y Oportunidades en todas nuestras actividades de procesos productivos, Distribución y Comercialización de nuestros productos. </P>
                     <P class="text-start">Cumplimos los requisitos legales y reglamentarios aplicables, en lo relacionado con Calidad, Inocuidad, Seguridad y Salud en el Trabajo, y Asuntos Ambientales.</P>

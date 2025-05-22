@@ -100,7 +100,7 @@
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">PRINCPIOS Y VALORES DELMOR, S.A</h2>
+                    <h2 class="section-heading text-uppercase">PRINCIPIOS Y VALORES DELMOR, S.A</h2>
                     <p class="color-red text-start mt-5 mb-4">PRINCIPIOS Y VALORES DE INDUSTRIAS DELMOR, S.A. Con fundamento en los Principios Universales de Responsabilidad Social Empresarial, en DELMOR asumimos como equipo los siguientes Valores Institucionales:</p>
                     
                 </div>                
