@@ -24,6 +24,7 @@
         <link href="<?php echo base_url()?>assets/css/custom_carousel.css" rel="stylesheet" />
         <script src="<?php echo base_url()?>assets/js/vendor/jquery-3.3.1.min.js"></script>
         <link rel="stylesheet" href="<?php echo base_url()?>assets/css/datatables.css">
+		<link rel="stylesheet" href="<?php echo base_url()?>assets/js/vendor/venoBox/venobox.css">
 
         <style>
           #categoryForm .form-check{
@@ -51,10 +52,10 @@
         <!-- lateral menu-->
         <div class="card setting-toggle" href="#settings-offcanvas" data-bs-toggle="offcanvas">
           <div class="card-body d-flex align-items-center py-md-2 px-2 py-1">
-            <a href="#"><img src="<?php echo base_url() ?>assets/img/twitter.png" width="26" alt=""></a>
-            <a href="#"><img src="<?php echo base_url() ?>assets/img/facebook.png" width="26" alt=""></a>
-            <a href="#"><img src="<?php echo base_url() ?>assets/img/instagram.png" width="26" alt=""></a>
-            <a href="#"><img src="<?php echo base_url() ?>assets/img/youtube.png" width="26" alt=""></a>
+            
+            <a href="https://www.facebook.com/delmornic/"  target="_blank"><img src="<?php echo base_url() ?>assets/img/facebook.png" width="26" alt=""></a>
+            <a href="https://www.instagram.com/delmornic/?hl=es-la" target="_blank"><img src="<?php echo base_url() ?>assets/img/instagram.png" width="26" alt=""></a>
+            <a href="https://www.youtube.com/@delmornicaragua932/featured" target="_blank"><img src="<?php echo base_url() ?>assets/img/youtube.png" width="26" alt=""></a>
           </div>
         </div>
         <!-- Navigation-->
@@ -219,5 +220,7 @@
         <script src="<?php echo base_url()?>assets/js/jquery.dataTables.js"></script>
         <script src="<?php echo base_url()?>assets/js/datatables.js"></script>
         <script src="<?php echo base_url()?>assets/js/dataTables.fixedColumns.js"></script>
+		<script src="<?php echo base_url() ?>assets/js/vendor/venoBox/venobox.min.js"></script>
+
     </body>
 </html>

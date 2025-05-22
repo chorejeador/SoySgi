@@ -72,9 +72,14 @@
                 </ul>
                 <ul class="list-unstyled" data-link="general" id="general">
                     <ul class="list-unstyled inner-level-menu">
-                        <li><a href="<?php echo base_url('index.php/general') ?>"><i class="simple-icon-grid"></i> <span
-                                            class="d-inline-block">Documentos Generales</span></a></li>
-                    </ul>
+                       <li><a href="<?php echo base_url('index.php/administrarCarpetas') ?>">
+							   <i class="iconsminds-folder"></i> <span
+                       class="d-inline-block">Administrar Carpetas</span></a></li>
+
+						<li><a href="<?php echo base_url('index.php/general') ?>"><i class="simple-icon-doc"></i> <span
+						class="d-inline-block">Adminstrar Documentos</span></a></li>
+
+					</ul>
                 </ul>
 
                 <ul class="list-unstyled" data-link="permisos" id="permisos">

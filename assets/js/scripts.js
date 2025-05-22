@@ -1,4 +1,5 @@
 function loadStyle(e, t) {
+
     for (var o = 0; o < document.styleSheets.length; o++)
         if (document.styleSheets[o].href == e) return;
     var a = document.getElementsByTagName("head")[0],
@@ -7,17 +8,16 @@ function loadStyle(e, t) {
         t()
     });
 
-    var base_url = window.location.origin;
-console.log(base_url);
+    var base_url = BASE_URL;
     var l = $(a).find('[href$="main.css"]');
     //console.log(l[0].before(r) +"": a.appendChild(r));
     var protocol = window.location.protocol;
     const host = window.location.hostname;
 const puerto = window.location.port;
 
-console.log(protocol + '//'+base_url+puerto+'/sgi/css/dore.light.bluenavy.min.css');
-    r.href = base_url+puerto+'/sgi/css/dore.light.bluenavy.min.css';
-        0 !== l.length ? l[0].before(r) : a.appendChild(r)
+// console.log(base_url + '/assets/css/dore.light.bluenavy.min.css');
+r.href = base_url + 'assets/css/dore.light.bluenavy.min.css';
+0 !== l.length ? l[0].before(r) : a.appendChild(r);
     
     
     

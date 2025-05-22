@@ -32,7 +32,10 @@
 							<div class="invalid-tooltip">Detalle es requerido!</div>
 						</div>
 						<div class="form-group position-relative error-l-50"><label>Archivo</label> 
-								<input type="file" name="archivo" id="archivo"  class="form-control" rows="2" required="true"/>
+							<input type="file" name="archivo" id="archivo" class="form-control"
+								   accept=".pdf"
+								   required oninput="if (!this.value.endsWith('.pdf'))
+								   { this.value = ''; alert('Solo se permiten archivos PDF.'); }" />
 							<div class="invalid-tooltip">Detalle es requerido!</div>
 						</div>
 						<button type="button" id="guardar" class="btn btn-primary mb-0">Guardar</button>

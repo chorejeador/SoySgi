@@ -1,0 +1,20 @@
+.card {
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+	transform: scale(1.02);
+	box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+}
+#txt_nombre {
+	color: #5d5d5d; /* Example color */
+}
+
+.nombre-documento:hover {
+	text-decoration: underline;
+	color: #007bff; /* azul Bootstrap o el que prefieras */
+}
+
+
+.card .descripcion {
+	display: none;
+}

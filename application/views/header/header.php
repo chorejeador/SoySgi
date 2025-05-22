@@ -8,7 +8,6 @@
     <meta charset="UTF-8">
     <title>Portal SGI</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <!--<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />-->
     <link rel="stylesheet" href="<?php echo base_url()?>assets/font/iconsmind-s/css/iconsminds.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/font/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/vendor/bootstrap.min.css">
@@ -16,23 +15,28 @@
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/vendor/perfect-scrollbar.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/vendor/component-custom-switch.min.css">
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/main.css">
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/sweetalert2.css">
-	<link rel="stylesheet" href="<?php echo base_url()?>assets/js/tree-view/main.css">
-	<link rel="stylesheet" href="<?php echo base_url()?>assets/js/tree-view/tree_maker-min.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/sweetalert2.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/bootstrap/css/bootstrap-treeview.min.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/js/vendor/venoBox/venobox.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/font-awesome/font-awesome-all.min.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/bootstrap/css/jquery.dataTables.min.css">
 
+	<script src="<?php echo base_url()?>assets/js/vendor/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/selec2/select2.min.css"></link>
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/datatables/rowGroup.dataTables.min.css"></link>
 
-	<!--<link rel="stylesheet" href="<?php echo base_url()?>assets/js/sweetalert2@11.js">-->
-
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/datatables.css">
-    <script src="<?php echo base_url()?>assets/js/vendor/jquery-3.3.1.min.js"></script>
-    
     <!--<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />-->
+	<?php if (isset($css) && is_array($css)): ?>
+		<?php foreach ($css as $estilo): ?>
+			<?= $estilo . "\n"; ?>
+		<?php endforeach; ?>
+	<?php endif; ?>
 
-    
-    
 
-    <style>
-
+	<style>
+		/*body {*/
+		/*	padding-top: 82px; !* o la altura exacta de tu navbar *!*/
+		/*}*/
         .navbar-logo .logo {
             background-image: url(<?= base_url()?>assets/img/logo.png);
             
