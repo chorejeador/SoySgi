@@ -39,12 +39,13 @@
                         <h5 class="card-title">Resultados</h5>
                         <table id="tblDocumentos" class="table table-bordered">
                             <thead>
-                                <tr>                                    
+                                <tr>
+									<th scope="col">Año</th>
                                     <th scope="col">Mes</th>
-                                    <th scope="col">Año</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Descripción</th>                                    
-                                    <th scope="col">Fecha Creación</th>                                    
+                                    <th scope="col">Fecha Creación</th>
+									<th scope="col">Fecha Edición</th>
                                     <th scope="col">Descargar</th>
                                 </tr>
                             </thead>

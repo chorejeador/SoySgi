@@ -42,7 +42,8 @@
 						<div class="form-group">
 						    <label for="anio">Selecciona un año:</label>
 						    <select class="form-control" id="anio" name="anio">
-						        <option value="<?php echo date('Y'); ?>"><?php echo date('Y'); ?></option>
+								<option value="<?php echo date('Y'); ?>"><?php echo date('Y') - 1; ?></option>
+								<option value="<?php echo date('Y'); ?>" selected><?php echo date('Y'); ?></option>
 						        <option value="<?php echo date('Y')+1; ?>"><?php echo date('Y')+1; ?></option>
 						    </select>
 						</div>
