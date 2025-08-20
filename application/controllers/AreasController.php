@@ -8,6 +8,7 @@ class AreasController extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('AreasModel');
 		$this->load->model('GestionModel');	
 		$this->load->model('ProcesoModel');		
 		$this->load->helper(array('form', 'url'));
@@ -28,6 +29,8 @@ class AreasController extends CI_Controller {
 
 	public function getAreas($estado)
 	{
-		return $this->AreasModel->getAreas($estado);
+
+		$result = $this->AreasModel->getAreas($estado);
+		echo json_encode($result);
 	}
 }

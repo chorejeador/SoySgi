@@ -41,7 +41,7 @@ class IndicadoresController extends CI_Controller
 
 	function indicadoresSearch()
 	{
-		return $this->IndicadoresModel->search($this->input->post('filtro'));
+		return $this->IndicadoresModel->search();
 	}
 
 	function subirArchivoMisIndicadores()

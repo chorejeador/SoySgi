@@ -103,10 +103,6 @@ $route["getCarpetas"] = "CarpetasController/getCarpetas";
 $route["guardarCarpeta"] = "CarpetasController/guardarCarpeta";
 $route["editarCarpeta"] = "CarpetasController/editarCarpeta";
 
-
-
-
-
 /***mis indicadores */
 $route["misIndicadores"] = "indicadoresController/misIndicadores";
 $route["indicadoresSearch"] = "indicadoresController/indicadoresSearch";
@@ -115,7 +111,7 @@ $route["agregarIndicadorGerente"] = "indicadoresController/agregarIndicadorGeren
 $route["subirArchivoMisIndicadores"] = "indicadoresController/subirArchivoMisIndicadores";
 $route["downloadFileGerente/(:any)/(:any)"] = "GerentesController/downloadFileGerente/$1/$2";
 $route["getProcesos"] = "GerentesController/getProcesos";
-
+$route["getAreas/(:any)"] = "AreasController/getAreas/$1";
 $route["verificarIndicador"] = "indicadoresController/verificarSiYaExisteIndicador";
 
 /****publicacion controller */
