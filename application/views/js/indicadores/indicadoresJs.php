@@ -58,7 +58,8 @@
 				{"data" : "Nombre"},				
                 {"data" : "Descripcion"},
                 {"data" : "FechaCrea"},
-				{"data" : "Opcion"}               
+				{"data" : "FechaEdita"},
+				{"data" : "Opcion"}
 			]
 		});	
     }

@@ -44,7 +44,8 @@
                                     <th scope="col">Mes</th>                                    
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Descripción</th>                                    
-                                    <th scope="col">Fecha Creación</th>                                    
+                                    <th scope="col">Fecha Creación</th>
+									<th scope="col">Fecha Edición</th>
                                     <th scope="col">Descargar</th>
                                 </tr>
                             </thead>
