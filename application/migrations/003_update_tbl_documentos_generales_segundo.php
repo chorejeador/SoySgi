@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Migration_Update_tbl_documentos_generales extends CI_Migration
+class Migration_Update_tbl_documentos_generales_segundo extends CI_Migration
 
 {
 	public function up()
