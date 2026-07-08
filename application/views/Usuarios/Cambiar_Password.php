@@ -127,7 +127,7 @@
             try {
                 const formData = new FormData(form);
 
-                const response = await fetch("<?= base_url('index.php/guardar_cambiar_password') ?>", {
+               const response = await fetch("<?php echo site_url('guardar_cambiar_password'); ?>", {
                     method: "POST",
                     body: formData,
                     headers: {

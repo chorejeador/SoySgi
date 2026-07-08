@@ -33,9 +33,7 @@ class UsuariosController extends CI_Controller
 
     function filtrarUsuarios()
     {
-        //echo $this->input->post("filtro");
-
-        //echo json_encode($this->input->post("filtro"));
+        
         $this->UsuariosModel->filtrarUsuarios($this->input->post("filtro"));
     }
 
@@ -109,7 +107,7 @@ class UsuariosController extends CI_Controller
                 );
             }
 
-            $res[0]["redirect"] = base_url('login');
+            $res[0]["redirect"] = site_url('login');
         }
 
         echo json_encode($res);
