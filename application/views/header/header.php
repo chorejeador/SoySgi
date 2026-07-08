@@ -1,6 +1,6 @@
-.<?php
-    $CI = &get_instance(); // Obtenemos la instancia de CodeIgniter
-    ?>
+<?php
+$CI = &get_instance();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/datatables/rowGroup.dataTables.min.css">
     </link>
 
-    <!--<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />-->
+
     <?php if (isset($css) && is_array($css)): ?>
         <?php foreach ($css as $estilo): ?>
             <?= $estilo . "\n"; ?>
@@ -37,9 +37,6 @@
 
 
     <style>
-        /*body {*/
-        /*	padding-top: 82px; !* o la altura exacta de tu navbar *!*/
-        /*}*/
         .navbar-logo .logo {
             background-image: url(<?= base_url() ?>assets/img/logo.png);
 
@@ -162,23 +159,68 @@
                     <span class="name" style="color:white;"><?php echo $this->session->userdata("Name") ?></span>
                     <span><img alt="Profile Picture" src="<?php echo base_url() ?>assets/img/notifications/1.jpg"></span>
                 </button>
-                <div class="dropdown-menu dropdown-menu-right mt-3">
-                    <?php if ($CI->PermisosModel->validarPermisoUsuario(3)) {
-                        echo '<a href="' . base_url('index.php/procesos') . '" class="dropdown-item">Administración</a>';
-                    }
-                    ?>
+                <?php
+                $permisoAdministracion = $CI->PermisosModel->validarPermisoUsuario(3);
+                $permisoIndicadores = $CI->PermisosModel->validarPermisoUsuario(4);
+                $permisoDocumentos = $CI->PermisosModel->validarPermisoUsuario(5);
 
-                    <?php if ($CI->PermisosModel->validarPermisoUsuario(4) || $CI->PermisosModel->validarPermisoUsuario(5)) {
-                        echo '<a href="' . base_url('index.php/misIndicadores') . '" class="dropdown-item">Indicadores</a>';
-                    }
-                    ?>
-                    <?php if ($CI->PermisosModel->validarPermisoUsuario(4) || $CI->PermisosModel->validarPermisoUsuario(5)) {
-                        echo '<a href="' . base_url('index.php/gestiones') . '" class="dropdown-item">Documentos</a>';
-                    }
-                    ?>
-                    <a href="<?php echo base_url('index.php/gerentesView'); ?>" class="dropdown-item">Vista de procesos</a>
-                    <a href="<?php echo base_url('index.php/welcome'); ?>" class="dropdown-item">Inicio</a>
-                    <a class="dropdown-item" href="<?php echo base_url('index.php/salir'); ?>">Salir</a>
+                $esAdministrador = (
+                    $permisoAdministracion ||
+                    $permisoIndicadores ||
+                    $permisoDocumentos
+                );
+                ?>
+
+                <div class="dropdown-menu dropdown-menu-right mt-3">
+
+                    <?php if ($esAdministrador): ?>
+
+                        <?php if ($permisoAdministracion): ?>
+                            <a href="<?php echo base_url('index.php/procesos'); ?>"
+                                class="dropdown-item">
+                                Administración
+                            </a>
+                        <?php endif; ?>
+
+                        <?php if ($permisoIndicadores || $permisoDocumentos): ?>
+                            <a href="<?php echo base_url('index.php/misIndicadores'); ?>"
+                                class="dropdown-item">
+                                Indicadores
+                            </a>
+
+                            <a href="<?php echo base_url('index.php/gestiones'); ?>"
+                                class="dropdown-item">
+                                Documentos
+                            </a>
+                        <?php endif; ?>
+
+                        <a href="<?php echo base_url('index.php/gerentesView'); ?>"
+                            class="dropdown-item">
+                            Vista de procesos
+                        </a>
+
+                        <a href="<?php echo base_url('index.php/welcome'); ?>"
+                            class="dropdown-item">
+                            Inicio
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+
+                    <?php endif; ?>
+
+                    <a href="<?php echo base_url('index.php/UsuariosController/Cambiar_Password_view'); ?>"
+                        class="dropdown-item">
+                        <i class="simple-icon-lock mr-2"></i>
+                        Cambiar contraseña
+                    </a>
+
+                    <div class="dropdown-divider"></div>
+
+                    <a href="<?php echo base_url('index.php/salir'); ?>"
+                        class="dropdown-item">
+                        <i class="simple-icon-logout mr-2"></i>
+                        Salir
+                    </a>
                 </div>
             </div>
         </div>
