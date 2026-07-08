@@ -1,154 +1,139 @@
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
+        if ($.fn.DataTable.isDataTable('#catGestion') === false) {
+            $('#catGestion').DataTable();
+        }
 
-        $('#catGestion').DataTable();
         buscar();
 
-        // Manejar el evento de cambio en los checkboxes
-	    $(".form-check-input").change(function() {
-	        updateMedals();
-	        updateClearFiltersButton(); // Actualizar visibilidad del botón "Limpiar Filtros"
+        $(document).on('change', '.form-check-input', function () {
+            updateMedals();
+            updateClearFiltersButton();
+            buscar();
+        });
 
-	        buscar(); // Filtrar automáticamente al cambiar las categorías
-	    });
+        $(document).on('click', '#clearFilters', function () {
+            $('.form-check-input').prop('checked', false);
+            updateMedals();
+            updateClearFiltersButton();
+            buscar();
+        });
 
-	    // Manejar el evento de limpiar filtros
-	    $("#clearFilters").click(function() {
-	        $(".form-check-input").prop('checked', false);
-	        updateMedals();
-	        updateClearFiltersButton(); // Actualizar visibilidad del botón "Limpiar Filtros"
+        $(document).on('click', '#searchButton', function () {
+            buscar();
+        });
 
-	        buscar();
-	    });
-
-	    // Inicializar las medallas al cargar la página
-	    updateMedals();
-	    updateClearFiltersButton(); // Actualizar visibilidad del botón "Limpiar Filtros"
-
-
-
-});
-
-function updateClearFiltersButton() {
-    // Mostrar el botón "Limpiar Filtros" si hay filtros seleccionados, ocultarlo de lo contrario
-    var hasSelectedFilters = $(".form-check-input:checked").length > 0;
-    $("#clearFilters").toggle(hasSelectedFilters);
-}
-
-
-function updateMedals() {
-    // Limpiar medallas anteriores
-    $("#medalContainer").empty();
-
-      $(".form-check-input:checked").each(function() {
-        var categoryId = $(this).val();
-        var categoryLabel = $("#category" + categoryId).next('.category_label').text();
-
-        // Agregar la descripción como medalla
-        $("#medalContainer").append('<span class="badge bg-secondary">' + categoryLabel + '</span> ');
+        updateMedals();
+        updateClearFiltersButton();
     });
 
-
-}
-
-
-    $('#searchButton').click(function(){
-        buscar();
-    });
-
-    function buscar() {
-    	 var selectedCategories = [];
-
-	    // Obtener los IDs de las categorías seleccionadas
-	    $(".form-check-input:checked").each(function() {
-	        selectedCategories.push($(this).val());
-	    });
-
-	    console.log(selectedCategories);
-        var table = $("#catImagenes").DataTable({
-	  	"ajax": {
-				"url": "filtrarImagenes",
-				"type": "POST",
-                "data": {
-                	categorias: selectedCategories.join(',')
-                }
-			},
-			"stateSave": false,
-			"serverSide": true,
-			"processing": true,
-			"info": false,
-			"searching": false,
-			"paging": false,
-			"sort":true,
-			"destroy": true,
-			"pageable": false,
-			"lengthMenu": [
-				[10,20,50,100, -1],
-				[10,20,50,100, "Todo"]
-			],
-			"order": [
-				[0, "asc"]
-			],
-			"language": {
-				"info": "Registro _START_ a _END_ de _TOTAL_ entradas",
-				"infoEmpty": "Registro 0 a 0 de 0 entradas",
-				"zeroRecords": "No se encontro coincidencia",
-				"infoFiltered": "(filtrado de _MAX_ registros en total)",
-				"emptyTable": "NO HAY DATOS DISPONIBLES",
-				"lengthMenu": '_MENU_ ',
-				"search": '',
-				"loadingRecords": "",
-				"processing": "Procesando datos  <i class='fa fa-spin fa-refresh'></i>",
-				"paginate": {
-					"first": "Primera",
-					"last": "Última ",
-					"next": "Siguiente",
-					"previous": "Anterior"
-				}
-			},
-			"columns": [
-	            {
-	                "data": "Imagen",
-	                "render": function (data, type, row) {
-	                    // Agregar un div de fila para cada grupo de 4 imágenes
-	                    if (type === 'display') {
-	                        return '<div class="image-group">' + data + '</div>';
-	                    }
-	                    return data;
-	                }
-	            }
-        	]
-		});	
+    function updateClearFiltersButton() {
+        var hasSelectedFilters = $('.form-check-input:checked').length > 0;
+        $('#clearFilters').toggle(hasSelectedFilters);
     }
 
+    function updateMedals() {
+        $('#medalContainer').empty();
 
-    function baja(id,estado) {
-    	$.ajax({
-						url: "<?php echo base_url("index.php/bajaDocumentoGeneral")?>",
-						type: "POST",
-						data: {
-							id: id,
-							estado: estado
-						},
-						success: function(data){
-							let obj = jQuery.parseJSON(data);
-							$.each(obj, function (index, value) {
-								sms = value["mensaje"];
-								tipo = value["tipo"];
-								new swal({
-									text: sms,
-									type: tipo,
-									allowOutsideClick: false
-								}).then(function () {
-									if (tipo == 'success') {
-										location.reload();	
-									}									
-								});
-							});						
-						},
-						error: function(request, status, error){
-							
-				}
-			});
+        $('.form-check-input:checked').each(function () {
+            var categoryId = $(this).val();
+            var categoryLabel = $('#category' + categoryId).next('.category_label').text();
+
+            $('#medalContainer').append(
+                '<span class="badge bg-secondary me-1">' + categoryLabel + '</span> '
+            );
+        });
+    }
+
+    function buscar() {
+        var selectedCategories = [];
+
+        $('.form-check-input:checked').each(function () {
+            selectedCategories.push($(this).val());
+        });
+
+        if ($.fn.DataTable.isDataTable('#catImagenes')) {
+            $('#catImagenes').DataTable().destroy();
+            $('#catImagenes tbody').empty();
+        }
+
+        $('#catImagenes').DataTable({
+            ajax: {
+                url: "filtrarImagenes",
+                type: "POST",
+                data: function (d) {
+                    d.categorias = selectedCategories.join(',');
+                }
+            },
+            stateSave: false,
+            serverSide: false,
+            processing: true,
+            info: false,
+            searching: false,
+            paging: false,
+            ordering: false,
+            destroy: true,
+            language: {
+                zeroRecords: "No se encontró coincidencia",
+                loadingRecords: "Cargando...",
+                processing: "Procesando datos <i class='fa fa-spin fa-refresh'></i>"
+            },
+            columns: [
+                {
+                    data: "Imagen",
+                    render: function (data, type, row) {
+                        if (type === 'display') {
+                            var imgSrc = extractSrc(data);
+
+                            return '<a class="venobox" href="' + imgSrc + '">' + data + '</a>';
+                        }
+                        return data;
+                    }
+                }
+            ],
+            drawCallback: function () {
+                $('.venobox').venobox({
+                    border: '5px',
+                    overlayColor: 'rgba(0,0,0,0.85)',
+                    closeBackground: '#dc3545',
+                    closeColor: '#fff',
+                    share: false,
+                    fitToScreen: false,
+                    maxWidth: '80%',
+                    maxHeight: '80%'
+                });
+            }
+        });
+    }
+
+    function extractSrc(htmlString) {
+        var div = document.createElement('div');
+        div.innerHTML = htmlString;
+
+        var img = div.querySelector('img');
+        return img ? img.getAttribute('src') : '';
+    }
+
+    function baja(id, estado) {
+        $.ajax({
+            url: "<?php echo base_url('index.php/bajaDocumentoGeneral')?>",
+            type: "POST",
+            data: { id: id, estado: estado },
+            success: function (data) {
+                let obj = jQuery.parseJSON(data);
+
+                $.each(obj, function (index, value) {
+                    new swal({
+                        text: value["mensaje"],
+                        type: value["tipo"],
+                        allowOutsideClick: false
+                    }).then(function () {
+                        if (value["tipo"] === 'success') {
+                            location.reload();
+                        }
+                    });
+                });
+            }
+        });
     }
 </script>

@@ -83,7 +83,7 @@
                                 echo '<li class="nav-item">
                                     <a class="p-1 nav-link btn btnAcceder btn-xl text-uppercase" href="#"> 
                                         <div class="glyph-icon simple-icon-user"></div> 
-                                        Bienvenido:'.$this->session->userdata("User").'
+                                        '.$this->session->userdata("User").'
                                     </a>
                                     </li>';                                
                             }else{

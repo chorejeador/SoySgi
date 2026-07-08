@@ -120,35 +120,54 @@ class PermisosModel extends CI_Model
 	}
 
 	function cargarUsuariosDocumentos($id,$tipo)
-	{
-		$json = array();
-        $i = 0;
-		$consulta = "SELECT t0.*,
-		ISNULL((
-			SELECT Estado FROM PermisosDocumentosUsuario
-			WHERE PermisosDocumentosUsuario.IdDocumento = ".$id." and PermisosDocumentosUsuario.IdUsuario = t0.IdUsuario
-			AND PermisosDocumentosUsuario.Tipo = '".$tipo."'
-		),'NO AUTORIZADO') AS PERMISO, 
-		t2.Descripcion as Area
-		FROM Usuarios t0
-		left join CatAreas t2 on t2.IdArea = t0.IdArea
-		-- LEFT JOIN PermisosDocumentosUsuario t1 on t1.IdUsuario = T0.IdUsuario and t1.Tipo = '".$tipo."'
-		where t0.Estado = 'ACTIVO'";
+{
+    $json = array();
+    $json["data"] = array();
+    $i = 0;
 
-		//echo $consulta;return;
-		$result = $this->db->query($consulta);
+    $consulta = "SELECT t0.*,
+    ISNULL((
+        SELECT Estado FROM PermisosDocumentosUsuario
+        WHERE PermisosDocumentosUsuario.IdDocumento = ".$id." 
+        AND PermisosDocumentosUsuario.IdUsuario = t0.IdUsuario
+        AND PermisosDocumentosUsuario.Tipo = '".$tipo."'
+    ),'NO AUTORIZADO') AS PERMISO, 
+    t2.Descripcion as Area
+    FROM Usuarios t0
+    LEFT JOIN CatAreas t2 ON t2.IdArea = t0.IdArea
+    WHERE t0.Estado = 'ACTIVO'";
 
-		foreach ($result->result_array() as $key) {
-            $json["data"][$i]["Nombre"] = $key["Nombres"]." ".$key["Apellidos"];
-            $json["data"][$i]["Area"] = $key["Area"];
-            $json["data"][$i]["Descripcion"] = $key["PERMISO"];
-            $json["data"][$i]["Opcion"] = '<a href="javascript:void(0)" onclick="asignar('. $key["IdUsuario"] . ', \'' . $key["PERMISO"] . '\')" class="btn btn-primary btn-md text-uppercase"><i class="iconsminds-key-lock"></i></a>';
-        	$i++;
-        }
+    $result = $this->db->query($consulta);
 
-		echo json_encode($json);
-        return;
-	}
+    foreach ($result->result_array() as $key) {
+        $json["data"][$i]["Nombre"] = $key["Nombres"]." ".$key["Apellidos"];
+        $json["data"][$i]["Area"] = $key["Area"];
+     if ($key["PERMISO"] == 'AUTORIZADO') {
+    $json["data"][$i]["Descripcion"] = '
+        <span class="estado-glow ok">
+            AUTORIZADO
+        </span>';
+} else {
+    $json["data"][$i]["Descripcion"] = '
+        <span class="estado-glow no">
+             NO AUTORIZADO
+        </span>';
+}     $json["data"][$i]["Opcion"] = '
+            <div class="text-center">
+                <input type="checkbox" class="user-checkbox" value="'.$key["IdUsuario"].'">
+                <br><br>
+                <a href="javascript:void(0)" onclick="asignar('.$key["IdUsuario"].', \''.$key["PERMISO"].'\', '.$id.')" class="btn btn-primary btn-sm text-uppercase">
+                    <i class="iconsminds-key-lock"></i>
+                </a>
+            </div>
+        ';
+        $i++;
+    }
+
+    header('Content-Type: application/json');
+    echo json_encode($json);
+    return;
+}
 
 	function asignarPermisoDocumento($idDocumento,$idUsuario,$tipo,$estado)
 	{
@@ -166,11 +185,12 @@ class PermisosModel extends CI_Model
 				$this->db->query("UPDATE PermisosDocumentosUsuario SET Estado = '".$estadoUp."' where Id = ".$existe->result_array()[0]["Id"]);
 			}else{
 				$insert = array(
-					"IdDocumento" => $idDocumento,
-					"IdUsuario" => $idUsuario,
-					"Tipo" => $tipo,
-					"Estado" => $estado
-				);
+                "IdDocumento" => $idDocumento,
+                "IdUsuario" => $idUsuario,
+                "Tipo" => $tipo,
+                "Estado" => $estadoUp
+                );
+				
 				$this->db->insert("PermisosDocumentosUsuario", $insert);
 			}
 
@@ -210,6 +230,102 @@ class PermisosModel extends CI_Model
 		return false;
 	}
 	
+	public function autorizarLoteUsuarios($idDocumento, $usuarios, $tipo)
+{
+    $this->db->trans_begin();
+
+    try {
+        foreach ($usuarios as $idUsuario) {
+
+            $existe = $this->db->query("
+                SELECT * 
+                FROM PermisosDocumentosUsuario 
+                WHERE IdDocumento = ".$idDocumento." 
+                AND IdUsuario = ".$idUsuario." 
+                AND Tipo = '".$tipo."'
+            ");
+
+            if ($existe->num_rows() > 0) {
+                $this->db->query("
+                    UPDATE PermisosDocumentosUsuario 
+                    SET Estado = 'AUTORIZADO'
+                    WHERE Id = ".$existe->result_array()[0]["Id"]
+                );
+            } else {
+                $insert = array(
+                    "IdDocumento" => $idDocumento,
+                    "IdUsuario"   => $idUsuario,
+                    "Tipo"        => $tipo,
+                    "Estado"      => "AUTORIZADO"
+                );
+
+                $this->db->insert("PermisosDocumentosUsuario", $insert);
+            }
+        }
+
+        if ($this->db->trans_status() === FALSE) {
+            $this->db->trans_rollback();
+            return false;
+        } else {
+            $this->db->trans_commit();
+            return true;
+        }
+
+    } catch (Exception $e) {
+        $this->db->trans_rollback();
+        return false;
+    }
+}
+public function revocarLoteUsuarios($idDocumento, $usuarios, $tipo)
+{
+    $this->db->trans_begin();
+
+    try {
+        foreach ($usuarios as $idUsuario) {
+
+            $existe = $this->db->query("
+                SELECT * 
+                FROM PermisosDocumentosUsuario 
+                WHERE IdDocumento = ".$idDocumento." 
+                AND IdUsuario = ".$idUsuario." 
+                AND Tipo = '".$tipo."'
+            ");
+
+            if ($existe->num_rows() > 0) {
+                $this->db->query("
+                    UPDATE PermisosDocumentosUsuario 
+                    SET Estado = 'NO AUTORIZADO'
+                    WHERE Id = ".$existe->result_array()[0]["Id"]
+                );
+            } else {
+                $insert = array(
+                    "IdDocumento" => $idDocumento,
+                    "IdUsuario"   => $idUsuario,
+                    "Tipo"        => $tipo,
+                    "Estado"      => "NO AUTORIZADO"
+                );
+
+                $this->db->insert("PermisosDocumentosUsuario", $insert);
+            }
+        }
+
+        if ($this->db->trans_status() === FALSE) {
+            $this->db->trans_rollback();
+            return false;
+        } else {
+            $this->db->trans_commit();
+            return true;
+        }
+
+    } catch (Exception $e) {
+        $this->db->trans_rollback();
+        return false;
+    }
+}
+
+
+
+
 }
 
 /* End of file .php */

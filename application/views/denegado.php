@@ -48,7 +48,7 @@ header('Access-Control-Allow-Origin: *');
     <script src="<?php echo base_url()?>assets/js/vendor/mousetrap.min.js"></script>
     <script src="<?php echo base_url()?>assets/js/dore.script.js"></script>
     <script src="<?php echo base_url()?>assets/js/scripts.js"></script>
-    <script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+   <script src="<?= base_url('assets/js/jquery.dataTables.min.js') ?>"></script>
 </body>
 
 </html>

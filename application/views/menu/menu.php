@@ -7,6 +7,12 @@
                     <li><a href="#general"><i class="iconsminds-digital-drawing"></i> Vista General</a></li>
                     <li><a href="#permisos"><i class="iconsminds-air-balloon-1"></i> Permisos</a></li>
 					<li><a href="#eventos"><i class="iconsminds-calendar-1"></i> Publicar </a></li>
+                    <li class="<?= ($this->uri->segment(2) == 'Cambiar_Password_view') ? 'active' : '' ?>">
+                    <a href="<?= base_url('index.php/cambiar_password') ?>">
+                    <i class="simple-icon-lock-open"></i> <span>Contraseña</span>
+                </a>
+</li>
+
 
 				</ul>
             </div>

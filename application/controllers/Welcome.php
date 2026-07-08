@@ -49,7 +49,7 @@ class Welcome extends CI_Controller {
 		$data["publicacion"] = $this->PublicacionModel->obtener_publicacion($id);
 		$data["imagenes"] = $this->PublicacionModel->obtener_imagenes_publicacion($id);
 		$this->load->view('landing/verNoticia', $data);
-		$this->load->view('js/publicaciones/verNoticiaJs');
+		//$this->load->view('js/publicaciones/verNoticiaJs');
 	}
 
 	public function login(){

@@ -1,6 +1,6 @@
 <script>
     $(document).ready(function(){
-        $('#catProcesos').DataTable();
+        
         buscar();
     });
 

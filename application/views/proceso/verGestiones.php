@@ -66,7 +66,7 @@
 							</div>
 							<div class="text-center">
 								<a href="<?php echo base_url('index.php/nuevaGestion/').$proceso[0]["IdProceso"]; ?>" class="btn btn-outline-primary btn-sm mb-2">
-									<i class="simple-icon-plus btn-group-icon"></i> Agregar más gestiones
+									<i class="simple-icon-plus btn-group-icon"></i> + más gestiones
 								</a>
 							</div>
 						</div>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+	
 <head>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -23,6 +24,12 @@
 	<!--<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">-->-->
 	<link href="<?php echo base_url() ?>assets/css/custom_carousel.css" rel="stylesheet"/>
 </head>
+<style>
+	p{
+		 font-family: tahoma;
+		font-size: 19px;
+	}
+</style>
 
 <body id="page-top">
 <!-- lateral menu-->
@@ -94,7 +101,7 @@
 					echo '<li class="nav-item">
                                     <a class="p-1 nav-link btn btnAcceder btn-xl text-uppercase" href="#"> 
                                         <div class="glyph-icon simple-icon-user"></div> 
-                                        Bienvenido:' . $this->session->userdata("User") . '
+                                        ' . $this->session->userdata("User") . '
                                     </a>
                                     </li>';
 				} else {
@@ -109,7 +116,7 @@
 <section class="page-section" id="services">
 	<div class="container">
 		<div class="text-center">
-			<h2 class="section-heading text-uppercase">¿Quiénes somos?</h2>
+			<h2 class="section-heading text-uppercase"style="color:red;" style="font-family:Arial Black;">¿Quiénes somos?</h2>
 
 			<P class="text-start">Somos una empresa líder y la más grande embutidora de Nicaragua. Contamos con un
 				personal altamente capacitado y comprometido para aplicar diferentes tecnologías de formulación y

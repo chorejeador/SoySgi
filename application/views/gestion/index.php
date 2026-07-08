@@ -40,6 +40,7 @@
                                     <th scope="col">Editar</th>
                                     <th scope="col">Agregar Documento</th>
                                     <th scope="col">Agregar Sub Gestión</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>

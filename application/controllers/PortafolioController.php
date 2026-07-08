@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class PortafolioController extends CI_Controller {
+class PortafolioController extends CI_Controller
+{
 
 	public function __construct()
 	{
@@ -14,17 +15,17 @@ class PortafolioController extends CI_Controller {
         }*/
 	}
 
-	function portafolio(){
+	function portafolio()
+	{
 		$data["categorias"] = $this->PortafolioModel->getCategorias();
 
-		
-        $this->load->view('landing/portafolio',$data);
-        $this->load->view('js/general/portafolio');
-    }
 
-    function filtrarImagenes()
-    {
-        $this->PortafolioModel->filtrarImagenes($this->input->post('categorias'));
-    }
+		$this->load->view('landing/portafolio', $data);
+		$this->load->view('js/general/portafolio');
+	}
 
+	function filtrarImagenes()
+	{
+		$this->PortafolioModel->filtrarImagenes($this->input->post('categorias'));
+	}
 }

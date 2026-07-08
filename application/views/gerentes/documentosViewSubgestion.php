@@ -1,23 +1,11 @@
+<html>
 
-<style>
-  .listDocumentos .card{
-    background-color: #d7d7d7;
-  }
-  .listDocumentos .card-body p{
-    color: white!important;
-    font-family:'roboto';
-  }
+<head>
+  <link rel="stylesheet" href="<?php echo base_url('css/general.css'); ?>">
+</head>
 
-  .listDocumentosImg .listDocumentosFolder{
-    height: 50px
-  }
+</html>
 
-  .listDocumentosImg{
-    align-items: center;
-    justify-content: center;
-    padding-left:20px;
-  }
-</style>
 <main class="default-transition" style="margin-left:40px; opacity: 5;">
 <div class="container-fluid library-app">
 <div class="row">
@@ -95,7 +83,7 @@
   </div>
   <div class="col-lg-6 col sm-12 mapaUbicacion text-center">
     <div class="card-body">
-      <h1 class="lead mb-0 pb-0"><i class="iconsminds-map-marker-2 text-danger"></i>Estas aquí</h1>
+      <h1 class="lead mb-0 pb-0"style="font-size: 24px;font-weight: bold;"><i class="iconsminds-map-marker-2 text-danger"></i>Estas aquí</h1>
       <?php
       $img = 'Mapa-1.png';
       if (@$datos[0]["Imagen"]  != null) {

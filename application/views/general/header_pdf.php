@@ -3,6 +3,7 @@ $CI = &get_instance();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Portal SGI</title>
@@ -15,10 +16,9 @@ $CI = &get_instance();
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/vendor/component-custom-switch.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/main.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/sweetalert2.css">
-	<link rel="stylesheet"
-		  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.css">
+	<link rel="stylesheet" href="<?= base_url('assets/css/bootstrap-treeview.min.css') ?>">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/js/vendor/venoBox/venobox.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link rel="stylesheet" href="<?= base_url('assets/css/all.min.css') ?>">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/datatables.css">
 	<script src="<?php echo base_url() ?>assets/js/vendor/jquery-3.3.1.min.js"></script>
 
@@ -31,7 +31,7 @@ $CI = &get_instance();
 
 	<style>
 		.navbar-logo .logo {
-			background-image: url(<?= base_url()?>assets/img/logo.png);
+			background-image: url(<?= base_url() ?>assets/img/logo.png);
 
 			background-repeat: no-repeat !important;
 			background-size: 80px 82px !important;
@@ -43,7 +43,7 @@ $CI = &get_instance();
 		.logo-mobile {
 			width: 20px;
 			height: 35px;
-			background: url(<?= base_url()?>assets/img/logo.png) no-repeat !important;
+			background: url(<?= base_url() ?>assets/img/logo.png) no-repeat !important;
 			background-position: center center;
 		}
 
@@ -68,32 +68,25 @@ $CI = &get_instance();
 		}
 
 		<?php
-			$CI = &get_instance(); // Obtenemos la instancia de CodeIgniter
-		?>
-
-		<?php if (isset($css) && is_array($css)): ?>
-		<?php foreach ($css as $estilo): ?>
-		<?= $estilo . "\n"; ?>
-		<?php endforeach; ?>
-		<?php endif; ?>
-
+		$CI = &get_instance(); // Obtenemos la instancia de CodeIgniter
+		?><?php if (isset($css) && is_array($css)): ?><?php foreach ($css as $estilo): ?><?= $estilo . "\n"; ?><?php endforeach; ?><?php endif; ?>
 	</style>
 
 </head>
 
 <body id="app-container" class="menu-default show-spinner">
-<nav class="navbar fixed-top" style="background-color:#C41818!important;">
-	<div class="d-flex align-items-center navbar-left"><a href="#" class="menu-button d-none d-md-block">
-			<!--<div class="search" data-search-path="Pages.Search03d2.html?q="><input placeholder="Search..."> <span
+	<nav class="navbar fixed-top" style="background-color:#C41818!important;">
+		<div class="d-flex align-items-center navbar-left"><a href="#" class="menu-button d-none d-md-block">
+				<!--<div class="search" data-search-path="Pages.Search03d2.html?q="><input placeholder="Search..."> <span
 					class="search-icon"><i class="simple-icon-magnifier"></i></span></div><a
 				class="btn btn-sm btn-outline-primary ml-3 d-none d-md-inline-block"
 				href="https://1.envato.market/5kAb">&nbsp;BUY&nbsp;</a>-->
-	</div>
-	<a class="navbar-logo" href="<?php echo base_url('index.php') ?>"><span class="logo d-none d-xs-block"></span> <span
-			class="logo-mobile d-block d-xs-none"></span></a>
-	<div class="navbar-right">
-		<div class="header-icons d-inline-block align-middle">
-			<!--<div class="d-none d-md-inline-block align-text-bottom mr-3">
+		</div>
+		<a class="navbar-logo" href="<?php echo base_url('index.php') ?>"><span class="logo d-none d-xs-block"></span> <span
+				class="logo-mobile d-block d-xs-none"></span></a>
+		<div class="navbar-right">
+			<div class="header-icons d-inline-block align-middle">
+				<!--<div class="d-none d-md-inline-block align-text-bottom mr-3">
 				<div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1"
 					data-toggle="tooltip" data-placement="left" title="Dark Mode"><input class="custom-switch-input"
 						id="switchDark" type="checkbox" checked="checked"> <label class="custom-switch-btn"
@@ -113,7 +106,7 @@ $CI = &get_instance();
 						class="icon-menu-item"><i class="iconsminds-suitcase d-block"></i> <span>Tasks</span></a>
 				</div>
 			</div>-->
-			<!--<div class="position-relative d-inline-block"><button class="header-icon btn btn-empty" type="button"
+				<!--<div class="position-relative d-inline-block"><button class="header-icon btn btn-empty" type="button"
                         id="notificationButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
                             class="simple-icon-bell"></i> <span class="count">3</span></button>
                     <div class="dropdown-menu dropdown-menu-right mt-3 position-absolute" id="notificationDropdown">
@@ -156,28 +149,27 @@ $CI = &get_instance();
                 </div><button class="header-icon btn btn-empty d-none d-sm-inline-block" type="button"
                     id="fullScreenButton"><i class="simple-icon-size-fullscreen"></i> <i
                         class="simple-icon-size-actual"></i></button>-->
-		</div>
-		<div class="user d-inline-block">
-			<button class="btn btn-empty p-0" type="button" data-toggle="dropdown"
+			</div>
+			<div class="user d-inline-block">
+				<button class="btn btn-empty p-0" type="button" data-toggle="dropdown"
 					aria-haspopup="true" aria-expanded="false">
-				<span class="name" style="color:white;"><?php echo $this->session->userdata("Name") ?></span>
-				<span><img alt="Profile Picture" src="<?php echo base_url() ?>assets/img/notifications/1.jpg"></span>
-			</button>
-			<div class="dropdown-menu dropdown-menu-right mt-3">
-				<?php if ($CI->PermisosModel->validarPermisoUsuario(3)) {
-					echo '<a href="' . base_url('index.php/procesos') . '" class="dropdown-item">Administración</a>';
-				}
-				?>
+					<span class="name" style="color:white;"><?php echo $this->session->userdata("Name") ?></span>
+					<span><img alt="Profile Picture" src="<?php echo base_url() ?>assets/img/notifications/1.jpg"></span>
+				</button>
+				<div class="dropdown-menu dropdown-menu-right mt-3">
+					<?php if ($CI->PermisosModel->validarPermisoUsuario(3)) {
+						echo '<a href="' . base_url('index.php/procesos') . '" class="dropdown-item">Administración</a>';
+					}
+					?>
 
-				<?php if ($CI->PermisosModel->validarPermisoUsuario(4) || $CI->PermisosModel->validarPermisoUsuario(5)) {
-					echo '<a href="' . base_url('index.php/misIndicadores') . '" class="dropdown-item">Indicadores</a>';
-				}
-				?>
-				<a href="<?php echo base_url('index.php/gerentesView'); ?>" class="dropdown-item">Vista de procesos</a>
-				<a href="<?php echo base_url('index.php/welcome'); ?>" class="dropdown-item">Inicio</a>
-				<a class="dropdown-item" href="<?php echo base_url('index.php/salir'); ?>">Salir</a>
+					<?php if ($CI->PermisosModel->validarPermisoUsuario(4) || $CI->PermisosModel->validarPermisoUsuario(5)) {
+						echo '<a href="' . base_url('index.php/misIndicadores') . '" class="dropdown-item">Indicadores</a>';
+					}
+					?>
+					<a href="<?php echo base_url('index.php/gerentesView'); ?>" class="dropdown-item">Vista de procesos</a>
+					<a href="<?php echo base_url('index.php/welcome'); ?>" class="dropdown-item">Inicio</a>
+					<a class="dropdown-item" href="<?php echo base_url('index.php/salir'); ?>">Salir</a>
+				</div>
 			</div>
 		</div>
-	</div>
-</nav>
-
+	</nav>

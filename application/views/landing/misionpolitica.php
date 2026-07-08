@@ -93,7 +93,7 @@
 					echo '<li class="nav-item">
                                     <a class="p-1 nav-link btn btnAcceder btn-xl text-uppercase" href="#"> 
                                         <div class="glyph-icon simple-icon-user"></div> 
-                                        Bienvenido:' . $this->session->userdata("User") . '
+                                        ' . $this->session->userdata("User") . '
                                     </a>
                                     </li>';
 				} else {
@@ -108,14 +108,14 @@
 <section class="page-section" id="services">
 	<div class="container">
 		<div class="text-center">
-			<h2 class="mt-5 section-heading text-uppercase" style="font-size: 2rem;">MISIÓN SGI</h2>
+			<h2 class="mt-5 section-heading text-uppercase" style="color:red;"style="font-size: 2rem;">MISIÓN SGI</h2>
 
 			<P class="text-start">Somos una Corporación 100% nicaragüense que se adhiere a los Principios Universales de
 				Responsabilidad Social Empresarial, en el procesamiento, distribución y comercialización de Productos
 				Cárnicos, Embutidos, Enlatados y Ahumados. </P>
 		</div>
 		<div class="text-center">
-			<h2 class="mt-5 section-heading text-uppercase" style="font-size: 2rem;">POLÍTICA SGI</h2>
+			<h2 class="mt-5 section-heading text-uppercase"style="color:red;" style="font-size: 2rem;">POLÍTICA SGI</h2>
 
 			<P class="text-start">Los principios de prevención, pensamiento basado en riesgos y oportunidades,
 				garantizan la inocuidad en las actividades de producción, distribución y comercialización de productos

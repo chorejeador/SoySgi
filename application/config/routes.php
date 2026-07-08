@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 
 $route['default_controller'] = 'welcome';
@@ -21,8 +21,8 @@ $route['guardarEditarProceso'] = 'ProcesoController/guardarEditarProceso';
 /*****rutas landing *****/
 $route['instalaciones'] = 'welcome/instalaciones';
 $route['contactenos'] = 'welcome/contactenos';
-/***gestiones */
 
+/***gestiones */
 $route['gestiones'] = 'GestionController/index';
 $route['nuevaGestion/(:any)'] = 'GestionController/nuevaGestion/$1';
 $route['nuevaGestion'] = 'GestionController/nuevaGestion';
@@ -58,15 +58,17 @@ $route["gerentesView"] = "GerentesController/gerentesView";
 $route["documentosView/(:any)"] = "GerentesController/documentosView/$1";
 $route["downloadFile/(:any)/(:any)"] = "GerentesController/downloadFile/$1/$2";
 
+
 /*******permisos*******/
-$route["permisos"] = "PermisosController"
-;$route["asignarPermisos"] = "PermisosController";
+$route["permisos"] = "PermisosController";
+$route["asignarPermisos"] = "PermisosController";
 $route["filtrarUsuarios"] = "UsuariosController/filtrarUsuarios";
 $route["cargarPermisosUsuarios"] = "PermisosController/cargarPermisosUsuraios";
 $route["asignarPermiso"] = "PermisosController/asignarPermiso";
 $route["cargarDocumentosPermiso"] = "PermisosController/cargarDocumentosPermiso";
 $route["cargarUsuariosDocumentos"] = "PermisosController/cargarUsuariosDocumentos";
 $route["asignarPermisoDocumento"] = "PermisosController/asignarPermisoDocumento";
+
 
 /*paginas web planas*/
 $route["misionPolitica"] = "welcome/misionPolitica";
@@ -129,3 +131,10 @@ $route["actualizarInformacionPublicacion"] = "PublicacionController/actualizarIn
 $route["cambiarEstadoPublicacion"] = "PublicacionController/cambiarEstadoPublicacion";
 $route["verNoticia/(:any)"] = "Welcome/verNoticia/$1";
 $route["eliminarImagen"] = "PublicacionController/eliminarImagen";
+
+/*routes celeste que le cueste */
+$route["cambiar_password"] = "UsuariosController/Cambiar_Password_view";
+$route["guardar_cambiar_password"] = "UsuariosController/cambiar_password";
+$route['procesar_masivo'] = 'PermisosController/procesar_masivo';
+$route['revocar_masivo'] = 'PermisosController/revocar_masivo';
+$route['eliminarDocumentoGestion/(:any)'] = 'GestionController/borrar_archivo/$1';
